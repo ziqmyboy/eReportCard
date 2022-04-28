@@ -31,8 +31,9 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTerm = new System.Windows.Forms.Label();
             this.lblExam_Grade = new System.Windows.Forms.Label();
             this.lblTerm_Grade = new System.Windows.Forms.Label();
             this.btnSave_ReportCard = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@ namespace eReportCard
             this.txtExam_Mark = new System.Windows.Forms.TextBox();
             this.txtTerm_Mark = new System.Windows.Forms.TextBox();
             this.txtCourse_Name = new System.Windows.Forms.TextBox();
-            this.lblGrade = new System.Windows.Forms.Label();
+            this.lblClassID = new System.Windows.Forms.Label();
             this.lblStudent_ID = new System.Windows.Forms.Label();
             this.cbStudent_Name = new System.Windows.Forms.ComboBox();
             this.lblTeacher_Name = new System.Windows.Forms.Label();
@@ -90,11 +91,10 @@ namespace eReportCard
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblClassID = new System.Windows.Forms.Label();
+            this.lblGradeRC = new System.Windows.Forms.Label();
             this.lblSchool_Year = new System.Windows.Forms.Label();
             this.lblSchool_Name = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblTerm = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -147,7 +147,7 @@ namespace eReportCard
             this.panel1.Controls.Add(this.txtExam_Mark);
             this.panel1.Controls.Add(this.txtTerm_Mark);
             this.panel1.Controls.Add(this.txtCourse_Name);
-            this.panel1.Controls.Add(this.lblGrade);
+            this.panel1.Controls.Add(this.lblClassID);
             this.panel1.Controls.Add(this.lblStudent_ID);
             this.panel1.Controls.Add(this.cbStudent_Name);
             this.panel1.Controls.Add(this.lblTeacher_Name);
@@ -179,7 +179,7 @@ namespace eReportCard
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblClassID);
+            this.panel1.Controls.Add(this.lblGradeRC);
             this.panel1.Controls.Add(this.lblSchool_Year);
             this.panel1.Controls.Add(this.lblSchool_Name);
             this.panel1.Controls.Add(this.label1);
@@ -187,6 +187,16 @@ namespace eReportCard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1016, 1591);
             this.panel1.TabIndex = 0;
+            // 
+            // lblTerm
+            // 
+            this.lblTerm.AutoSize = true;
+            this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerm.Location = new System.Drawing.Point(27, 84);
+            this.lblTerm.Name = "lblTerm";
+            this.lblTerm.Size = new System.Drawing.Size(63, 15);
+            this.lblTerm.TabIndex = 21;
+            this.lblTerm.Text = "1st Term";
             // 
             // lblExam_Grade
             // 
@@ -516,8 +526,8 @@ namespace eReportCard
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.FillWeight = 12.69035F;
             this.Column4.HeaderText = "Final Exam";
             this.Column4.Name = "Column4";
@@ -578,23 +588,23 @@ namespace eReportCard
             this.txtCourse_Name.Size = new System.Drawing.Size(209, 20);
             this.txtCourse_Name.TabIndex = 2;
             // 
-            // lblGrade
+            // lblClassID
             // 
-            this.lblGrade.AutoSize = true;
-            this.lblGrade.Location = new System.Drawing.Point(116, 202);
-            this.lblGrade.Name = "lblGrade";
-            this.lblGrade.Size = new System.Drawing.Size(45, 13);
-            this.lblGrade.TabIndex = 2;
-            this.lblGrade.Text = "Grade 4";
+            this.lblClassID.AutoSize = true;
+            this.lblClassID.Location = new System.Drawing.Point(116, 202);
+            this.lblClassID.Name = "lblClassID";
+            this.lblClassID.Size = new System.Drawing.Size(45, 13);
+            this.lblClassID.TabIndex = 2;
+            this.lblClassID.Text = "Grade 4";
             // 
             // lblStudent_ID
             // 
             this.lblStudent_ID.AutoSize = true;
             this.lblStudent_ID.Location = new System.Drawing.Point(116, 175);
             this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(95, 13);
+            this.lblStudent_ID.Size = new System.Drawing.Size(78, 13);
             this.lblStudent_ID.TabIndex = 2;
-            this.lblStudent_ID.Text = "PETS1684287965";
+            this.lblStudent_ID.Text = "KCYR4949218";
             // 
             // cbStudent_Name
             // 
@@ -892,16 +902,16 @@ namespace eReportCard
             this.label2.TabIndex = 0;
             this.label2.Text = "Student ID:";
             // 
-            // lblClassID
+            // lblGradeRC
             // 
-            this.lblClassID.AutoSize = true;
-            this.lblClassID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassID.Location = new System.Drawing.Point(445, 84);
-            this.lblClassID.Name = "lblClassID";
-            this.lblClassID.Size = new System.Drawing.Size(107, 40);
-            this.lblClassID.TabIndex = 0;
-            this.lblClassID.Text = "Student\r\nReport Card";
-            this.lblClassID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGradeRC.AutoSize = true;
+            this.lblGradeRC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGradeRC.Location = new System.Drawing.Point(497, 81);
+            this.lblGradeRC.Name = "lblGradeRC";
+            this.lblGradeRC.Size = new System.Drawing.Size(107, 40);
+            this.lblGradeRC.TabIndex = 0;
+            this.lblGradeRC.Text = "Student\r\nReport Card";
+            this.lblGradeRC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSchool_Year
             // 
@@ -931,16 +941,6 @@ namespace eReportCard
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Name:";
-            // 
-            // lblTerm
-            // 
-            this.lblTerm.AutoSize = true;
-            this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerm.Location = new System.Drawing.Point(27, 84);
-            this.lblTerm.Name = "lblTerm";
-            this.lblTerm.Size = new System.Drawing.Size(63, 15);
-            this.lblTerm.TabIndex = 21;
-            this.lblTerm.Text = "1st Term";
             // 
             // Student_ReportCard
             // 
@@ -972,14 +972,14 @@ namespace eReportCard
         private System.Windows.Forms.TextBox txtExam_Mark;
         private System.Windows.Forms.TextBox txtTerm_Mark;
         private System.Windows.Forms.TextBox txtCourse_Name;
-        private System.Windows.Forms.Label lblGrade;
+        private System.Windows.Forms.Label lblClassID;
         private System.Windows.Forms.Label lblStudent_ID;
         private System.Windows.Forms.ComboBox cbStudent_Name;
         private System.Windows.Forms.Label lblTeacher_Name;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblClassID;
+        private System.Windows.Forms.Label lblGradeRC;
         private System.Windows.Forms.Label lblSchool_Name;
         private System.Windows.Forms.Label lblTerm_Avg;
         private System.Windows.Forms.Label label5;

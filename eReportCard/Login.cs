@@ -43,7 +43,10 @@ namespace eReportCard
 
         public string uID;
         public string pass;
+        public static string nameID;
         public string professionID;
+        public static string classID;
+        public static string schoolID;
 
 
         public Login()
@@ -78,6 +81,9 @@ namespace eReportCard
             uID = users.UserID;
             pass = users.PassID;
             professionID = users.ProfessionID;
+            nameID = users.NameID;
+            classID = users.ClassID;
+            schoolID = users.SchoolID;
 
             if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
             {

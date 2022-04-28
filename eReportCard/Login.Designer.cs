@@ -104,7 +104,7 @@ namespace eReportCard
             this.btnLogin.Location = new System.Drawing.Point(90, 310);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(231, 39);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "LOG IN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -127,7 +127,7 @@ namespace eReportCard
             this.btnRegister.Location = new System.Drawing.Point(227, 371);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(61, 15);
-            this.btnRegister.TabIndex = 5;
+            this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "Register";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -140,7 +140,7 @@ namespace eReportCard
             this.btnExit.Location = new System.Drawing.Point(186, 442);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(37, 15);
-            this.btnExit.TabIndex = 6;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "EXIT";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -154,7 +154,7 @@ namespace eReportCard
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(224, 20);
-            this.txtUsername.TabIndex = 7;
+            this.txtUsername.TabIndex = 0;
             this.txtUsername.WordWrap = false;
             // 
             // txtPassword
@@ -165,7 +165,7 @@ namespace eReportCard
             this.txtPassword.Location = new System.Drawing.Point(103, 237);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(224, 17);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
             // 

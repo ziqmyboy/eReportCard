@@ -64,7 +64,9 @@
     <Compile Include="Class_Register.Designer.cs">
       <DependentUpon>Class_Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Counter_Class.cs" />
     <Compile Include="Course_Data.cs" />
+    <Compile Include="Course_Data_cont.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +92,7 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Register_Data.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +113,7 @@
     <Compile Include="Teacher_Home_Form.Designer.cs">
       <DependentUpon>Teacher_Home_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemeColor.cs" />
     <Compile Include="Transcript.cs">
       <SubType>Form</SubType>
     </Compile>

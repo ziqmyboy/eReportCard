@@ -29,7 +29,7 @@ namespace eReportCard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClass_Register = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +40,8 @@ namespace eReportCard
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbAge = new System.Windows.Forms.ComboBox();
+            this.lblStudent_ID = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +53,7 @@ namespace eReportCard
             this.btnShow_Class_Register = new System.Windows.Forms.Button();
             this.lblSchool_Year = new System.Windows.Forms.Label();
             this.lblSchool_Name = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblStudent_ID = new System.Windows.Forms.Label();
+            this.lblTerm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass_Register)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,9 +78,9 @@ namespace eReportCard
             // 
             // Column1
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.HeaderText = "Student Name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -194,6 +195,24 @@ namespace eReportCard
             this.cbAge.Size = new System.Drawing.Size(121, 23);
             this.cbAge.TabIndex = 5;
             // 
+            // lblStudent_ID
+            // 
+            this.lblStudent_ID.AutoSize = true;
+            this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
+            this.lblStudent_ID.Name = "lblStudent_ID";
+            this.lblStudent_ID.Size = new System.Drawing.Size(19, 15);
+            this.lblStudent_ID.TabIndex = 1;
+            this.lblStudent_ID.Text = "....";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 15);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Student\'s ID:";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -299,23 +318,14 @@ namespace eReportCard
             this.lblSchool_Name.TabIndex = 10;
             this.lblSchool_Name.Text = "Atkinson Primary School";
             // 
-            // label5
+            // lblTerm
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 108);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 15);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Student\'s ID:";
-            // 
-            // lblStudent_ID
-            // 
-            this.lblStudent_ID.AutoSize = true;
-            this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
-            this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(19, 15);
-            this.lblStudent_ID.TabIndex = 1;
-            this.lblStudent_ID.Text = "....";
+            this.lblTerm.AutoSize = true;
+            this.lblTerm.Location = new System.Drawing.Point(492, 94);
+            this.lblTerm.Name = "lblTerm";
+            this.lblTerm.Size = new System.Drawing.Size(52, 13);
+            this.lblTerm.TabIndex = 11;
+            this.lblTerm.Text = "2nd Term";
             // 
             // Class_Register
             // 
@@ -323,6 +333,7 @@ namespace eReportCard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 583);
+            this.Controls.Add(this.lblTerm);
             this.Controls.Add(this.lblSchool_Year);
             this.Controls.Add(this.lblSchool_Name);
             this.Controls.Add(this.btnShow_Class_Register);
@@ -334,6 +345,7 @@ namespace eReportCard
             this.Name = "Class_Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Class_Register";
+            this.Load += new System.EventHandler(this.Class_Register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass_Register)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -369,5 +381,6 @@ namespace eReportCard
         private System.Windows.Forms.Label lblSchool_Name;
         private System.Windows.Forms.Label lblStudent_ID;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTerm;
     }
 }

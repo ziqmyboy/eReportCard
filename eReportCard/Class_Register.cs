@@ -7,43 +7,93 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 
 namespace eReportCard
 {
     public partial class Class_Register : Form
     {
+        //connection to database
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "jr3Tt5PfFktmLn3JjSWf6Wl0fW3xj22b00TywSk4",
+            BasePath = "https://ereportcard767-1f7ba-default-rtdb.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
         //date variable
         string date = DateTime.Now.Month.ToString();
+
+        string gender;
+
+        //
+        public static string student_FullName;
 
         public Class_Register()
         {
             InitializeComponent();
 
-            lblSchool_Name.Text = Register.school + " School";
+            lblSchool_Name.Text = Login.schoolID + " School";
 
             // getting school year
             if (date == "9" || date == "10" || date == "11" || date == "12")
             {
                 lblSchool_Year.Text = DateTime.Now.Year.ToString() + " - " + DateTime.Now.AddMonths(12).Year;
+                lblTerm.Text = "1st Term";
             }
-            else if (date == "1" || date == "2" || date == "3" || date == "4" || date == "5" || date == "6")
+            else if (date == "1" || date == "2" || date == "3")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
+                lblTerm.Text = "2nd Term";
+            }
+            else if (date == "4" || date == "5" || date == "6")
+            {
+                lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
+                lblTerm.Text = "3rd Term";
             }
 
-
-            lblClassID.Text = Register.grade + "\nClass Register";
+            lblClassID.Text = Login.classID + "\nClass Register";
             txtF_Name.Focus();
                 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             //
-            string fn = txtF_Name.Text; string ln = txtL_Name.Text; string student_FullName = fn + " " + ln;
+            
+            string fn = txtF_Name.Text; string ln = txtL_Name.Text; student_FullName = fn + " " + ln;
 
             if (!string.IsNullOrWhiteSpace(txtF_Name.Text) || !string.IsNullOrWhiteSpace(txtL_Name.Text) || !string.IsNullOrWhiteSpace(cbAge.Text))
             {
+                if (rbMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else
+                {
+                    gender = "Female";
+                }
+                var register = new Register_Data
+                {
+                    FName = txtF_Name.Text,
+                    LName = txtL_Name.Text,
+                    Age = cbAge.Text,
+                    Gender = gender,
+                    StudentID = lblStudent_ID.Text
+                };
+                SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + student_FullName, register);
+                Register_Data result = response.ResultAs<Register_Data>();
+
+
+                var counter_class = new Counter_Class
+                {
+                    cnt = "0"
+                };
+
+                SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName, counter_class);
+                Counter_Class result1 = response.ResultAs<Counter_Class>();
 
                 //adding data from textboxes to datagridview
                 int n = dgvClass_Register.Rows.Add();
@@ -51,10 +101,12 @@ namespace eReportCard
                 if (rbMale.Checked)
                 {
                     dgvClass_Register.Rows[n].Cells[1].Value = "Male";
+                    gender = "Male";
                 }
                 else if (rbFemale.Checked)
                 {
                     dgvClass_Register.Rows[n].Cells[1].Value = "Female";
+                    gender = "Female";
                 }
                 else
                 {
@@ -68,6 +120,8 @@ namespace eReportCard
                 rbMale.Checked = false;
                 rbFemale.Checked = false;
                 cbAge.Text = "";
+
+                
 
             }
             else
@@ -151,8 +205,13 @@ namespace eReportCard
                 txtL_Name.SelectionStart = 0;
                 txtL_Name.SelectionLength = 3;
 
-                lblStudent_ID.Text = txtF_Name.SelectedText + txtL_Name.SelectedText + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+                lblStudent_ID.Text = (txtF_Name.SelectedText + txtL_Name.SelectedText).ToUpper() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
             }
+        }
+
+        private void Class_Register_Load(object sender, EventArgs e)
+        {
+            client = new FireSharp.FirebaseClient(config);
         }
     }
 }

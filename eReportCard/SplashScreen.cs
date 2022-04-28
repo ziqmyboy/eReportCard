@@ -30,12 +30,19 @@ namespace eReportCard
 
             );
 
+        //date variable
+        string date = DateTime.Now.Year.ToString();
+
         public SplashScreen()
         {
             InitializeComponent();
 
             //code to make rounded corners for screen, changing numbers after the height will increase or decrease the corner radius
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+
+            if (date == "2022")
+            { lblStartYear.Text = "           © 2022"; }
+            else{ lblStartYear.Text = "© 2022 - " + date; }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

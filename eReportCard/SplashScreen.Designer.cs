@@ -31,7 +31,7 @@ namespace eReportCard
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblStartYear = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -46,15 +46,16 @@ namespace eReportCard
             this.label1.TabIndex = 0;
             this.label1.Text = "eReportCard";
             // 
-            // label2
+            // lblStartYear
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Outlook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(257, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "© 2022";
+            this.lblStartYear.AutoSize = true;
+            this.lblStartYear.Font = new System.Drawing.Font("MS Outlook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartYear.Location = new System.Drawing.Point(221, 85);
+            this.lblStartYear.Name = "lblStartYear";
+            this.lblStartYear.Size = new System.Drawing.Size(80, 15);
+            this.lblStartYear.TabIndex = 1;
+            this.lblStartYear.Text = "           © 2022";
+            this.lblStartYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // timer1
             // 
@@ -68,7 +69,7 @@ namespace eReportCard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(311, 109);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblStartYear);
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.ForeColor = System.Drawing.Color.White;
@@ -86,7 +87,7 @@ namespace eReportCard
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStartYear;
         private System.Windows.Forms.Timer timer1;
     }
 }

@@ -96,10 +96,6 @@ namespace eReportCard
         {
             client = new FireSharp.FirebaseClient(config);
 
-            if (client != null)
-            {
-                MessageBox.Show("established");
-            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

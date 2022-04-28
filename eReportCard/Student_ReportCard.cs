@@ -28,14 +28,16 @@ namespace eReportCard
         //date variable
         string date = DateTime.Now.Month.ToString();
 
+
         public Student_ReportCard()
         {
             InitializeComponent();
 
-            lblSchool_Name.Text = Register.school + " School";
-            lblGrade.Text = Register.grade;
-            lblTeacher_Name.Text = Register.name;
-            lblTeacher_Signature.Text = Register.name;
+            lblSchool_Name.Text = Login.schoolID + " School";
+            lblTeacher_Name.Text = Login.nameID;
+            lblTeacher_Signature.Text = Login.nameID;
+            lblGradeRC.Text = Login.classID + "\nStudent\n Report Card";
+            lblClassID.Text = Login.classID;
 
             // getting school year
             if (date == "9" || date == "10" || date == "11" || date == "12")
@@ -54,7 +56,6 @@ namespace eReportCard
                 lblTerm.Text = "3rd Term";
             }
 
-            lblClassID.Text = Register.grade + "\nStudent\n Report Card";
 
             // teacher's signature date
             lblTeacher_Signature_Date.Text = DateTime.Now.ToShortDateString();
@@ -79,17 +80,12 @@ namespace eReportCard
                 // adding txtbox content to datagrid view
                 int n = dgvReport_Card.Rows.Add();
                 dgvReport_Card.Rows[n].Cells[0].Value = txtCourse_Name.Text;
-                dgvReport_Card.Rows[n].Cells[1].Value = Register.name;
+                dgvReport_Card.Rows[n].Cells[1].Value = lblTeacher_Name.Text;
                 dgvReport_Card.Rows[n].Cells[2].Value = txtTerm_Mark.Text;
                 dgvReport_Card.Rows[n].Cells[3].Value = lblTerm_Grade.Text;
                 dgvReport_Card.Rows[n].Cells[4].Value = txtExam_Mark.Text;
                 dgvReport_Card.Rows[n].Cells[5].Value = lblExam_Grade.Text;
                 dgvReport_Card.Rows[n].Cells[6].Value = txtComments.Text;
-
-                txtCourse_Name.Text = "";
-                txtTerm_Mark.Text = "";
-                txtExam_Mark.Text = "";
-                txtComments.Text = "";
 
                 //finding the total sum of marks
                 int term_sum = 0;
@@ -181,24 +177,43 @@ namespace eReportCard
                 {
                     lblExam_Avg.Visible = false;
                 }
+
+
+                FirebaseResponse resp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
+                Counter_Class get = resp.ResultAs<Counter_Class>();
+
+                
+                //database draws the data in the form of an object class
+                //creating an object
+
+                var course_data = new Course_Data
+                {
+                    id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                    courseName = txtCourse_Name.Text,
+                    courseComments = txtComments.Text,
+                    courseTeacher = lblTeacher_Name.Text,
+                    courseExamGrade = txtExam_Mark.Text + lblExam_Grade.Text,
+                    courseTermGrade = txtTerm_Mark.Text + lblTerm_Grade.Text
+                };
+
+                //clearing out the txtboxes
+                txtCourse_Name.Text = "";
+                txtTerm_Mark.Text = "";
+                txtExam_Mark.Text = "";
+                txtComments.Text = "";
+
+                SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + course_data.id, course_data);
+                Course_Data result = response.ResultAs<Course_Data>();
+
+                //incrementing the count variable
+                var obj = new Counter_Class
+                {
+                    cnt = course_data.id
+                };
+                SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text, obj);
+                Counter_Class result1 = response1.ResultAs<Counter_Class>();
+
             }
-
-            /*
-            //database draws the data in the form of an object class
-            //creating an object
-
-            var course_data = new Course_Data
-            {
-                courseName = txtCourse_Name.Text,
-                courseComments = txtComments.Text,
-                courseExamGrade = lblExam_Grade.Text,
-                courseExamMark = txtExam_Mark.Text,
-                courseTermGrade = lblTerm_Grade,
-                courseTermMark = txtTerm_Mark
-            };
-
-            SetResponse response = await client.SetTaskAsync("REPORTCARD/"+Register.school+"/"+Register.grade+"/"+lblSchool_Year+"/"+lblTerm.Text+"/"+cbStudent_Name.Text, course_data);
-            */
         }
 
         
@@ -247,32 +262,32 @@ namespace eReportCard
             }
             else if (txtTerm_Mark.Text == "65" || txtTerm_Mark.Text == "66" || txtTerm_Mark.Text == "67" || txtTerm_Mark.Text == "68" || txtTerm_Mark.Text == "69")
             {
-                lblTerm_Grade.Text = "%   C-";
+                lblTerm_Grade.Text = "%  C-";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtTerm_Mark.Text == "70" || txtTerm_Mark.Text == "71" || txtTerm_Mark.Text == "72" || txtTerm_Mark.Text == "73" || txtTerm_Mark.Text == "74")
             {
-                lblTerm_Grade.Text = "%   C+";
+                lblTerm_Grade.Text = "%  C+";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtTerm_Mark.Text == "75" || txtTerm_Mark.Text == "76" || txtTerm_Mark.Text == "77" || txtTerm_Mark.Text == "78" || txtTerm_Mark.Text == "79")
             {
-                lblTerm_Grade.Text = "%   B-";
+                lblTerm_Grade.Text = "%  B-";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtTerm_Mark.Text == "80" || txtTerm_Mark.Text == "81" || txtTerm_Mark.Text == "82" || txtTerm_Mark.Text == "83" || txtTerm_Mark.Text == "84")
             {
-                lblTerm_Grade.Text = "%   B+";
+                lblTerm_Grade.Text = "%  B+";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtTerm_Mark.Text == "85" || txtTerm_Mark.Text == "86" || txtTerm_Mark.Text == "87" || txtTerm_Mark.Text == "88" || txtTerm_Mark.Text == "89")
             {
-                lblTerm_Grade.Text = "%   A-";
+                lblTerm_Grade.Text = "%  A-";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtTerm_Mark.Text == "90" || txtTerm_Mark.Text == "91" || txtTerm_Mark.Text == "92" || txtTerm_Mark.Text == "93" || txtTerm_Mark.Text == "94" || txtTerm_Mark.Text == "95" || txtTerm_Mark.Text == "96" || txtTerm_Mark.Text == "97" || txtTerm_Mark.Text == "98" || txtTerm_Mark.Text == "99" || txtTerm_Mark.Text == "100")
             {
-                lblTerm_Grade.Text = "%   A+";
+                lblTerm_Grade.Text = "%  A+";
                 lblTerm_Grade.Visible = true;
             }
             else
@@ -302,32 +317,32 @@ namespace eReportCard
             }
             else if (txtExam_Mark.Text == "65" || txtExam_Mark.Text == "66" || txtExam_Mark.Text == "67" || txtExam_Mark.Text == "68" || txtExam_Mark.Text == "69")
             {
-                lblExam_Grade.Text = "%   C-";
+                lblExam_Grade.Text = "%  C-";
                 lblExam_Grade.Visible = true;
             }
             else if (txtExam_Mark.Text == "70" || txtExam_Mark.Text == "71" || txtExam_Mark.Text == "72" || txtExam_Mark.Text == "73" || txtExam_Mark.Text == "74")
             {
-                lblTerm_Grade.Text = "%   C+";
+                lblTerm_Grade.Text = "%  C+";
                 lblTerm_Grade.Visible = true;
             }
             else if (txtExam_Mark.Text == "75" || txtExam_Mark.Text == "76" || txtExam_Mark.Text == "77" || txtExam_Mark.Text == "78" || txtExam_Mark.Text == "79")
             {
-                lblExam_Grade.Text = "%   B-";
+                lblExam_Grade.Text = "%  B-";
                 lblExam_Grade.Visible = true;
             }
             else if (txtExam_Mark.Text == "80" || txtExam_Mark.Text == "81" || txtExam_Mark.Text == "82" || txtExam_Mark.Text == "83" || txtExam_Mark.Text == "84")
             {
-                lblExam_Grade.Text = "%   B+";
+                lblExam_Grade.Text = "%  B+";
                 lblExam_Grade.Visible = true;
             }
             else if (txtExam_Mark.Text == "85" || txtExam_Mark.Text == "86" || txtExam_Mark.Text == "87" || txtExam_Mark.Text == "88" || txtExam_Mark.Text == "89")
             {
-                lblExam_Grade.Text = "%   A-";
+                lblExam_Grade.Text = "%  A-";
                 lblExam_Grade.Visible = true;
             }
             else if (txtExam_Mark.Text == "90" || txtExam_Mark.Text == "91" || txtExam_Mark.Text == "92" || txtExam_Mark.Text == "93" || txtExam_Mark.Text == "94" || txtExam_Mark.Text == "95" || txtExam_Mark.Text == "96" || txtExam_Mark.Text == "97" || txtExam_Mark.Text == "98" || txtExam_Mark.Text == "99" || txtExam_Mark.Text == "100")
             {
-                lblExam_Grade.Text = "%   A+";
+                lblExam_Grade.Text = "%  A+";
                 lblExam_Grade.Visible = true;
             }
             else
@@ -338,10 +353,51 @@ namespace eReportCard
 
 
 
-        private void btnSave_ReportCard_Click(object sender, EventArgs e)
+        private async void btnSave_ReportCard_Click(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrWhiteSpace(cbRegularity.Text) || string.IsNullOrWhiteSpace(cbPunctuality.Text) || string.IsNullOrWhiteSpace(cbIndustry.Text) || string.IsNullOrWhiteSpace(cbPersonal_Appearance.Text) || string.IsNullOrWhiteSpace(cbSocial_Relationship.Text)
+                || string.IsNullOrWhiteSpace(cbConduct.Text)|| string.IsNullOrWhiteSpace(cbReliability.Text) || string.IsNullOrWhiteSpace(cbSportsmanship.Text) || string.IsNullOrWhiteSpace(cbCo_operation.Text) || string.IsNullOrWhiteSpace(txtGeneral_Comments.Text))
+            {
+                MessageBox.Show("Please ensure all fields are entered properly!", "M I S S I N G!");
+            }
+            else
+            {
+                //database draws the data in the form of an object class
+                //creating an object
+
+                var course_data_cont = new Course_Data_cont
+                {
+                    childID = lblStudent_ID.Text,
+                    childName = cbStudent_Name.Text,
+                    classID = lblClassID.Text,
+                    co_operation = cbCo_operation.Text,
+                    conduct = cbConduct.Text,
+                    examAverage = lblExam_Avg.Text,
+                    generalComments = txtGeneral_Comments.Text,
+                    industry = cbIndustry.Text,
+                    personalAppearance = cbPersonal_Appearance.Text,
+                    principalComments = "",
+                    punctuality = cbPunctuality.Text,
+                    regularity = cbRegularity.Text,
+                    reliability = cbReliability.Text,
+                    schoolTerm = lblTerm.Text,
+                    schoolYear = lblSchool_Year.Text,
+                    socialRelationship = cbSocial_Relationship.Text,
+                    sportsmanship = cbSportsmanship.Text,
+                    termAverage = lblTerm_Avg.Text
+
+                };
+
+                //clearing out the txtboxes
+                txtCourse_Name.Text = "";
+                txtTerm_Mark.Text = "";
+                txtExam_Mark.Text = "";
+                txtComments.Text = "";
+
+                SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
+                Course_Data_cont result = response.ResultAs<Course_Data_cont>();
+
+            }
         }
     }
-
 }
