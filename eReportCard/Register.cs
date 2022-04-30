@@ -68,7 +68,7 @@ namespace eReportCard
             institutions = Profession_Institution.institution;
             
 
-            if (lblTeacher_Principal.Text == "Principal's Name")
+            if (lblTeacher_Principal.Text == "Principal")
             {
                 lblClassID_Label.Visible = false;
                 cbClassID.Visible = false;
@@ -204,7 +204,7 @@ namespace eReportCard
                 var user = new Users
                 {
                     UserID = txtNewUsername.Text,
-                    PassID = txtNewPassword.Text,
+                    PassID = Encrypt(txtNewPassword.Text),
                     NameID = txtTeacher_Principal_Name.Text,
                     ProfessionID = Profession_Institution.profession,
                     SchoolID = txtSchoolName.Text

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -33,7 +34,7 @@ namespace eReportCard
         {
             InitializeComponent();
 
-            lblSchool_Name.Text = Login.schoolID + " School";
+            lblSchool_Name.Text = Login.schoolID;
             lblTeacher_Name.Text = Login.nameID;
             lblTeacher_Signature.Text = Login.nameID;
             lblGradeRC.Text = Login.classID + "\nStudent\n Report Card";
@@ -66,7 +67,24 @@ namespace eReportCard
         {
             client = new FireSharp.FirebaseClient(config);
 
+            //getting students name registered in the class from database 
+            FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text);
+            Dictionary<string, Register_Data> data = JsonConvert.DeserializeObject<Dictionary<string, Register_Data>>(res.Body.ToString());
+            populateCB(data);
         }
+
+
+#region method used to populate combobox with list of students registered in the class
+        private void populateCB(Dictionary<string, Register_Data> record)
+        {
+            cbStudent_Name.Items.Clear();
+            foreach (var item in record)
+            {
+                cbStudent_Name.Items.Add(item.Key.ToString());
+            }
+        }
+#endregion
+
 
         private async void btnInsert_Click(object sender, EventArgs e)
         {
@@ -376,7 +394,7 @@ namespace eReportCard
                     generalComments = txtGeneral_Comments.Text,
                     industry = cbIndustry.Text,
                     personalAppearance = cbPersonal_Appearance.Text,
-                    principalComments = "",
+                    principalComments = " ",
                     punctuality = cbPunctuality.Text,
                     regularity = cbRegularity.Text,
                     reliability = cbReliability.Text,
@@ -389,15 +407,22 @@ namespace eReportCard
                 };
 
                 //clearing out the txtboxes
-                txtCourse_Name.Text = "";
-                txtTerm_Mark.Text = "";
-                txtExam_Mark.Text = "";
-                txtComments.Text = "";
+
 
                 SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
                 Course_Data_cont result = response.ResultAs<Course_Data_cont>();
 
             }
+        }
+
+        private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            FirebaseResponse resp = await client.GetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
+            Register_Data get = resp.ResultAs<Register_Data>();
+
+            lblStudent_ID.Text = get.StudentID;
+            txtCourse_Name.Focus();
         }
     }
 }

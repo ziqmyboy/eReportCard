@@ -31,7 +31,7 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTerm = new System.Windows.Forms.Label();
             this.lblExam_Grade = new System.Windows.Forms.Label();
@@ -526,8 +526,8 @@ namespace eReportCard
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column4.FillWeight = 12.69035F;
             this.Column4.HeaderText = "Final Exam";
             this.Column4.Name = "Column4";
@@ -602,18 +602,22 @@ namespace eReportCard
             this.lblStudent_ID.AutoSize = true;
             this.lblStudent_ID.Location = new System.Drawing.Point(116, 175);
             this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(78, 13);
+            this.lblStudent_ID.Size = new System.Drawing.Size(40, 13);
             this.lblStudent_ID.TabIndex = 2;
-            this.lblStudent_ID.Text = "KCYR4949218";
+            this.lblStudent_ID.Text = "-----------";
+            this.lblStudent_ID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // cbStudent_Name
             // 
+            this.cbStudent_Name.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbStudent_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbStudent_Name.FormattingEnabled = true;
             this.cbStudent_Name.Location = new System.Drawing.Point(119, 142);
             this.cbStudent_Name.Name = "cbStudent_Name";
             this.cbStudent_Name.Size = new System.Drawing.Size(147, 21);
             this.cbStudent_Name.TabIndex = 1;
+            this.cbStudent_Name.Text = "Select Student";
+            this.cbStudent_Name.SelectedIndexChanged += new System.EventHandler(this.cbStudent_Name_SelectedIndexChanged);
             // 
             // lblTeacher_Name
             // 
@@ -641,9 +645,9 @@ namespace eReportCard
             this.lblTerm_Avg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblTerm_Avg.Location = new System.Drawing.Point(498, 695);
             this.lblTerm_Avg.Name = "lblTerm_Avg";
-            this.lblTerm_Avg.Size = new System.Drawing.Size(72, 18);
+            this.lblTerm_Avg.Size = new System.Drawing.Size(71, 18);
             this.lblTerm_Avg.TabIndex = 0;
-            this.lblTerm_Avg.Text = "100%  B+";
+            this.lblTerm_Avg.Text = "100%  A+";
             this.lblTerm_Avg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18

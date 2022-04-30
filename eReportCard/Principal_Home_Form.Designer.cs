@@ -32,20 +32,23 @@ namespace eReportCard
             this.btnGrade_2 = new System.Windows.Forms.Button();
             this.btnGrade_1 = new System.Windows.Forms.Button();
             this.btnGrade_K = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnGrade_3 = new System.Windows.Forms.Button();
-            this.btnGrade_4 = new System.Windows.Forms.Button();
-            this.btnGrade_5 = new System.Windows.Forms.Button();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnGrade_6 = new System.Windows.Forms.Button();
-            this.lblSchool_Name = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnGrade_5 = new System.Windows.Forms.Button();
+            this.btnGrade_4 = new System.Windows.Forms.Button();
+            this.btnGrade_3 = new System.Windows.Forms.Button();
+            this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lbl_Principal_Name = new System.Windows.Forms.Label();
+            this.lblSchool_Name = new System.Windows.Forms.Label();
+            this.pMain_Display = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.panelMenu.SuspendLayout();
+            this.panelTitleBar.SuspendLayout();
+            this.pMain_Display.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGrade_2
@@ -53,138 +56,129 @@ namespace eReportCard
             this.btnGrade_2.FlatAppearance.BorderSize = 0;
             this.btnGrade_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_2.ForeColor = System.Drawing.Color.White;
             this.btnGrade_2.Location = new System.Drawing.Point(-2, 247);
             this.btnGrade_2.Name = "btnGrade_2";
             this.btnGrade_2.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_2.TabIndex = 0;
             this.btnGrade_2.Text = "Grade 2";
             this.btnGrade_2.UseVisualStyleBackColor = true;
+            this.btnGrade_2.Click += new System.EventHandler(this.btnGrade_2_Click);
             // 
             // btnGrade_1
             // 
             this.btnGrade_1.FlatAppearance.BorderSize = 0;
             this.btnGrade_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_1.ForeColor = System.Drawing.Color.White;
             this.btnGrade_1.Location = new System.Drawing.Point(0, 200);
             this.btnGrade_1.Name = "btnGrade_1";
             this.btnGrade_1.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_1.TabIndex = 0;
             this.btnGrade_1.Text = "Grade 1";
             this.btnGrade_1.UseVisualStyleBackColor = true;
+            this.btnGrade_1.Click += new System.EventHandler(this.btnGrade_1_Click);
             // 
             // btnGrade_K
             // 
             this.btnGrade_K.FlatAppearance.BorderSize = 0;
             this.btnGrade_K.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_K.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_K.ForeColor = System.Drawing.Color.White;
             this.btnGrade_K.Location = new System.Drawing.Point(0, 153);
             this.btnGrade_K.Name = "btnGrade_K";
             this.btnGrade_K.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_K.TabIndex = 0;
             this.btnGrade_K.Text = "Grade K";
             this.btnGrade_K.UseVisualStyleBackColor = true;
+            this.btnGrade_K.Click += new System.EventHandler(this.btnGrade_K_Click);
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.Controls.Add(this.btnGrade_K);
-            this.panel1.Controls.Add(this.btnGrade_6);
-            this.panel1.Controls.Add(this.btnGrade_5);
-            this.panel1.Controls.Add(this.btnGrade_4);
-            this.panel1.Controls.Add(this.btnGrade_3);
-            this.panel1.Controls.Add(this.btnGrade_2);
-            this.panel1.Controls.Add(this.btnGrade_1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 585);
-            this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.lblSchool_Name);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(177, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1052, 52);
-            this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(177, 52);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1052, 533);
-            this.panel3.TabIndex = 3;
-            // 
-            // btnGrade_3
-            // 
-            this.btnGrade_3.FlatAppearance.BorderSize = 0;
-            this.btnGrade_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrade_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrade_3.Location = new System.Drawing.Point(-2, 294);
-            this.btnGrade_3.Name = "btnGrade_3";
-            this.btnGrade_3.Size = new System.Drawing.Size(176, 41);
-            this.btnGrade_3.TabIndex = 0;
-            this.btnGrade_3.Text = "Grade 3";
-            this.btnGrade_3.UseVisualStyleBackColor = true;
-            // 
-            // btnGrade_4
-            // 
-            this.btnGrade_4.FlatAppearance.BorderSize = 0;
-            this.btnGrade_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrade_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrade_4.Location = new System.Drawing.Point(-2, 341);
-            this.btnGrade_4.Name = "btnGrade_4";
-            this.btnGrade_4.Size = new System.Drawing.Size(176, 41);
-            this.btnGrade_4.TabIndex = 0;
-            this.btnGrade_4.Text = "Grade 4";
-            this.btnGrade_4.UseVisualStyleBackColor = true;
-            // 
-            // btnGrade_5
-            // 
-            this.btnGrade_5.FlatAppearance.BorderSize = 0;
-            this.btnGrade_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrade_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrade_5.Location = new System.Drawing.Point(-2, 388);
-            this.btnGrade_5.Name = "btnGrade_5";
-            this.btnGrade_5.Size = new System.Drawing.Size(176, 41);
-            this.btnGrade_5.TabIndex = 0;
-            this.btnGrade_5.Text = "Grade 5";
-            this.btnGrade_5.UseVisualStyleBackColor = true;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Controls.Add(this.btnGrade_K);
+            this.panelMenu.Controls.Add(this.btnGrade_6);
+            this.panelMenu.Controls.Add(this.btnGrade_5);
+            this.panelMenu.Controls.Add(this.btnGrade_4);
+            this.panelMenu.Controls.Add(this.btnGrade_3);
+            this.panelMenu.Controls.Add(this.btnGrade_2);
+            this.panelMenu.Controls.Add(this.btnGrade_1);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(177, 585);
+            this.panelMenu.TabIndex = 1;
             // 
             // btnGrade_6
             // 
             this.btnGrade_6.FlatAppearance.BorderSize = 0;
             this.btnGrade_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_6.ForeColor = System.Drawing.Color.White;
             this.btnGrade_6.Location = new System.Drawing.Point(-2, 435);
             this.btnGrade_6.Name = "btnGrade_6";
             this.btnGrade_6.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_6.TabIndex = 0;
             this.btnGrade_6.Text = "Grade 6";
             this.btnGrade_6.UseVisualStyleBackColor = true;
+            this.btnGrade_6.Click += new System.EventHandler(this.btnGrade_6_Click);
             // 
-            // lblSchool_Name
+            // btnGrade_5
             // 
-            this.lblSchool_Name.AutoSize = true;
-            this.lblSchool_Name.Location = new System.Drawing.Point(48, 19);
-            this.lblSchool_Name.Name = "lblSchool_Name";
-            this.lblSchool_Name.Size = new System.Drawing.Size(121, 13);
-            this.lblSchool_Name.TabIndex = 0;
-            this.lblSchool_Name.Text = "Atkinson Primary School";
+            this.btnGrade_5.FlatAppearance.BorderSize = 0;
+            this.btnGrade_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrade_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_5.ForeColor = System.Drawing.Color.White;
+            this.btnGrade_5.Location = new System.Drawing.Point(-2, 388);
+            this.btnGrade_5.Name = "btnGrade_5";
+            this.btnGrade_5.Size = new System.Drawing.Size(176, 41);
+            this.btnGrade_5.TabIndex = 0;
+            this.btnGrade_5.Text = "Grade 5";
+            this.btnGrade_5.UseVisualStyleBackColor = true;
+            this.btnGrade_5.Click += new System.EventHandler(this.btnGrade_5_Click);
             // 
-            // label1
+            // btnGrade_4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(733, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Principal\'s Name";
+            this.btnGrade_4.FlatAppearance.BorderSize = 0;
+            this.btnGrade_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrade_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_4.ForeColor = System.Drawing.Color.White;
+            this.btnGrade_4.Location = new System.Drawing.Point(-2, 341);
+            this.btnGrade_4.Name = "btnGrade_4";
+            this.btnGrade_4.Size = new System.Drawing.Size(176, 41);
+            this.btnGrade_4.TabIndex = 0;
+            this.btnGrade_4.Text = "Grade 4";
+            this.btnGrade_4.UseVisualStyleBackColor = true;
+            this.btnGrade_4.Click += new System.EventHandler(this.btnGrade_4_Click);
+            // 
+            // btnGrade_3
+            // 
+            this.btnGrade_3.FlatAppearance.BorderSize = 0;
+            this.btnGrade_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrade_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrade_3.ForeColor = System.Drawing.Color.White;
+            this.btnGrade_3.Location = new System.Drawing.Point(-2, 294);
+            this.btnGrade_3.Name = "btnGrade_3";
+            this.btnGrade_3.Size = new System.Drawing.Size(176, 41);
+            this.btnGrade_3.TabIndex = 0;
+            this.btnGrade_3.Text = "Grade 3";
+            this.btnGrade_3.UseVisualStyleBackColor = true;
+            this.btnGrade_3.Click += new System.EventHandler(this.btnGrade_3_Click);
+            // 
+            // panelTitleBar
+            // 
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelTitleBar.Controls.Add(this.btnMinimize);
+            this.panelTitleBar.Controls.Add(this.btnMaximize);
+            this.panelTitleBar.Controls.Add(this.btnClose);
+            this.panelTitleBar.Controls.Add(this.lbl_Principal_Name);
+            this.panelTitleBar.Controls.Add(this.lblSchool_Name);
+            this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitleBar.Location = new System.Drawing.Point(177, 0);
+            this.panelTitleBar.Name = "panelTitleBar";
+            this.panelTitleBar.Size = new System.Drawing.Size(1052, 41);
+            this.panelTitleBar.TabIndex = 2;
             // 
             // btnClose
             // 
@@ -192,12 +186,44 @@ namespace eReportCard
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(1019, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 52);
+            this.btnClose.Size = new System.Drawing.Size(33, 41);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lbl_Principal_Name
+            // 
+            this.lbl_Principal_Name.AutoSize = true;
+            this.lbl_Principal_Name.ForeColor = System.Drawing.Color.White;
+            this.lbl_Principal_Name.Location = new System.Drawing.Point(733, 15);
+            this.lbl_Principal_Name.Name = "lbl_Principal_Name";
+            this.lbl_Principal_Name.Size = new System.Drawing.Size(85, 13);
+            this.lbl_Principal_Name.TabIndex = 0;
+            this.lbl_Principal_Name.Text = "Principal\'s Name";
+            // 
+            // lblSchool_Name
+            // 
+            this.lblSchool_Name.AutoSize = true;
+            this.lblSchool_Name.ForeColor = System.Drawing.Color.White;
+            this.lblSchool_Name.Location = new System.Drawing.Point(48, 13);
+            this.lblSchool_Name.Name = "lblSchool_Name";
+            this.lblSchool_Name.Size = new System.Drawing.Size(85, 13);
+            this.lblSchool_Name.TabIndex = 0;
+            this.lblSchool_Name.Text = "Atkinson Primary";
+            // 
+            // pMain_Display
+            // 
+            this.pMain_Display.BackColor = System.Drawing.Color.White;
+            this.pMain_Display.Controls.Add(this.label2);
+            this.pMain_Display.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMain_Display.Location = new System.Drawing.Point(177, 41);
+            this.pMain_Display.Name = "pMain_Display";
+            this.pMain_Display.Size = new System.Drawing.Size(1052, 544);
+            this.pMain_Display.TabIndex = 3;
             // 
             // label2
             // 
@@ -214,21 +240,63 @@ namespace eReportCard
             this.label2.Text = "eReportCard";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(177, 41);
+            this.panelLogo.TabIndex = 3;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Location = new System.Drawing.Point(957, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(31, 41);
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.Text = "_";
+            this.btnMinimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMaximize.FlatAppearance.BorderSize = 0;
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnMaximize.ForeColor = System.Drawing.Color.White;
+            this.btnMaximize.Location = new System.Drawing.Point(988, 0);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(31, 41);
+            this.btnMaximize.TabIndex = 3;
+            this.btnMaximize.Text = "O";
+            this.btnMaximize.UseVisualStyleBackColor = true;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
             // Principal_Home_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 585);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pMain_Display);
+            this.Controls.Add(this.panelTitleBar);
+            this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Principal_Home_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal_Home_Form";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelTitleBar.ResumeLayout(false);
+            this.panelTitleBar.PerformLayout();
+            this.pMain_Display.ResumeLayout(false);
+            this.pMain_Display.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -238,16 +306,19 @@ namespace eReportCard
         private System.Windows.Forms.Button btnGrade_2;
         private System.Windows.Forms.Button btnGrade_1;
         private System.Windows.Forms.Button btnGrade_K;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnGrade_6;
         private System.Windows.Forms.Button btnGrade_5;
         private System.Windows.Forms.Button btnGrade_4;
         private System.Windows.Forms.Button btnGrade_3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelTitleBar;
+        private System.Windows.Forms.Panel pMain_Display;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Principal_Name;
         private System.Windows.Forms.Label lblSchool_Name;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Button btnMaximize;
     }
 }
