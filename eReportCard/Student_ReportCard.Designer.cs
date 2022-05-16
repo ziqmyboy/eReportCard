@@ -31,7 +31,7 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTerm = new System.Windows.Forms.Label();
             this.lblExam_Grade = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@ namespace eReportCard
             // 
             label22.AutoSize = true;
             label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label22.Location = new System.Drawing.Point(381, 819);
+            label22.Location = new System.Drawing.Point(288, 829);
             label22.Name = "label22";
             label22.Size = new System.Drawing.Size(181, 17);
             label22.TabIndex = 0;
@@ -117,7 +117,7 @@ namespace eReportCard
             // 
             label23.AutoSize = true;
             label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label23.Location = new System.Drawing.Point(617, 799);
+            label23.Location = new System.Drawing.Point(621, 829);
             label23.Name = "label23";
             label23.Size = new System.Drawing.Size(212, 17);
             label23.TabIndex = 0;
@@ -202,6 +202,7 @@ namespace eReportCard
             // 
             this.lblExam_Grade.AutoSize = true;
             this.lblExam_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExam_Grade.ForeColor = System.Drawing.Color.Blue;
             this.lblExam_Grade.Location = new System.Drawing.Point(562, 268);
             this.lblExam_Grade.Name = "lblExam_Grade";
             this.lblExam_Grade.Size = new System.Drawing.Size(41, 17);
@@ -213,6 +214,7 @@ namespace eReportCard
             // 
             this.lblTerm_Grade.AutoSize = true;
             this.lblTerm_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTerm_Grade.ForeColor = System.Drawing.Color.Blue;
             this.lblTerm_Grade.Location = new System.Drawing.Point(469, 268);
             this.lblTerm_Grade.Name = "lblTerm_Grade";
             this.lblTerm_Grade.Size = new System.Drawing.Size(41, 17);
@@ -250,6 +252,7 @@ namespace eReportCard
             // 
             // txtGeneral_Comments
             // 
+            this.txtGeneral_Comments.ForeColor = System.Drawing.Color.Blue;
             this.txtGeneral_Comments.Location = new System.Drawing.Point(90, 25);
             this.txtGeneral_Comments.Multiline = true;
             this.txtGeneral_Comments.Name = "txtGeneral_Comments";
@@ -266,6 +269,7 @@ namespace eReportCard
             "F"});
             this.cbRegularity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbRegularity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbRegularity.ForeColor = System.Drawing.Color.Blue;
             this.cbRegularity.FormattingEnabled = true;
             this.cbRegularity.Items.AddRange(new object[] {
             "A",
@@ -288,6 +292,7 @@ namespace eReportCard
             "F"});
             this.cbCo_operation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbCo_operation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbCo_operation.ForeColor = System.Drawing.Color.Blue;
             this.cbCo_operation.FormattingEnabled = true;
             this.cbCo_operation.Items.AddRange(new object[] {
             "A",
@@ -310,6 +315,7 @@ namespace eReportCard
             "F"});
             this.cbSportsmanship.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbSportsmanship.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbSportsmanship.ForeColor = System.Drawing.Color.Blue;
             this.cbSportsmanship.FormattingEnabled = true;
             this.cbSportsmanship.Items.AddRange(new object[] {
             "A",
@@ -332,6 +338,7 @@ namespace eReportCard
             "F"});
             this.cbReliability.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbReliability.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbReliability.ForeColor = System.Drawing.Color.Blue;
             this.cbReliability.FormattingEnabled = true;
             this.cbReliability.Items.AddRange(new object[] {
             "A",
@@ -354,6 +361,7 @@ namespace eReportCard
             "F"});
             this.cbConduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbConduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbConduct.ForeColor = System.Drawing.Color.Blue;
             this.cbConduct.FormattingEnabled = true;
             this.cbConduct.Items.AddRange(new object[] {
             "A",
@@ -376,6 +384,7 @@ namespace eReportCard
             "F"});
             this.cbSocial_Relationship.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbSocial_Relationship.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbSocial_Relationship.ForeColor = System.Drawing.Color.Blue;
             this.cbSocial_Relationship.FormattingEnabled = true;
             this.cbSocial_Relationship.Items.AddRange(new object[] {
             "A",
@@ -398,6 +407,7 @@ namespace eReportCard
             "F"});
             this.cbPersonal_Appearance.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbPersonal_Appearance.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbPersonal_Appearance.ForeColor = System.Drawing.Color.Blue;
             this.cbPersonal_Appearance.FormattingEnabled = true;
             this.cbPersonal_Appearance.Items.AddRange(new object[] {
             "A",
@@ -420,6 +430,7 @@ namespace eReportCard
             "F"});
             this.cbIndustry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbIndustry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbIndustry.ForeColor = System.Drawing.Color.Blue;
             this.cbIndustry.FormattingEnabled = true;
             this.cbIndustry.Items.AddRange(new object[] {
             "A",
@@ -442,6 +453,7 @@ namespace eReportCard
             "F"});
             this.cbPunctuality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbPunctuality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbPunctuality.ForeColor = System.Drawing.Color.Blue;
             this.cbPunctuality.FormattingEnabled = true;
             this.cbPunctuality.Items.AddRange(new object[] {
             "A",
@@ -526,8 +538,8 @@ namespace eReportCard
             // 
             // Column4
             // 
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column4.FillWeight = 12.69035F;
             this.Column4.HeaderText = "Final Exam";
             this.Column4.Name = "Column4";
@@ -554,6 +566,7 @@ namespace eReportCard
             // 
             // txtComments
             // 
+            this.txtComments.ForeColor = System.Drawing.Color.Blue;
             this.txtComments.Location = new System.Drawing.Point(624, 266);
             this.txtComments.Name = "txtComments";
             this.txtComments.Size = new System.Drawing.Size(239, 20);
@@ -561,6 +574,7 @@ namespace eReportCard
             // 
             // txtExam_Mark
             // 
+            this.txtExam_Mark.ForeColor = System.Drawing.Color.Blue;
             this.txtExam_Mark.Location = new System.Drawing.Point(526, 267);
             this.txtExam_Mark.MaxLength = 3;
             this.txtExam_Mark.Name = "txtExam_Mark";
@@ -572,6 +586,7 @@ namespace eReportCard
             // 
             // txtTerm_Mark
             // 
+            this.txtTerm_Mark.ForeColor = System.Drawing.Color.Blue;
             this.txtTerm_Mark.Location = new System.Drawing.Point(430, 267);
             this.txtTerm_Mark.MaxLength = 3;
             this.txtTerm_Mark.Name = "txtTerm_Mark";
@@ -583,6 +598,7 @@ namespace eReportCard
             // 
             // txtCourse_Name
             // 
+            this.txtCourse_Name.ForeColor = System.Drawing.Color.Blue;
             this.txtCourse_Name.Location = new System.Drawing.Point(38, 266);
             this.txtCourse_Name.Name = "txtCourse_Name";
             this.txtCourse_Name.Size = new System.Drawing.Size(209, 20);
@@ -613,6 +629,7 @@ namespace eReportCard
             this.cbStudent_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbStudent_Name.FormattingEnabled = true;
             this.cbStudent_Name.Location = new System.Drawing.Point(119, 142);
+            this.cbStudent_Name.MaxDropDownItems = 50;
             this.cbStudent_Name.Name = "cbStudent_Name";
             this.cbStudent_Name.Size = new System.Drawing.Size(147, 21);
             this.cbStudent_Name.TabIndex = 1;
@@ -622,6 +639,7 @@ namespace eReportCard
             // lblTeacher_Name
             // 
             this.lblTeacher_Name.AutoSize = true;
+            this.lblTeacher_Name.ForeColor = System.Drawing.Color.Blue;
             this.lblTeacher_Name.Location = new System.Drawing.Point(302, 270);
             this.lblTeacher_Name.Name = "lblTeacher_Name";
             this.lblTeacher_Name.Size = new System.Drawing.Size(66, 13);
@@ -632,6 +650,7 @@ namespace eReportCard
             // 
             this.lblExam_Avg.AutoSize = true;
             this.lblExam_Avg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblExam_Avg.ForeColor = System.Drawing.Color.Blue;
             this.lblExam_Avg.Location = new System.Drawing.Point(585, 695);
             this.lblExam_Avg.Name = "lblExam_Avg";
             this.lblExam_Avg.Size = new System.Drawing.Size(65, 18);
@@ -643,6 +662,7 @@ namespace eReportCard
             // 
             this.lblTerm_Avg.AutoSize = true;
             this.lblTerm_Avg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTerm_Avg.ForeColor = System.Drawing.Color.Blue;
             this.lblTerm_Avg.Location = new System.Drawing.Point(498, 695);
             this.lblTerm_Avg.Name = "lblTerm_Avg";
             this.lblTerm_Avg.Size = new System.Drawing.Size(71, 18);
@@ -665,7 +685,7 @@ namespace eReportCard
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(379, 788);
+            this.label21.Location = new System.Drawing.Point(659, 789);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(119, 17);
             this.label21.TabIndex = 0;
@@ -687,6 +707,7 @@ namespace eReportCard
             // 
             this.lblTeacher_Signature.AutoSize = true;
             this.lblTeacher_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeacher_Signature.ForeColor = System.Drawing.Color.Blue;
             this.lblTeacher_Signature.Location = new System.Drawing.Point(418, 1457);
             this.lblTeacher_Signature.Name = "lblTeacher_Signature";
             this.lblTeacher_Signature.Size = new System.Drawing.Size(63, 17);
@@ -808,7 +829,7 @@ namespace eReportCard
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(204, 816);
+            this.label20.Location = new System.Drawing.Point(469, 789);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 17);
             this.label20.TabIndex = 0;

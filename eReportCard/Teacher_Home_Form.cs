@@ -101,17 +101,6 @@ namespace eReportCard
         }
         //end of function
 
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {

@@ -16,6 +16,8 @@ namespace eReportCard
         private Button currentButton;
         private Random random;
         private int tempIndex;
+
+        public static string selected_ClassID;
         public Principal_Home_Form()
         {
             InitializeComponent();
@@ -68,37 +70,52 @@ namespace eReportCard
 
         private void btnGrade_K_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_K.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_1_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_1.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_2_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_2.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_3_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_3.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_4_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_4.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_5_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_5.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
         }
 
         private void btnGrade_6_Click(object sender, EventArgs e)
         {
+            selected_ClassID = btnGrade_6.Text;
             ActivateButton(sender);
+            ShowForm(new Principal_Student_Report_Form());
+
         }
 
         //function to show respective form when the button is clicked
@@ -116,18 +133,6 @@ namespace eReportCard
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

@@ -131,5 +131,15 @@ namespace eReportCard
 
             
         }
+
+        private void pb_Show_Hide_Password_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = false;
+        }
+
+        private void pb_Show_Hide_Password_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
     }
 }

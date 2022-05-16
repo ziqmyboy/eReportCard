@@ -32,8 +32,6 @@ namespace eReportCard
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Label();
@@ -41,6 +39,10 @@ namespace eReportCard
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pb_Show_Hide_Password = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Show_Hide_Password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,26 +74,6 @@ namespace eReportCard
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(249, 1);
             this.panel3.TabIndex = 3;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::eReportCard.Properties.Resources.security_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(74, 233);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::eReportCard.Properties.Resources.blue_icon_13470;
-            this.pictureBox1.Location = new System.Drawing.Point(74, 186);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
@@ -164,7 +146,7 @@ namespace eReportCard
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.txtPassword.Location = new System.Drawing.Point(103, 237);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(224, 17);
+            this.txtPassword.Size = new System.Drawing.Size(200, 17);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
@@ -178,12 +160,45 @@ namespace eReportCard
             this.panel2.Size = new System.Drawing.Size(249, 1);
             this.panel2.TabIndex = 3;
             // 
+            // pb_Show_Hide_Password
+            // 
+            this.pb_Show_Hide_Password.Image = global::eReportCard.Properties.Resources.hide_show_icon;
+            this.pb_Show_Hide_Password.Location = new System.Drawing.Point(309, 234);
+            this.pb_Show_Hide_Password.Name = "pb_Show_Hide_Password";
+            this.pb_Show_Hide_Password.Size = new System.Drawing.Size(21, 21);
+            this.pb_Show_Hide_Password.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Show_Hide_Password.TabIndex = 7;
+            this.pb_Show_Hide_Password.TabStop = false;
+            this.pb_Show_Hide_Password.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pb_Show_Hide_Password_MouseDown);
+            this.pb_Show_Hide_Password.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_Show_Hide_Password_MouseUp);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::eReportCard.Properties.Resources.security_icon;
+            this.pictureBox2.Location = new System.Drawing.Point(74, 233);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eReportCard.Properties.Resources.blue_icon_13470;
+            this.pictureBox1.Location = new System.Drawing.Point(74, 186);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(358, 490);
+            this.Controls.Add(this.pb_Show_Hide_Password);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnExit);
@@ -201,6 +216,7 @@ namespace eReportCard
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Show_Hide_Password)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -222,5 +238,6 @@ namespace eReportCard
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pb_Show_Hide_Password;
     }
 }

@@ -209,9 +209,26 @@ namespace eReportCard
             }
         }
 
+
         private void Class_Register_Load(object sender, EventArgs e)
         {
             client = new FireSharp.FirebaseClient(config);
+
+            /*
+            //populating dgvClass Register.
+
+            DataSet ds = new DataSet();
+            ds.ReadXml(Environment.CurrentDirectory + "\\XMLFILE.xml");
+            dgvClass_Register.Rows.Clear();
+            foreach (DataRow item in ds.Tables["ClassRegister"].Rows)
+            {
+                int n = dgvClass_Register.Rows.Add();
+                dgvClass_Register.Rows[n].Cells[0].Value = item[0];
+                dgvClass_Register.Rows[n].Cells[1].Value = item[1];
+                dgvClass_Register.Rows[n].Cells[2].Value = item[2];
+            }
+            */
         }
+
     }
 }

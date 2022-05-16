@@ -15,8 +15,9 @@ using Newtonsoft.Json;
 
 namespace eReportCard
 {
-    public partial class Transcript : Form
+    public partial class Principal_Student_Report_Form : Form
     {
+
         DataTable dt = new DataTable();
         //connection to database
         IFirebaseConfig config = new FirebaseConfig
@@ -29,14 +30,14 @@ namespace eReportCard
 
         //date variable
         string date = DateTime.Now.Month.ToString();
-        public Transcript()
+        public Principal_Student_Report_Form()
         {
             InitializeComponent();
 
             lblSchool_Name.Text = Login.schoolID;
-            lblTeacher_Signature.Text = Login.nameID;
-            lblGradeRC.Text = Login.classID + "\nStudent\n Report Card";
-            lblClassID.Text = Login.classID;
+            lblPrincipal_Signature.Text = Login.nameID;
+            lblGradeRC.Text = Principal_Home_Form.selected_ClassID + "\nStudent\n Report Card";
+            lblClassID.Text = Principal_Home_Form.selected_ClassID;
 
             // getting school year
             if (date == "9" || date == "10" || date == "11" || date == "12")
@@ -56,9 +57,12 @@ namespace eReportCard
             }
 
 
+            // Principal's signature date
+            lblPrincipal_Signature_Date.Text = DateTime.Now.ToShortDateString();
+
         }
 
-        private void Transcript_Load(object sender, EventArgs e)
+        private void Principal_Student_Report_Form_Load(object sender, EventArgs e)
         {
             client = new FireSharp.FirebaseClient(config);
 
@@ -74,10 +78,10 @@ namespace eReportCard
             dt.Columns.Add("Exam");
             dt.Columns.Add("Comments");
 
-            dgvTranscript.DataSource = dt;
+            dgvPrincipal_Form.DataSource = dt;
         }
 
-        #region method used to populate combobox with list of students registered in the class
+#region method used to populate combobox with list of students registered in the class
         private void populateCB(Dictionary<string, Register_Data> record)
         {
             cbStudent_Name.Items.Clear();
@@ -90,6 +94,7 @@ namespace eReportCard
 
         private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             FirebaseResponse resp1 = await client.GetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
             Register_Data get1 = resp1.ResultAs<Register_Data>();
 
@@ -109,15 +114,12 @@ namespace eReportCard
             lblPunctuality.Text = get2.punctuality;
             lblIndustry.Text = get2.industry;
             lblPersonal_Appearance.Text = get2.personalAppearance;
-            lblPrincipals_Comments.Text = get2.principalComments;
-            lblPrincipal_Signature_Date.Text = get2.principal_SignatureDate;
             lblSocial_Relationship.Text = get2.socialRelationship;
             lblConduct.Text = get2.conduct;
             lblReliability.Text = get2.reliability;
             lblSportsmanship.Text = get2.sportsmanship;
             lblCo_operation.Text = get2.co_operation;
             lblTeacher_Comments.Text = get2.generalComments;
-            lblTeacher_Signature_Date.Text = get2.teacher_SignatureDate;
             lblTerm.Text = get2.schoolTerm;
             //lblTeacher_Signature.Text = get.courseTeacher;
         }
@@ -134,7 +136,7 @@ namespace eReportCard
             while (true)
             {
 
-                if (i == cnt)
+                if (i==cnt)
                 {
                     break;
                 }
@@ -142,7 +144,7 @@ namespace eReportCard
 
                 try
                 {
-                    FirebaseResponse fresp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + i);
+                    FirebaseResponse fresp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" +i);
                     Course_Data result2 = fresp2.ResultAs<Course_Data>();
 
                     DataRow row = dt.NewRow();
@@ -161,5 +163,5 @@ namespace eReportCard
             }
         }
     }
-}
 
+}
