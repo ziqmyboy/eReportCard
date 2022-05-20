@@ -45,6 +45,7 @@ namespace eReportCard
             this.lblSchool_Name = new System.Windows.Forms.Label();
             this.pMain_Display = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.pMain_Display.SuspendLayout();
@@ -52,6 +53,7 @@ namespace eReportCard
             // 
             // btnGrade_2
             // 
+            this.btnGrade_2.Enabled = false;
             this.btnGrade_2.FlatAppearance.BorderSize = 0;
             this.btnGrade_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -66,6 +68,7 @@ namespace eReportCard
             // 
             // btnGrade_1
             // 
+            this.btnGrade_1.Enabled = false;
             this.btnGrade_1.FlatAppearance.BorderSize = 0;
             this.btnGrade_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,6 +83,7 @@ namespace eReportCard
             // 
             // btnGrade_K
             // 
+            this.btnGrade_K.Enabled = false;
             this.btnGrade_K.FlatAppearance.BorderSize = 0;
             this.btnGrade_K.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_K.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,6 +138,7 @@ namespace eReportCard
             // 
             // btnGrade_5
             // 
+            this.btnGrade_5.Enabled = false;
             this.btnGrade_5.FlatAppearance.BorderSize = 0;
             this.btnGrade_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +153,7 @@ namespace eReportCard
             // 
             // btnGrade_4
             // 
+            this.btnGrade_4.Enabled = false;
             this.btnGrade_4.FlatAppearance.BorderSize = 0;
             this.btnGrade_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,6 +168,7 @@ namespace eReportCard
             // 
             // btnGrade_3
             // 
+            this.btnGrade_3.Enabled = false;
             this.btnGrade_3.FlatAppearance.BorderSize = 0;
             this.btnGrade_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,6 +270,17 @@ namespace eReportCard
             this.label2.Text = "eReportCard";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS Gothic", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(53, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Loading...";
+            // 
             // Principal_Home_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,5 +320,6 @@ namespace eReportCard
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Label label1;
     }
 }

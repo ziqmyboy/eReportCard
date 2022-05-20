@@ -30,6 +30,7 @@ namespace eReportCard
 
         //date variable
         string date = DateTime.Now.Month.ToString();
+        string full_Date = DateTime.Now.ToShortDateString();
         public Principal_Student_Report_Form()
         {
             InitializeComponent();
@@ -38,6 +39,8 @@ namespace eReportCard
             lblPrincipal_Signature.Text = Login.nameID;
             lblGradeRC.Text = Principal_Home_Form.selected_ClassID + "\nStudent\n Report Card";
             lblClassID.Text = Principal_Home_Form.selected_ClassID;
+            lblPrincipal_Signature.Text = Principal_Home_Form.principal_Name;
+
 
             // getting school year
             if (date == "9" || date == "10" || date == "11" || date == "12")
@@ -120,8 +123,9 @@ namespace eReportCard
             lblSportsmanship.Text = get2.sportsmanship;
             lblCo_operation.Text = get2.co_operation;
             lblTeacher_Comments.Text = get2.generalComments;
+            lblTeacher_Signature_Date.Text = get2.teacher_SignatureDate;
             lblTerm.Text = get2.schoolTerm;
-            //lblTeacher_Signature.Text = get.courseTeacher;
+            lblTeacher_Signature.Text = get2.teacher_Name;
         }
 
         private async void export()

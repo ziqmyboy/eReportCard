@@ -111,6 +111,7 @@ namespace eReportCard
             lblPersonal_Appearance.Text = get2.personalAppearance;
             lblPrincipals_Comments.Text = get2.principalComments;
             lblPrincipal_Signature_Date.Text = get2.principal_SignatureDate;
+            lblPrincipal_Signature.Text = get2.principal_Name;
             lblSocial_Relationship.Text = get2.socialRelationship;
             lblConduct.Text = get2.conduct;
             lblReliability.Text = get2.reliability;
@@ -119,7 +120,7 @@ namespace eReportCard
             lblTeacher_Comments.Text = get2.generalComments;
             lblTeacher_Signature_Date.Text = get2.teacher_SignatureDate;
             lblTerm.Text = get2.schoolTerm;
-            //lblTeacher_Signature.Text = get.courseTeacher;
+            lblTeacher_Signature.Text = get2.teacher_Name;
         }
 
         private async void export()

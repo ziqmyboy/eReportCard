@@ -60,7 +60,6 @@ namespace eReportCard
                 {
                     previousBtn.BackColor = Color.FromArgb(51, 51, 76);
                     previousBtn.ForeColor = Color.Gainsboro;
-
                 }
             }
         }

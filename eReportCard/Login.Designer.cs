@@ -138,6 +138,7 @@ namespace eReportCard
             this.txtUsername.Size = new System.Drawing.Size(224, 20);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.WordWrap = false;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -150,6 +151,7 @@ namespace eReportCard
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // panel2
             // 

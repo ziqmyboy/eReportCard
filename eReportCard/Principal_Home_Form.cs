@@ -18,11 +18,13 @@ namespace eReportCard
         private int tempIndex;
 
         public static string selected_ClassID;
+        public static string principal_Name;
         public Principal_Home_Form()
         {
             InitializeComponent();
             lblSchool_Name.Text = Login.schoolID;
             lbl_Principal_Name.Text = Login.nameID;
+            principal_Name = Login.nameID;
             random = new Random();
         }
 
@@ -43,6 +45,7 @@ namespace eReportCard
         {
             if (btnSender != null)
             {
+
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();

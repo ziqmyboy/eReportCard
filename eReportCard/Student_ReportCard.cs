@@ -396,6 +396,7 @@ namespace eReportCard
                     personalAppearance = cbPersonal_Appearance.Text,
                     principalComments = " ",
                     principal_SignatureDate = " ",
+                    principal_Name = " ",
                     punctuality = cbPunctuality.Text,
                     regularity = cbRegularity.Text,
                     reliability = cbReliability.Text,
@@ -403,6 +404,7 @@ namespace eReportCard
                     schoolYear = lblSchool_Year.Text,
                     socialRelationship = cbSocial_Relationship.Text,
                     sportsmanship = cbSportsmanship.Text,
+                    teacher_Name = lblTeacher_Signature.Text,
                     teacher_SignatureDate = lblTeacher_Signature_Date.Text,
                     termAverage = lblTerm_Avg.Text
 

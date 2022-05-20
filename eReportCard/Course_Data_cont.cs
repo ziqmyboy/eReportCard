@@ -19,6 +19,7 @@ namespace eReportCard
         public string personalAppearance { get; set; }
         public string principalComments { get; set; }
         public string principal_SignatureDate { get; set; }
+        public string principal_Name { get; set; }
         public string punctuality { get; set; }
         public string regularity { get; set; }
         public string reliability { get; set; }
@@ -26,6 +27,7 @@ namespace eReportCard
         public string schoolYear { get; set; }
         public string socialRelationship { get; set; }
         public string sportsmanship { get; set; }
+        public string teacher_Name { get; set; }
         public string teacher_SignatureDate { get; set; }
         public string termAverage { get; set; }
     }

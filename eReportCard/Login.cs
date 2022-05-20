@@ -72,46 +72,69 @@ namespace eReportCard
                 return Convert.ToBase64String(data);
             }
         }
-        private async void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            //querry the firebase
-            FirebaseResponse response = await client.GetTaskAsync("USERS/"+txtUsername.Text);
-            Users users = response.ResultAs<Users>();
+            loginUser();
+        }
 
-            uID = users.UserID;
-            pass = users.PassID;
-            professionID = users.ProfessionID;
-            nameID = users.NameID;
-            classID = users.ClassID;
-            schoolID = users.SchoolID + " School";
+        //login user method
+        private async void loginUser()
+        {
 
-            if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
+            //error checking
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                //opening the Teacher's Home page
-                Teacher_Home_Form teacher_Home_Form = new Teacher_Home_Form();
-                teacher_Home_Form.Show();
-
-                //closing login page
-                this.Hide();
-            }
-            else if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Principal")
-            {
-                //opening the Teacher's Home page
-                Principal_Home_Form principal_Home_Form = new Principal_Home_Form();
-                principal_Home_Form.Show();
-
-                //closing login page
-                this.Hide();
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+                MessageBox.Show("Username and Password fields required.", "ERROR!!!");
+                txtUsername.Focus();
             }
             else
             {
-                MessageBox.Show("User does not exist!", "E R R O R");
+                //querry the firebase
+                FirebaseResponse response = await client.GetTaskAsync("USERS/" + txtUsername.Text);
+                Users users = response.ResultAs<Users>();
+
+                uID = users.UserID;
+                pass = users.PassID;
+                professionID = users.ProfessionID;
+                nameID = users.NameID;
+                classID = users.ClassID;
+                schoolID = users.SchoolID + " School";
+
+                if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
+                {
+                    //opening the Teacher's Home page
+                    Teacher_Home_Form teacher_Home_Form = new Teacher_Home_Form();
+                    teacher_Home_Form.Show();
+
+
+                    //closing login page
+                    this.Hide();
+
+                }
+                else if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Principal")
+                {
+
+                    //opening the Teacher's Home page
+                    Principal_Home_Form principal_Home_Form = new Principal_Home_Form();
+                    principal_Home_Form.Show();
+
+                    //closing login page
+                    this.Hide();
+                }
+                else
+                {
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                    MessageBox.Show("User does not exist!", "E R R O R");
+                    txtUsername.Focus();
+                }
             }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            
             //opening the Register page
             Profession_Institution profession_Institution = new Profession_Institution();
             profession_Institution.Show();
@@ -128,8 +151,6 @@ namespace eReportCard
         private void Login_Load(object sender, EventArgs e)
         {
             client = new FireSharp.FirebaseClient(config);
-
-            
         }
 
         private void pb_Show_Hide_Password_MouseDown(object sender, MouseEventArgs e)
@@ -140,6 +161,22 @@ namespace eReportCard
         private void pb_Show_Hide_Password_MouseUp(object sender, MouseEventArgs e)
         {
             txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginUser();
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginUser();
+            }
         }
     }
 }
