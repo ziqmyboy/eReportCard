@@ -35,7 +35,7 @@ namespace eReportCard
         {
             InitializeComponent();
 
-            lblSchool_Name.Text = Login.schoolID + " School";
+            lblSchool_Name.Text = Login.schoolID;
 
             // getting school year
             if (date == "9" || date == "10" || date == "11" || date == "12")

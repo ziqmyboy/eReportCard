@@ -635,6 +635,7 @@ namespace eReportCard
             this.cbStudent_Name.TabIndex = 1;
             this.cbStudent_Name.Text = "Select Student";
             this.cbStudent_Name.SelectedIndexChanged += new System.EventHandler(this.cbStudent_Name_SelectedIndexChanged);
+            this.cbStudent_Name.Click += new System.EventHandler(this.cbStudent_Name_Click);
             // 
             // lblTeacher_Name
             // 

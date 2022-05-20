@@ -428,5 +428,11 @@ namespace eReportCard
             lblStudent_ID.Text = get.StudentID;
             txtCourse_Name.Focus();
         }
+
+        private void cbStudent_Name_Click(object sender, EventArgs e)
+        {
+            cbStudent_Name.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbStudent_Name.DroppedDown = true;
+        }
     }
 }
