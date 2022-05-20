@@ -31,6 +31,8 @@ namespace eReportCard
         //date variable
         string date = DateTime.Now.Month.ToString();
         string full_Date = DateTime.Now.ToShortDateString();
+
+        public static string promote_Status;
         public Principal_Student_Report_Form()
         {
             InitializeComponent();
@@ -57,6 +59,8 @@ namespace eReportCard
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
+                //gb_PromoteStatus.Visible = true;
+                gb_PromoteStatus.Visible = false;
             }
 
 
@@ -165,6 +169,94 @@ namespace eReportCard
                 {
                 }
             }
+        }
+
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtPrincipal_Comments.Text))
+            {
+                MessageBox.Show("Principal's comments can't be empty!", "M I S S I N G!");
+            }
+            else
+            {
+                //checking student promoted status is selected to update Reportcard
+                if (lblTerm.Text == "3rd Term" && rb_Promoted.Checked == true)
+                {
+                    promote_Status = "Promoted";
+                    update_ReportCard();
+                }
+                else if (lblTerm.Text == "3rd Term" && rb_Repeated.Checked == true)
+                {
+                    promote_Status = "Repeated";
+                    update_ReportCard();
+                }                
+            }
+        }
+
+        private async void update_ReportCard()
+        {
+            //database draws the data in the form of an object class
+            //creating an object
+            var course_data_cont = new Course_Data_cont
+            {
+                childID = lblStudent_ID.Text,
+                childName = cbStudent_Name.Text,
+                classID = lblClassID.Text,
+                co_operation = lblCo_operation.Text,
+                conduct = lblConduct.Text,
+                examAverage = lblExam_Avg.Text,
+                generalComments = lblTeacher_Comments.Text,
+                industry = lblIndustry.Text,
+                personalAppearance = lblPersonal_Appearance.Text,
+                principalComments = txtPrincipal_Comments.Text,
+                principal_SignatureDate = lblPrincipal_Signature_Date.Text,
+                principal_Name = lblPrincipal_Signature.Text,
+                punctuality = lblPunctuality.Text,
+                regularity = lblRegularity.Text,
+                reliability = lblReliability.Text,
+                schoolTerm = lblTerm.Text,
+                schoolYear = lblSchool_Year.Text,
+                socialRelationship = lblSocial_Relationship.Text,
+                sportsmanship = lblSportsmanship.Text,
+                teacher_Name = lblTeacher_Signature.Text,
+                teacher_SignatureDate = lblTeacher_Signature_Date.Text,
+                termAverage = lblTerm_Avg.Text
+
+            };
+
+            FirebaseResponse response = await client.UpdateTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
+            Course_Data_cont result = response.ResultAs<Course_Data_cont>();
+            MessageBox.Show("Inserted successfully");
+
+            //clearing out student's info
+
+            lblStudent_ID.Text = "------";
+            lblSchool_Name.Focus();
+            cbStudent_Name.Text = "Select Student";
+            lblCo_operation.Text = "------";
+            lblConduct.Text = "------";
+            lblExam_Avg.Text = "------";
+            lblTeacher_Comments.Text = "------";
+            lblIndustry.Text = "------";
+            lblPersonal_Appearance.Text = "------";
+            txtPrincipal_Comments.Text = "";
+            lblPunctuality.Text = "------";
+            lblRegularity.Text = "------";
+            lblReliability.Text = "------";
+            lblSocial_Relationship.Text = "------";
+            lblSportsmanship.Text = "------";
+            lblTeacher_Signature.Text = "------";
+            lblTeacher_Signature_Date.Text = "------";
+            lblTerm_Avg.Text = "------";
+
+            dt.Rows.Clear();
+        }
+
+        private void cbStudent_Name_Click(object sender, EventArgs e)
+        {
+            cbStudent_Name.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbStudent_Name.DroppedDown = true;
         }
     }
 
