@@ -30,5 +30,6 @@ namespace eReportCard
         public string teacher_Name { get; set; }
         public string teacher_SignatureDate { get; set; }
         public string termAverage { get; set; }
+        public string promote_Status { get; set; }
     }
 }

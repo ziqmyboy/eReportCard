@@ -59,8 +59,7 @@ namespace eReportCard
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
-                //gb_PromoteStatus.Visible = true;
-                gb_PromoteStatus.Visible = false;
+                gb_PromoteStatus.Visible = true;
             }
 
 
@@ -221,7 +220,9 @@ namespace eReportCard
                 sportsmanship = lblSportsmanship.Text,
                 teacher_Name = lblTeacher_Signature.Text,
                 teacher_SignatureDate = lblTeacher_Signature_Date.Text,
-                termAverage = lblTerm_Avg.Text
+                termAverage = lblTerm_Avg.Text,
+                promote_Status = promote_Status
+                
 
             };
 
@@ -249,6 +250,8 @@ namespace eReportCard
             lblTeacher_Signature.Text = "------";
             lblTeacher_Signature_Date.Text = "------";
             lblTerm_Avg.Text = "------";
+            rb_Promoted.Checked = false;
+            rb_Repeated.Checked = false;
 
             dt.Rows.Clear();
         }
