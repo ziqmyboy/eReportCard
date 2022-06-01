@@ -230,5 +230,35 @@ namespace eReportCard
             */
         }
 
+        private void lblEdit_StudentID_Click(object sender, EventArgs e)
+        {
+            if (lblEdit_StudentID.Text == "done")
+            {
+                if (string.IsNullOrEmpty(txtTransfered_StudentID.Text))
+                {
+                    if (MessageBox.Show("Please Enter Student I.D.", "MISSING!!!", MessageBoxButtons.OK) == DialogResult.OK)
+                    {
+                        txtF_Name.Focus();
+                        txtTransfered_StudentID.Visible = false;
+                        lblEdit_StudentID.Text = "edit";
+                        lblStudent_ID.Visible = true;
+                    }
+                }
+                else
+                {
+                    lblStudent_ID.Text = txtTransfered_StudentID.Text;
+                    txtTransfered_StudentID.Visible = false;
+                    lblEdit_StudentID.Text = "edit";
+                    lblStudent_ID.Visible = true;
+                }
+            }
+            else
+            {
+                txtTransfered_StudentID.Visible = true;
+                txtTransfered_StudentID.Focus();
+                lblEdit_StudentID.Text = "done";
+                lblStudent_ID.Visible = false;
+            }
+        }
     }
 }

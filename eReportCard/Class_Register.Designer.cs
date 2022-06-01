@@ -30,6 +30,7 @@ namespace eReportCard
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Class_Register));
             this.dgvClass_Register = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +55,8 @@ namespace eReportCard
             this.lblSchool_Year = new System.Windows.Forms.Label();
             this.lblSchool_Name = new System.Windows.Forms.Label();
             this.lblTerm = new System.Windows.Forms.Label();
+            this.lblEdit_StudentID = new System.Windows.Forms.Label();
+            this.txtTransfered_StudentID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass_Register)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,10 +105,11 @@ namespace eReportCard
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblStudent_ID);
+            this.groupBox1.Controls.Add(this.lblEdit_StudentID);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.cbAge);
-            this.groupBox1.Controls.Add(this.lblStudent_ID);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -113,6 +117,7 @@ namespace eReportCard
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtL_Name);
             this.groupBox1.Controls.Add(this.txtF_Name);
+            this.groupBox1.Controls.Add(this.txtTransfered_StudentID);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.groupBox1.Location = new System.Drawing.Point(720, 140);
             this.groupBox1.Name = "groupBox1";
@@ -198,11 +203,12 @@ namespace eReportCard
             // lblStudent_ID
             // 
             this.lblStudent_ID.AutoSize = true;
+            this.lblStudent_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
             this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(19, 15);
+            this.lblStudent_ID.Size = new System.Drawing.Size(23, 15);
             this.lblStudent_ID.TabIndex = 1;
-            this.lblStudent_ID.Text = "....";
+            this.lblStudent_ID.Text = "----";
             // 
             // label5
             // 
@@ -327,6 +333,29 @@ namespace eReportCard
             this.lblTerm.TabIndex = 11;
             this.lblTerm.Text = "2nd Term";
             // 
+            // lblEdit_StudentID
+            // 
+            this.lblEdit_StudentID.AutoSize = true;
+            this.lblEdit_StudentID.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblEdit_StudentID.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdit_StudentID.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblEdit_StudentID.Location = new System.Drawing.Point(223, 105);
+            this.lblEdit_StudentID.Name = "lblEdit_StudentID";
+            this.lblEdit_StudentID.Size = new System.Drawing.Size(28, 16);
+            this.lblEdit_StudentID.TabIndex = 0;
+            this.lblEdit_StudentID.Text = "edit";
+            this.lblEdit_StudentID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEdit_StudentID.Click += new System.EventHandler(this.lblEdit_StudentID_Click);
+            // 
+            // txtTransfered_StudentID
+            // 
+            this.txtTransfered_StudentID.Location = new System.Drawing.Point(114, 105);
+            this.txtTransfered_StudentID.Name = "txtTransfered_StudentID";
+            this.txtTransfered_StudentID.Size = new System.Drawing.Size(100, 21);
+            this.txtTransfered_StudentID.TabIndex = 0;
+            this.txtTransfered_StudentID.Visible = false;
+            this.txtTransfered_StudentID.WordWrap = false;
+            // 
             // Class_Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +371,7 @@ namespace eReportCard
             this.Controls.Add(this.dgvClass_Register);
             this.Controls.Add(this.lblClassID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Class_Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Class_Register";
@@ -382,5 +412,7 @@ namespace eReportCard
         private System.Windows.Forms.Label lblStudent_ID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTerm;
+        private System.Windows.Forms.Label lblEdit_StudentID;
+        private System.Windows.Forms.TextBox txtTransfered_StudentID;
     }
 }
