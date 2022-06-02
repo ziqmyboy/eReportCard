@@ -46,12 +46,15 @@ namespace eReportCard
                 lblSchool_Year.Text = DateTime.Now.Year.ToString() + " - " + DateTime.Now.AddMonths(12).Year;
                 lblTerm.Text = "1st Term";
             }
-            else if (date == "1" || date == "2" || date == "3")
+            else if (date == "1" || date == "2" || date == "3" || date == "4")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "2nd Term";
+                txtExam_Mark.Text = "0";
+                label16.Enabled = false;
+                txtExam_Mark.Enabled = false;
             }
-            else if(date == "4" || date == "5" || date == "6")
+            else if(date == "5" || date == "6" || date == "7")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
@@ -104,6 +107,7 @@ namespace eReportCard
                 dgvReport_Card.Rows[n].Cells[4].Value = txtExam_Mark.Text;
                 dgvReport_Card.Rows[n].Cells[5].Value = lblExam_Grade.Text;
                 dgvReport_Card.Rows[n].Cells[6].Value = txtComments.Text;
+
 
                 //finding the total sum of marks
                 int term_sum = 0;
@@ -397,6 +401,7 @@ namespace eReportCard
                     principalComments = " ",
                     principal_SignatureDate = " ",
                     principal_Name = " ",
+                    promote_Status = " ",
                     punctuality = cbPunctuality.Text,
                     regularity = cbRegularity.Text,
                     reliability = cbReliability.Text,
