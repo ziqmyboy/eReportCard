@@ -48,7 +48,7 @@ namespace eReportCard
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Controls.Add(this.btnTranscript);
             this.panelMenu.Controls.Add(this.btnClass_Register);
@@ -61,7 +61,7 @@ namespace eReportCard
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(194)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
@@ -74,11 +74,11 @@ namespace eReportCard
             this.btnTranscript.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTranscript.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTranscript.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnTranscript.Location = new System.Drawing.Point(3, 236);
+            this.btnTranscript.Location = new System.Drawing.Point(0, 236);
             this.btnTranscript.Name = "btnTranscript";
-            this.btnTranscript.Size = new System.Drawing.Size(176, 41);
+            this.btnTranscript.Size = new System.Drawing.Size(179, 41);
             this.btnTranscript.TabIndex = 0;
-            this.btnTranscript.Text = "eTranscript";
+            this.btnTranscript.Text = "Transcript";
             this.btnTranscript.UseVisualStyleBackColor = true;
             this.btnTranscript.Click += new System.EventHandler(this.btnTranscript_Click);
             // 
@@ -88,11 +88,11 @@ namespace eReportCard
             this.btnClass_Register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClass_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClass_Register.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnClass_Register.Location = new System.Drawing.Point(3, 189);
+            this.btnClass_Register.Location = new System.Drawing.Point(0, 142);
             this.btnClass_Register.Name = "btnClass_Register";
-            this.btnClass_Register.Size = new System.Drawing.Size(176, 41);
+            this.btnClass_Register.Size = new System.Drawing.Size(179, 41);
             this.btnClass_Register.TabIndex = 0;
-            this.btnClass_Register.Text = "eClass Register";
+            this.btnClass_Register.Text = "Class Register";
             this.btnClass_Register.UseVisualStyleBackColor = true;
             this.btnClass_Register.Click += new System.EventHandler(this.btnClass_Register_Click);
             // 
@@ -102,11 +102,11 @@ namespace eReportCard
             this.btnReport_Card.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport_Card.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport_Card.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReport_Card.Location = new System.Drawing.Point(3, 142);
+            this.btnReport_Card.Location = new System.Drawing.Point(0, 189);
             this.btnReport_Card.Name = "btnReport_Card";
-            this.btnReport_Card.Size = new System.Drawing.Size(176, 41);
+            this.btnReport_Card.Size = new System.Drawing.Size(179, 41);
             this.btnReport_Card.TabIndex = 0;
-            this.btnReport_Card.Text = "eReport Card";
+            this.btnReport_Card.Text = "Report Card";
             this.btnReport_Card.UseVisualStyleBackColor = true;
             this.btnReport_Card.Click += new System.EventHandler(this.btnReport_Card_Click);
             // 

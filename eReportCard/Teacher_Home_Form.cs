@@ -58,7 +58,7 @@ namespace eReportCard
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.FromArgb(51, 51, 76);
+                    previousBtn.BackColor = Color.FromArgb(0, 117, 214);
                     previousBtn.ForeColor = Color.Gainsboro;
                 }
             }
