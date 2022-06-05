@@ -60,7 +60,7 @@ namespace eReportCard
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.label1.Location = new System.Drawing.Point(141, 91);
+            this.label1.Location = new System.Drawing.Point(141, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 36);
             this.label1.TabIndex = 1;
