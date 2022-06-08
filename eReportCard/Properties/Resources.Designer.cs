@@ -83,6 +83,16 @@ namespace eReportCard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap options_ {
+            get {
+                object obj = ResourceManager.GetObject("options_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap security_icon {
             get {
                 object obj = ResourceManager.GetObject("security-icon", resourceCulture);

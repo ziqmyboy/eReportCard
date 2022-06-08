@@ -46,9 +46,11 @@ namespace eReportCard
             this.pMain_Display = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.options = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.pMain_Display.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.options)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGrade_2
@@ -184,6 +186,7 @@ namespace eReportCard
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelTitleBar.Controls.Add(this.options);
             this.panelTitleBar.Controls.Add(this.btnMinimize);
             this.panelTitleBar.Controls.Add(this.btnClose);
             this.panelTitleBar.Controls.Add(this.lbl_Principal_Name);
@@ -281,6 +284,18 @@ namespace eReportCard
             this.label1.TabIndex = 6;
             this.label1.Text = "Loading...";
             // 
+            // options
+            // 
+            this.options.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.options.Image = global::eReportCard.Properties.Resources.options_;
+            this.options.Location = new System.Drawing.Point(0, 0);
+            this.options.Name = "options";
+            this.options.Size = new System.Drawing.Size(42, 41);
+            this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.options.TabIndex = 5;
+            this.options.TabStop = false;
+            this.options.Click += new System.EventHandler(this.options_Click);
+            // 
             // Principal_Home_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +313,7 @@ namespace eReportCard
             this.panelTitleBar.PerformLayout();
             this.pMain_Display.ResumeLayout(false);
             this.pMain_Display.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.options)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,5 +337,6 @@ namespace eReportCard
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox options;
     }
 }

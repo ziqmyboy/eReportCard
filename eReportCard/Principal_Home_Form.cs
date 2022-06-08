@@ -142,5 +142,18 @@ namespace eReportCard
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void options_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to logout?", "L O G O U T", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //opening the login page
+                Login login = new Login();
+                login.Show();
+
+                //closing form page
+                this.Hide();
+            }
+        }
     }
 }
