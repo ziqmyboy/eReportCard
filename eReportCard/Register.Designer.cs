@@ -29,6 +29,7 @@ namespace eReportCard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtNewUsername = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Label();
@@ -356,6 +357,7 @@ namespace eReportCard
             this.Controls.Add(this.pTxtNewUser);
             this.Controls.Add(this.pTxtNewPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";

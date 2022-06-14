@@ -29,6 +29,7 @@ namespace eReportCard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profession_Institution));
             this.rbPrincipal = new System.Windows.Forms.RadioButton();
             this.rbTeacher = new System.Windows.Forms.RadioButton();
             this.rbPrimarySchool = new System.Windows.Forms.RadioButton();
@@ -194,6 +195,7 @@ namespace eReportCard
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.rbPrimarySchool);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Profession_Institution";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);

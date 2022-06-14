@@ -29,6 +29,7 @@ namespace eReportCard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal_Home_Form));
             this.btnGrade_2 = new System.Windows.Forms.Button();
             this.btnGrade_1 = new System.Windows.Forms.Button();
             this.btnGrade_K = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@ namespace eReportCard
             this.btnGrade_4 = new System.Windows.Forms.Button();
             this.btnGrade_3 = new System.Windows.Forms.Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.options = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbl_Principal_Name = new System.Windows.Forms.Label();
@@ -46,11 +48,10 @@ namespace eReportCard
             this.pMain_Display = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.options = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
-            this.pMain_Display.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.options)).BeginInit();
+            this.pMain_Display.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGrade_2
@@ -197,6 +198,18 @@ namespace eReportCard
             this.panelTitleBar.Size = new System.Drawing.Size(1052, 41);
             this.panelTitleBar.TabIndex = 2;
             // 
+            // options
+            // 
+            this.options.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.options.Image = global::eReportCard.Properties.Resources.options_;
+            this.options.Location = new System.Drawing.Point(0, 0);
+            this.options.Name = "options";
+            this.options.Size = new System.Drawing.Size(42, 41);
+            this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.options.TabIndex = 5;
+            this.options.TabStop = false;
+            this.options.Click += new System.EventHandler(this.options_Click);
+            // 
             // btnMinimize
             // 
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
@@ -284,18 +297,6 @@ namespace eReportCard
             this.label1.TabIndex = 6;
             this.label1.Text = "Loading...";
             // 
-            // options
-            // 
-            this.options.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.options.Image = global::eReportCard.Properties.Resources.options_;
-            this.options.Location = new System.Drawing.Point(0, 0);
-            this.options.Name = "options";
-            this.options.Size = new System.Drawing.Size(42, 41);
-            this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.options.TabIndex = 5;
-            this.options.TabStop = false;
-            this.options.Click += new System.EventHandler(this.options_Click);
-            // 
             // Principal_Home_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,15 +306,16 @@ namespace eReportCard
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal_Home_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal_Home_Form";
             this.panelMenu.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.options)).EndInit();
             this.pMain_Display.ResumeLayout(false);
             this.pMain_Display.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.options)).EndInit();
             this.ResumeLayout(false);
 
         }
