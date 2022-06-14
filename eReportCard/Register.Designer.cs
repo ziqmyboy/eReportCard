@@ -173,9 +173,9 @@ namespace eReportCard
             // 
             // txtSchoolName
             // 
-            this.txtSchoolName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtSchoolName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtSchoolName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtSchoolName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSchoolName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtSchoolName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtSchoolName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.txtSchoolName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
@@ -302,9 +302,9 @@ namespace eReportCard
             // 
             // cbClassID
             // 
-            this.cbClassID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbClassID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbClassID.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cbClassID.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbClassID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClassID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbClassID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.cbClassID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));

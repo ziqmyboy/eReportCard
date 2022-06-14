@@ -36,12 +36,13 @@ namespace eReportCard
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStudent_ID = new System.Windows.Forms.Label();
+            this.lblEdit_StudentID = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbAge = new System.Windows.Forms.ComboBox();
-            this.lblStudent_ID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,14 +50,13 @@ namespace eReportCard
             this.label1 = new System.Windows.Forms.Label();
             this.txtL_Name = new System.Windows.Forms.TextBox();
             this.txtF_Name = new System.Windows.Forms.TextBox();
+            this.txtTransfered_StudentID = new System.Windows.Forms.TextBox();
             this.lblClassID = new System.Windows.Forms.Label();
             this.btnSave_Class_Register = new System.Windows.Forms.Button();
             this.btnShow_Class_Register = new System.Windows.Forms.Button();
             this.lblSchool_Year = new System.Windows.Forms.Label();
             this.lblSchool_Name = new System.Windows.Forms.Label();
             this.lblTerm = new System.Windows.Forms.Label();
-            this.lblEdit_StudentID = new System.Windows.Forms.Label();
-            this.txtTransfered_StudentID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass_Register)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -126,6 +126,30 @@ namespace eReportCard
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "add Child to class register";
             // 
+            // lblStudent_ID
+            // 
+            this.lblStudent_ID.AutoSize = true;
+            this.lblStudent_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
+            this.lblStudent_ID.Name = "lblStudent_ID";
+            this.lblStudent_ID.Size = new System.Drawing.Size(23, 15);
+            this.lblStudent_ID.TabIndex = 1;
+            this.lblStudent_ID.Text = "----";
+            // 
+            // lblEdit_StudentID
+            // 
+            this.lblEdit_StudentID.AutoSize = true;
+            this.lblEdit_StudentID.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblEdit_StudentID.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdit_StudentID.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblEdit_StudentID.Location = new System.Drawing.Point(223, 105);
+            this.lblEdit_StudentID.Name = "lblEdit_StudentID";
+            this.lblEdit_StudentID.Size = new System.Drawing.Size(28, 16);
+            this.lblEdit_StudentID.TabIndex = 0;
+            this.lblEdit_StudentID.Text = "edit";
+            this.lblEdit_StudentID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEdit_StudentID.Click += new System.EventHandler(this.lblEdit_StudentID_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rbFemale);
@@ -181,8 +205,10 @@ namespace eReportCard
             "10 years",
             "11 years",
             "12 years"});
-            this.cbAge.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbAge.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbAge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAge.FormattingEnabled = true;
             this.cbAge.Items.AddRange(new object[] {
             "3 years",
@@ -200,16 +226,6 @@ namespace eReportCard
             this.cbAge.Size = new System.Drawing.Size(121, 23);
             this.cbAge.TabIndex = 5;
             // 
-            // lblStudent_ID
-            // 
-            this.lblStudent_ID.AutoSize = true;
-            this.lblStudent_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
-            this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(23, 15);
-            this.lblStudent_ID.TabIndex = 1;
-            this.lblStudent_ID.Text = "----";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -222,7 +238,7 @@ namespace eReportCard
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 209);
+            this.label3.Location = new System.Drawing.Point(38, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 15);
             this.label3.TabIndex = 1;
@@ -271,6 +287,15 @@ namespace eReportCard
             this.txtF_Name.Size = new System.Drawing.Size(157, 21);
             this.txtF_Name.TabIndex = 0;
             this.txtF_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtF_Name_KeyPress);
+            // 
+            // txtTransfered_StudentID
+            // 
+            this.txtTransfered_StudentID.Location = new System.Drawing.Point(114, 105);
+            this.txtTransfered_StudentID.Name = "txtTransfered_StudentID";
+            this.txtTransfered_StudentID.Size = new System.Drawing.Size(100, 21);
+            this.txtTransfered_StudentID.TabIndex = 0;
+            this.txtTransfered_StudentID.Visible = false;
+            this.txtTransfered_StudentID.WordWrap = false;
             // 
             // lblClassID
             // 
@@ -332,29 +357,6 @@ namespace eReportCard
             this.lblTerm.Size = new System.Drawing.Size(52, 13);
             this.lblTerm.TabIndex = 11;
             this.lblTerm.Text = "2nd Term";
-            // 
-            // lblEdit_StudentID
-            // 
-            this.lblEdit_StudentID.AutoSize = true;
-            this.lblEdit_StudentID.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblEdit_StudentID.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdit_StudentID.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblEdit_StudentID.Location = new System.Drawing.Point(223, 105);
-            this.lblEdit_StudentID.Name = "lblEdit_StudentID";
-            this.lblEdit_StudentID.Size = new System.Drawing.Size(28, 16);
-            this.lblEdit_StudentID.TabIndex = 0;
-            this.lblEdit_StudentID.Text = "edit";
-            this.lblEdit_StudentID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEdit_StudentID.Click += new System.EventHandler(this.lblEdit_StudentID_Click);
-            // 
-            // txtTransfered_StudentID
-            // 
-            this.txtTransfered_StudentID.Location = new System.Drawing.Point(114, 105);
-            this.txtTransfered_StudentID.Name = "txtTransfered_StudentID";
-            this.txtTransfered_StudentID.Size = new System.Drawing.Size(100, 21);
-            this.txtTransfered_StudentID.TabIndex = 0;
-            this.txtTransfered_StudentID.Visible = false;
-            this.txtTransfered_StudentID.WordWrap = false;
             // 
             // Class_Register
             // 

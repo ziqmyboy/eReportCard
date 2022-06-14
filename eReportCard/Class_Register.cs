@@ -65,69 +65,92 @@ namespace eReportCard
             
             string fn = txtF_Name.Text; string ln = txtL_Name.Text; student_FullName = fn + " " + ln;
 
-            if (!string.IsNullOrWhiteSpace(txtF_Name.Text) || !string.IsNullOrWhiteSpace(txtL_Name.Text) || !string.IsNullOrWhiteSpace(cbAge.Text))
+            if (!string.IsNullOrWhiteSpace(txtF_Name.Text))
             {
-                if (rbMale.Checked)
+                if (!string.IsNullOrWhiteSpace(txtL_Name.Text))
                 {
-                    gender = "Male";
+                    if (!string.IsNullOrWhiteSpace(cbAge.Text))
+                    {
+                        if (rbMale.Checked)
+                        {
+                            gender = "Male";
+                            addChildToDatabaseAndDataGrideView();
+                        }
+                        else if (rbFemale.Checked)
+                        {
+                            gender = "Female";
+                            addChildToDatabaseAndDataGrideView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Student gender was not chosen.", "Gender");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
+                    }
                 }
                 else
                 {
-                    gender = "Female";
+                    MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
                 }
-                var register = new Register_Data
-                {
-                    FName = txtF_Name.Text,
-                    LName = txtL_Name.Text,
-                    Age = cbAge.Text,
-                    Gender = gender,
-                    StudentID = lblStudent_ID.Text
-                };
-                SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + student_FullName, register);
-                Register_Data result = response.ResultAs<Register_Data>();
-
-
-                var counter_class = new Counter_Class
-                {
-                    cnt = "0"
-                };
-
-                SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName, counter_class);
-                Counter_Class result1 = response.ResultAs<Counter_Class>();
-
-                //adding data from textboxes to datagridview
-                int n = dgvClass_Register.Rows.Add();
-                dgvClass_Register.Rows[n].Cells[0].Value = student_FullName;
-                if (rbMale.Checked)
-                {
-                    dgvClass_Register.Rows[n].Cells[1].Value = "Male";
-                    gender = "Male";
-                }
-                else if (rbFemale.Checked)
-                {
-                    dgvClass_Register.Rows[n].Cells[1].Value = "Female";
-                    gender = "Female";
-                }
-                else
-                {
-                    MessageBox.Show("Student gender was not chosen.", "Gender");
-                }
-
-                dgvClass_Register.Rows[n].Cells[2].Value = cbAge.Text;
-
-                txtF_Name.Text = "";
-                txtL_Name.Text = "";
-                rbMale.Checked = false;
-                rbFemale.Checked = false;
-                cbAge.Text = "";
-
-                
-
             }
             else
             {
                 MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
             }
+        
+    }
+
+        private async void addChildToDatabaseAndDataGrideView()
+        {
+
+            var register = new Register_Data
+            {
+                FName = txtF_Name.Text,
+                LName = txtL_Name.Text,
+                Age = cbAge.Text,
+                Gender = gender,
+                StudentID = lblStudent_ID.Text
+            };
+            SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + student_FullName, register);
+            Register_Data result = response.ResultAs<Register_Data>();
+
+
+            var counter_class = new Counter_Class
+            {
+                cnt = "0"
+            };
+
+            SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName, counter_class);
+            Counter_Class result1 = response.ResultAs<Counter_Class>();
+
+            //adding data from textboxes to datagridview
+            int n = dgvClass_Register.Rows.Add();
+            dgvClass_Register.Rows[n].Cells[0].Value = student_FullName;
+            if (rbMale.Checked)
+            {
+                dgvClass_Register.Rows[n].Cells[1].Value = "Male";
+                gender = "Male";
+            }
+            else if (rbFemale.Checked)
+            {
+                dgvClass_Register.Rows[n].Cells[1].Value = "Female";
+                gender = "Female";
+            }
+            else
+            {
+                MessageBox.Show("Student gender was not chosen.", "Gender");
+            }
+
+            dgvClass_Register.Rows[n].Cells[2].Value = cbAge.Text;
+
+            txtF_Name.Text = "";
+            txtL_Name.Text = "";
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
+            cbAge.Text = "";
         }
 
         private void btnSave_Class_Register_Click(object sender, EventArgs e)
