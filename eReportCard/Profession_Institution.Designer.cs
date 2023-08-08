@@ -41,6 +41,7 @@ namespace eReportCard
             this.lblTxt_Institution = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbSecondarySchool = new System.Windows.Forms.RadioButton();
+            this.rbPreSchool = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +129,7 @@ namespace eReportCard
             this.lblWelcome_Message.ForeColor = System.Drawing.Color.White;
             this.lblWelcome_Message.Location = new System.Drawing.Point(88, 17);
             this.lblWelcome_Message.Name = "lblWelcome_Message";
-            this.lblWelcome_Message.Size = new System.Drawing.Size(105, 16);
+            this.lblWelcome_Message.Size = new System.Drawing.Size(104, 16);
             this.lblWelcome_Message.TabIndex = 15;
             this.lblWelcome_Message.Text = "Good Morning";
             // 
@@ -181,6 +182,20 @@ namespace eReportCard
             this.rbSecondarySchool.Visible = false;
             this.rbSecondarySchool.CheckedChanged += new System.EventHandler(this.rbSecondarySchool_CheckedChanged);
             // 
+            // rbPreSchool
+            // 
+            this.rbPreSchool.AutoSize = true;
+            this.rbPreSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbPreSchool.Location = new System.Drawing.Point(44, 184);
+            this.rbPreSchool.Name = "rbPreSchool";
+            this.rbPreSchool.Size = new System.Drawing.Size(85, 19);
+            this.rbPreSchool.TabIndex = 18;
+            this.rbPreSchool.TabStop = true;
+            this.rbPreSchool.Text = "Pre School";
+            this.rbPreSchool.UseVisualStyleBackColor = true;
+            this.rbPreSchool.Visible = false;
+            this.rbPreSchool.CheckedChanged += new System.EventHandler(this.rbPreSchool_CheckedChanged);
+            // 
             // Profession_Institution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +203,7 @@ namespace eReportCard
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(442, 258);
             this.ControlBox = false;
+            this.Controls.Add(this.rbPreSchool);
             this.Controls.Add(this.rbSecondarySchool);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTxt_Institution);
@@ -220,5 +236,6 @@ namespace eReportCard
         private System.Windows.Forms.Label lblClose;
         private System.Windows.Forms.Label lblWelcome_Message;
         private System.Windows.Forms.RadioButton rbSecondarySchool;
+        private System.Windows.Forms.RadioButton rbPreSchool;
     }
 }

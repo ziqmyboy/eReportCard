@@ -74,7 +74,16 @@ namespace eReportCard
                 cbClassID.Visible = false;
                 plClassID.Visible = false;
             }
-            if (institutions == "Primary School")
+            if (institutions == "Pre School")
+            {
+                txtSchoolName.Items.AddRange(new object[] { "Good News PreSchool"/*add more schools here*/ });
+                txtSchoolName.AutoCompleteCustomSource.AddRange(new string[] { "Good News PreSchool"/*add more schools here*/ });
+
+                //adding class level
+                cbClassID.Items.AddRange(new object[] { "K1", "K2" });
+                cbClassID.AutoCompleteCustomSource.AddRange(new string[] { "K1", "K2" });
+            }
+            else if (institutions == "Primary School")
             {
                 //adding names of intitutions based on level selected
                 txtSchoolName.Items.AddRange(new object[] { "Atkinson Primary"/*add more schools here*/ });

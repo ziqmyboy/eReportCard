@@ -261,9 +261,10 @@ namespace eReportCard
                 {
                     if (MessageBox.Show("Please Enter Student I.D.", "MISSING!!!", MessageBoxButtons.OK) == DialogResult.OK)
                     {
-                        txtF_Name.Focus();
+                        //txtF_Name.Focus();
                         txtTransfered_StudentID.Visible = false;
                         lblEdit_StudentID.Text = "edit";
+                        lblStudent_ID.Text = "----";
                         lblStudent_ID.Visible = true;
                     }
                 }

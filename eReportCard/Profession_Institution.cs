@@ -124,16 +124,18 @@ namespace eReportCard
         {
             lblTxt_Institution.Text = "What institution of learning are you the Principal of?";
             lblTxt_Institution.Visible = true;
-            rbPrimarySchool.Visible = true;
+            //rbPrimarySchool.Visible = true;
             //rbSecondarySchool.Visible = true;
+            rbPreSchool.Visible = true;
         }
 
         private void rbTeacher_CheckedChanged(object sender, EventArgs e)
         {
             lblTxt_Institution.Text = "What institution of learning are you a Teacher of?";
             lblTxt_Institution.Visible = true;
-            rbPrimarySchool.Visible = true;
+            //rbPrimarySchool.Visible = true;
             //rbSecondarySchool.Visible = true;
+            rbPreSchool.Visible = true;
         }
 
         private void rbPrimarySchool_CheckedChanged(object sender, EventArgs e)
@@ -148,6 +150,12 @@ namespace eReportCard
             btnContinue.Enabled = true;
             institution = "Secondary School";
             */
+        }
+
+        private void rbPreSchool_CheckedChanged(object sender, EventArgs e)
+        {
+            btnContinue.Enabled = true;
+            institution = "Pre School";
         }
     }
     }
