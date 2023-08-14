@@ -8,6 +8,7 @@ namespace eReportCard
 {
     class Users
     {
+        public string id { get; set; }
         public string ClassID { get; set; }
         public string NameID { get; set; }
         public string PassID { get; set; }

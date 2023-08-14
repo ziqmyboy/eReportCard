@@ -129,6 +129,7 @@
     <Compile Include="Transcript.Designer.cs">
       <DependentUpon>Transcript.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserCounter.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="Class_Register.resx">
       <DependentUpon>Class_Register.cs</DependentUpon>

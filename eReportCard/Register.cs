@@ -174,11 +174,19 @@ namespace eReportCard
             else if (Profession_Institution.profession == "Teacher")
             {
 
+                //getting the count of current registered users
+                FirebaseResponse resp = await client.GetTaskAsync("UserCOUNTER");
+                Counter_Class get = resp.ResultAs<Counter_Class>();
+
+                //converting the count into an integer and placing it into the variable "Counter"
+                int Counter = int.Parse(get.cnt);
+
                 //database draws the data in the form of an object class
                 //creating an object
 
                 var user = new Users
                 {
+                    id = (Convert.ToInt32(get.cnt) + 1).ToString(),
                     UserID = txtNewUsername.Text,
                     PassID = Encrypt(txtNewPassword.Text),
                     ClassID = cbClassID.Text,
@@ -187,9 +195,46 @@ namespace eReportCard
                     SchoolID = txtSchoolName.Text
                 };
 
+                // forloop to catch if username already exist.
+                for (int i = 1; i <= Counter; i++)
+                {
+                    FirebaseResponse resp1 = await client.GetTaskAsync("UserCounterList/" + i);
+                    Users UID = resp1.ResultAs<Users>();
+
+                    string compUID = UID.UserID;
+
+                    if (compUID == txtNewUsername.Text)
+                    {
+                        pTxtNewUser.BackColor = Color.Red;
+                        MessageBox.Show("Username already Taken. Please enter a different name", "E X I S T S");
+                        return;
+                    }
+                }
+
+                //incrementing the count variable
+                var obj = new Counter_Class
+                {
+                    cnt = user.id
+                };
+
+                UserCounter uID = new UserCounter()
+                {
+                    UserID = txtNewUsername.Text
+                };
+
+                //saving data of registered user to database
                 SetResponse response = await client.SetTaskAsync("USERS/" + txtNewUsername.Text, user);
                 Users result = response.ResultAs<Users>();
 
+                //saving the total count of the registered users                //
+                SetResponse response1 = await client.SetTaskAsync("UserCOUNTER/", obj);
+                Counter_Class result1 = response1.ResultAs<Counter_Class>();
+
+                //saving current user count along with their username ID
+                SetResponse response2 = await client.SetTaskAsync("UserCounterList/" + user.id, uID);
+                Users result2 = response2.ResultAs<Users>();
+
+             
                 //setting global variables to respective fields
                 newUsername = txtNewUsername.Text.Trim();
                 newPassword = txtNewPassword.Text.Trim();
@@ -203,15 +248,23 @@ namespace eReportCard
 
                 //closing the splash screen
                 this.Hide();
+
             }
             else if (Profession_Institution.profession == "Principal")
             {
+                //getting the count of current registered users
+                FirebaseResponse resp = await client.GetTaskAsync("UserCOUNTER");
+                Counter_Class get = resp.ResultAs<Counter_Class>();
+
+                //converting the count into an integer and placing it into the variable "Counter"
+                int Counter = int.Parse(get.cnt);
 
                 //database draws the data in the form of an object class
                 //creating an object
 
                 var user = new Users
                 {
+                    id = (Convert.ToInt32(get.cnt) + 1).ToString(),
                     UserID = txtNewUsername.Text,
                     PassID = Encrypt(txtNewPassword.Text),
                     NameID = txtTeacher_Principal_Name.Text,
@@ -219,8 +272,45 @@ namespace eReportCard
                     SchoolID = txtSchoolName.Text
                 };
 
+                // forloop to catch if username already exist.
+                for (int i = 1; i <= Counter; i++)
+                {
+                    FirebaseResponse resp1 = await client.GetTaskAsync("UserCounterList/" + i);
+                    Users UID = resp1.ResultAs<Users>();
+
+                    string compUID = UID.UserID;
+
+                    if (compUID == txtNewUsername.Text)
+                    {
+                        pTxtNewUser.BackColor = Color.Red;
+                        MessageBox.Show("Username already Taken. Please enter a different name", "E X I S T S");
+                        return;
+                    }
+                }
+
+                //incrementing the count variable
+                var obj = new Counter_Class
+                {
+                    cnt = user.id
+                };
+
+                UserCounter uID = new UserCounter()
+                {
+                    UserID = txtNewUsername.Text
+                };
+
+                //saving data of registered user to database
                 SetResponse response = await client.SetTaskAsync("USERS/" + txtNewUsername.Text, user);
                 Users result = response.ResultAs<Users>();
+
+                //saving the total count of the registered users                //
+                SetResponse response1 = await client.SetTaskAsync("UserCOUNTER/", obj);
+                Counter_Class result1 = response1.ResultAs<Counter_Class>();
+
+                //saving current user count along with their username ID
+                SetResponse response2 = await client.SetTaskAsync("UserCounterList/" + user.id, uID);
+                Users result2 = response2.ResultAs<Users>();
+
 
                 //setting global variables to respective fields
                 newUsername = txtNewUsername.Text.Trim();
