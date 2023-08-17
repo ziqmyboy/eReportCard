@@ -32,6 +32,9 @@ namespace eReportCard
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label22;
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gb_PromoteStatus = new System.Windows.Forms.GroupBox();
+            this.rb_Repeated = new System.Windows.Forms.RadioButton();
+            this.rb_Promoted = new System.Windows.Forms.RadioButton();
             this.cbStudent_Name = new System.Windows.Forms.ComboBox();
             this.lblTerm = new System.Windows.Forms.Label();
             this.lblGradeRC = new System.Windows.Forms.Label();
@@ -79,16 +82,13 @@ namespace eReportCard
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.gb_PromoteStatus = new System.Windows.Forms.GroupBox();
-            this.rb_Promoted = new System.Windows.Forms.RadioButton();
-            this.rb_Repeated = new System.Windows.Forms.RadioButton();
             label23 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.gb_PromoteStatus.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal_Form)).BeginInit();
-            this.gb_PromoteStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // label23
@@ -168,6 +168,46 @@ namespace eReportCard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1006, 1716);
             this.panel1.TabIndex = 0;
+            // 
+            // gb_PromoteStatus
+            // 
+            this.gb_PromoteStatus.Controls.Add(this.rb_Repeated);
+            this.gb_PromoteStatus.Controls.Add(this.rb_Promoted);
+            this.gb_PromoteStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gb_PromoteStatus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.gb_PromoteStatus.Location = new System.Drawing.Point(415, 1591);
+            this.gb_PromoteStatus.Name = "gb_PromoteStatus";
+            this.gb_PromoteStatus.Size = new System.Drawing.Size(200, 100);
+            this.gb_PromoteStatus.TabIndex = 87;
+            this.gb_PromoteStatus.TabStop = false;
+            this.gb_PromoteStatus.Text = "Student Promote Status";
+            this.gb_PromoteStatus.Visible = false;
+            // 
+            // rb_Repeated
+            // 
+            this.rb_Repeated.AutoSize = true;
+            this.rb_Repeated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_Repeated.ForeColor = System.Drawing.Color.Red;
+            this.rb_Repeated.Location = new System.Drawing.Point(44, 62);
+            this.rb_Repeated.Name = "rb_Repeated";
+            this.rb_Repeated.Size = new System.Drawing.Size(87, 19);
+            this.rb_Repeated.TabIndex = 1;
+            this.rb_Repeated.TabStop = true;
+            this.rb_Repeated.Text = "Repeated";
+            this.rb_Repeated.UseVisualStyleBackColor = true;
+            // 
+            // rb_Promoted
+            // 
+            this.rb_Promoted.AutoSize = true;
+            this.rb_Promoted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_Promoted.ForeColor = System.Drawing.Color.Green;
+            this.rb_Promoted.Location = new System.Drawing.Point(44, 28);
+            this.rb_Promoted.Name = "rb_Promoted";
+            this.rb_Promoted.Size = new System.Drawing.Size(87, 19);
+            this.rb_Promoted.TabIndex = 0;
+            this.rb_Promoted.TabStop = true;
+            this.rb_Promoted.Text = "Promoted";
+            this.rb_Promoted.UseVisualStyleBackColor = true;
             // 
             // cbStudent_Name
             // 
@@ -684,46 +724,6 @@ namespace eReportCard
             this.label4.TabIndex = 40;
             this.label4.Text = "Student Name:";
             // 
-            // gb_PromoteStatus
-            // 
-            this.gb_PromoteStatus.Controls.Add(this.rb_Repeated);
-            this.gb_PromoteStatus.Controls.Add(this.rb_Promoted);
-            this.gb_PromoteStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_PromoteStatus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.gb_PromoteStatus.Location = new System.Drawing.Point(415, 1591);
-            this.gb_PromoteStatus.Name = "gb_PromoteStatus";
-            this.gb_PromoteStatus.Size = new System.Drawing.Size(200, 100);
-            this.gb_PromoteStatus.TabIndex = 87;
-            this.gb_PromoteStatus.TabStop = false;
-            this.gb_PromoteStatus.Text = "Student Promote Status";
-            this.gb_PromoteStatus.Visible = false;
-            // 
-            // rb_Promoted
-            // 
-            this.rb_Promoted.AutoSize = true;
-            this.rb_Promoted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Promoted.ForeColor = System.Drawing.Color.Green;
-            this.rb_Promoted.Location = new System.Drawing.Point(44, 28);
-            this.rb_Promoted.Name = "rb_Promoted";
-            this.rb_Promoted.Size = new System.Drawing.Size(87, 19);
-            this.rb_Promoted.TabIndex = 0;
-            this.rb_Promoted.TabStop = true;
-            this.rb_Promoted.Text = "Promoted";
-            this.rb_Promoted.UseVisualStyleBackColor = true;
-            // 
-            // rb_Repeated
-            // 
-            this.rb_Repeated.AutoSize = true;
-            this.rb_Repeated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Repeated.ForeColor = System.Drawing.Color.Red;
-            this.rb_Repeated.Location = new System.Drawing.Point(44, 62);
-            this.rb_Repeated.Name = "rb_Repeated";
-            this.rb_Repeated.Size = new System.Drawing.Size(87, 19);
-            this.rb_Repeated.TabIndex = 1;
-            this.rb_Repeated.TabStop = true;
-            this.rb_Repeated.Text = "Repeated";
-            this.rb_Repeated.UseVisualStyleBackColor = true;
-            // 
             // Principal_Student_Report_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -738,13 +738,13 @@ namespace eReportCard
             this.Load += new System.EventHandler(this.Principal_Student_Report_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gb_PromoteStatus.ResumeLayout(false);
+            this.gb_PromoteStatus.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal_Form)).EndInit();
-            this.gb_PromoteStatus.ResumeLayout(false);
-            this.gb_PromoteStatus.PerformLayout();
             this.ResumeLayout(false);
 
         }

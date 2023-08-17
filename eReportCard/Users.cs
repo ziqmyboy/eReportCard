@@ -15,5 +15,6 @@ namespace eReportCard
         public string SchoolID { get; set; }
         public string UserID { get; set; }
         public string ProfessionID { get; set; }
+        public string rcData { get; set; }
     }
 }

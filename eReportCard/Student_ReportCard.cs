@@ -54,7 +54,7 @@ namespace eReportCard
                 label16.Enabled = false;
                 txtExam_Mark.Enabled = false;
             }
-            else if(date == "5" || date == "6" || date == "7")
+            else if(date == "5" || date == "6" || date == "7" || date == "8")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
@@ -66,27 +66,48 @@ namespace eReportCard
 
         }
 
-        private void Student_ReportCard_Load(object sender, EventArgs e)
+        private async void Student_ReportCard_Load(object sender, EventArgs e)
         {
             client = new FireSharp.FirebaseClient(config);
 
-            //getting students name registered in the class from database 
-            FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text);
-            Dictionary<string, Register_Data> data = JsonConvert.DeserializeObject<Dictionary<string, Register_Data>>(res.Body.ToString());
-            populateCB(data);
-        }
+            FirebaseResponse resp = await client.GetTaskAsync("USERS/" + Login.uID);
+            Users get = resp.ResultAs<Users>();
 
-
-#region method used to populate combobox with list of students registered in the class
-        private void populateCB(Dictionary<string, Register_Data> record)
-        {
-            cbStudent_Name.Items.Clear();
-            foreach (var item in record)
+            if (get.rcData == "NO DATA")
             {
-                cbStudent_Name.Items.Add(item.Key.ToString());
+                MessageBox.Show("Students must be Registered before using this tab","NO DATA");
+                return;
+            }
+
+            //getting list of registered students from db
+            int i = 0;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
+
+            //cbStudent_Name.Items.Clear();
+
+            while (true)
+            {
+
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data name = res.ResultAs<Register_Data>();
+                    cbStudent_Name.Items.Add(name.FullName);
+
+                }
+                catch
+                {
+                }
             }
         }
-#endregion
 
 
         private async void btnInsert_Click(object sender, EventArgs e)
@@ -377,10 +398,13 @@ namespace eReportCard
 
         private async void btnSave_ReportCard_Click(object sender, EventArgs e)
         {
+            btnSave_ReportCard.Text = "Saving...";
             if (string.IsNullOrWhiteSpace(cbRegularity.Text) || string.IsNullOrWhiteSpace(cbPunctuality.Text) || string.IsNullOrWhiteSpace(cbIndustry.Text) || string.IsNullOrWhiteSpace(cbPersonal_Appearance.Text) || string.IsNullOrWhiteSpace(cbSocial_Relationship.Text)
                 || string.IsNullOrWhiteSpace(cbConduct.Text)|| string.IsNullOrWhiteSpace(cbReliability.Text) || string.IsNullOrWhiteSpace(cbSportsmanship.Text) || string.IsNullOrWhiteSpace(cbCo_operation.Text) || string.IsNullOrWhiteSpace(txtGeneral_Comments.Text))
             {
                 MessageBox.Show("Please ensure all fields are entered properly!", "M I S S I N G!");
+
+                btnSave_ReportCard.Text = "Save Report Card";
             }
             else
             {
@@ -421,17 +445,45 @@ namespace eReportCard
                 SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
                 Course_Data_cont result = response.ResultAs<Course_Data_cont>();
 
+                btnSave_ReportCard.Text = "Save Report Card";
             }
         }
 
-        private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            FirebaseResponse resp = await client.GetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
-            Register_Data get = resp.ResultAs<Register_Data>();
+            int i = 0;
+            string name = cbStudent_Name.Text;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
 
-            lblStudent_ID.Text = get.StudentID;
-            txtCourse_Name.Focus();
+            while (true)
+            {
+
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data dbStudentName = res.ResultAs<Register_Data>();
+
+                    if (cbStudent_Name.Text == dbStudentName.FullName)
+                    {
+                        lblStudent_ID.Text = dbStudentName.StudentID;
+                        //return;
+                    }
+
+
+
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void cbStudent_Name_Click(object sender, EventArgs e)

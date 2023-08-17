@@ -132,9 +132,9 @@ namespace eReportCard
             this.lblStudent_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblStudent_ID.Location = new System.Drawing.Point(114, 108);
             this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(23, 15);
+            this.lblStudent_ID.Size = new System.Drawing.Size(55, 15);
             this.lblStudent_ID.TabIndex = 1;
-            this.lblStudent_ID.Text = "----";
+            this.lblStudent_ID.Text = "------------";
             // 
             // lblEdit_StudentID
             // 
@@ -144,7 +144,7 @@ namespace eReportCard
             this.lblEdit_StudentID.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblEdit_StudentID.Location = new System.Drawing.Point(223, 105);
             this.lblEdit_StudentID.Name = "lblEdit_StudentID";
-            this.lblEdit_StudentID.Size = new System.Drawing.Size(28, 16);
+            this.lblEdit_StudentID.Size = new System.Drawing.Size(27, 16);
             this.lblEdit_StudentID.TabIndex = 0;
             this.lblEdit_StudentID.Text = "edit";
             this.lblEdit_StudentID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

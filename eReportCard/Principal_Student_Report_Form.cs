@@ -55,7 +55,7 @@ namespace eReportCard
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "2nd Term";
             }
-            else if (date == "5" || date == "6" || date == "7")
+            else if (date == "5" || date == "6" || date == "7" || date == "8")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
@@ -72,44 +72,77 @@ namespace eReportCard
         {
             client = new FireSharp.FirebaseClient(config);
 
-            //getting students name registered in the class from database 
-            FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text);
-            Dictionary<string, Register_Data> data = JsonConvert.DeserializeObject<Dictionary<string, Register_Data>>(res.Body.ToString());
-            populateCB(data);
+            //getting list of registered students from db
+            int i = 0;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
 
-            //adding columns to datagridview on startup.
-            dt.Columns.Add("Course");
-            dt.Columns.Add("Teacher");
-            dt.Columns.Add("Term");
-            dt.Columns.Add("Exam");
-            dt.Columns.Add("Comments");
+            //cbStudent_Name.Items.Clear();
 
-            dgvPrincipal_Form.DataSource = dt;
-        }
-
-#region method used to populate combobox with list of students registered in the class
-        private void populateCB(Dictionary<string, Register_Data> record)
-        {
-            cbStudent_Name.Items.Clear();
-            foreach (var item in record)
+            while (true)
             {
-                cbStudent_Name.Items.Add(item.Key.ToString());
+
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data name = res.ResultAs<Register_Data>();
+                    cbStudent_Name.Items.Add(name.FullName);
+
+                }
+                catch
+                {
+                }
             }
         }
-        #endregion
+
+
 
         private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int i = 0;
+            string name = cbStudent_Name.Text;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
 
-            FirebaseResponse resp1 = await client.GetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
-            Register_Data get1 = resp1.ResultAs<Register_Data>();
+            while (true)
+            {
 
-            lblStudent_ID.Text = get1.StudentID;
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
 
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data dbStudentName = res.ResultAs<Register_Data>();
 
+                    if (cbStudent_Name.Text == dbStudentName.FullName)
+                    {
+                        lblStudent_ID.Text = dbStudentName.StudentID;
+                        
+
+                        
+                    }
+
+                }
+                catch
+                {
+                }
+
+                
+            }
             export();
-
-
+            
 
             FirebaseResponse resp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
             Course_Data_cont get2 = resp2.ResultAs<Course_Data_cont>();
@@ -133,6 +166,15 @@ namespace eReportCard
 
         private async void export()
         {
+            //adding columns to datagridview on startup.
+            dt.Columns.Add("Course");
+            dt.Columns.Add("Teacher");
+            dt.Columns.Add("Term");
+            dt.Columns.Add("Exam");
+            dt.Columns.Add("Comments");
+
+            dgvPrincipal_Form.DataSource = dt;
+
             dt.Rows.Clear();
 
             int i = 0;
@@ -170,12 +212,13 @@ namespace eReportCard
             }
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+            btnSave.Text = "Saving...";
             if (string.IsNullOrWhiteSpace(txtPrincipal_Comments.Text))
             {
                 MessageBox.Show("Principal's comments can't be empty!", "M I S S I N G!");
+                btnSave.Text = "SAVE";
             }
             else
             {
@@ -259,6 +302,8 @@ namespace eReportCard
             rb_Repeated.Checked = false;
 
             dt.Rows.Clear();
+
+            btnSave.Text = "SAVE";
         }
 
         private void cbStudent_Name_Click(object sender, EventArgs e)

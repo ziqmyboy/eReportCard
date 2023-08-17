@@ -83,6 +83,7 @@ namespace eReportCard
             this.btnTranscript.TabIndex = 0;
             this.btnTranscript.Text = "Transcript";
             this.btnTranscript.UseVisualStyleBackColor = true;
+            this.btnTranscript.Visible = false;
             this.btnTranscript.Click += new System.EventHandler(this.btnTranscript_Click);
             // 
             // btnClass_Register

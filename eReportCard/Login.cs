@@ -41,12 +41,13 @@ namespace eReportCard
             );
 
 
-        public string uID;
-        public string pass;
+        public static string uID;
+        public static string pass;
         public static string nameID;
-        public string professionID;
+        public static string professionID;
         public static string classID;
         public static string schoolID;
+        public static string rcDATA;
 
 
         public Login()
@@ -80,6 +81,8 @@ namespace eReportCard
         //login user method
         private async void loginUser()
         {
+            btnLogin.Text = "Loading....";
+            btnLogin.ForeColor = Color.LightSeaGreen;
 
             //error checking
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -88,6 +91,8 @@ namespace eReportCard
                 txtPassword.Text = "";
                 MessageBox.Show("Username and Password fields required.", "ERROR!!!");
                 txtUsername.Focus();
+                btnLogin.Text = "LOG IN";
+                btnLogin.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else
             {
@@ -100,7 +105,8 @@ namespace eReportCard
                 professionID = users.ProfessionID;
                 nameID = users.NameID;
                 classID = users.ClassID;
-                schoolID = users.SchoolID + " School";
+                schoolID = users.SchoolID;
+                rcDATA = users.rcData;
 
                 if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
                 {
@@ -129,6 +135,8 @@ namespace eReportCard
                     txtPassword.Text = "";
                     MessageBox.Show("User does not exist!", "E R R O R");
                     txtUsername.Focus();
+                    btnLogin.Text = "LOG IN";
+                    btnLogin.ForeColor = Color.FromArgb(0, 117, 214);
                 }
             }
         }

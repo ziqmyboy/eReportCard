@@ -654,9 +654,9 @@ namespace eReportCard
             this.lblExam_Avg.ForeColor = System.Drawing.Color.Blue;
             this.lblExam_Avg.Location = new System.Drawing.Point(585, 695);
             this.lblExam_Avg.Name = "lblExam_Avg";
-            this.lblExam_Avg.Size = new System.Drawing.Size(65, 18);
+            this.lblExam_Avg.Size = new System.Drawing.Size(58, 18);
             this.lblExam_Avg.TabIndex = 0;
-            this.lblExam_Avg.Text = "45%  D- ";
+            this.lblExam_Avg.Text = "----------";
             this.lblExam_Avg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTerm_Avg
@@ -666,9 +666,9 @@ namespace eReportCard
             this.lblTerm_Avg.ForeColor = System.Drawing.Color.Blue;
             this.lblTerm_Avg.Location = new System.Drawing.Point(498, 695);
             this.lblTerm_Avg.Name = "lblTerm_Avg";
-            this.lblTerm_Avg.Size = new System.Drawing.Size(71, 18);
+            this.lblTerm_Avg.Size = new System.Drawing.Size(58, 18);
             this.lblTerm_Avg.TabIndex = 0;
-            this.lblTerm_Avg.Text = "100%  A+";
+            this.lblTerm_Avg.Text = "----------";
             this.lblTerm_Avg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
@@ -974,7 +974,7 @@ namespace eReportCard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1033, 583);
+            this.ClientSize = new System.Drawing.Size(1050, 583);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Student_ReportCard";

@@ -135,7 +135,7 @@ namespace eReportCard
             this.btnGrade_6.Name = "btnGrade_6";
             this.btnGrade_6.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_6.TabIndex = 0;
-            this.btnGrade_6.Text = "Grade 6";
+            this.btnGrade_6.Text = "K1";
             this.btnGrade_6.UseVisualStyleBackColor = true;
             this.btnGrade_6.Click += new System.EventHandler(this.btnGrade_6_Click);
             // 

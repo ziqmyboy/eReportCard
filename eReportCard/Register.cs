@@ -76,8 +76,8 @@ namespace eReportCard
             }
             if (institutions == "Pre School")
             {
-                txtSchoolName.Items.AddRange(new object[] { "Good News PreSchool"/*add more schools here*/ });
-                txtSchoolName.AutoCompleteCustomSource.AddRange(new string[] { "Good News PreSchool"/*add more schools here*/ });
+                txtSchoolName.Items.AddRange(new object[] { "Good News PreSchool "/*add more schools here*/ });
+                txtSchoolName.AutoCompleteCustomSource.AddRange(new string[] { "Good News PreSchool "/*add more schools here*/ });
 
                 //adding class level
                 cbClassID.Items.AddRange(new object[] { "K1", "K2" });
@@ -135,41 +135,56 @@ namespace eReportCard
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
+            btnRegister.Text = "Loading....";
+            btnRegister.ForeColor = Color.LightSeaGreen;
+
             //error checking
             if (string.IsNullOrWhiteSpace(txtNewUsername.Text))
             {
                 pTxtNewUser.BackColor = Color.Red;
                 MessageBox.Show("Username field required.", "ERROR!!!");
                 txtNewUsername.Focus();
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (string.IsNullOrWhiteSpace(txtNewPassword.Text))
             {
                 pTxtNewPassword.BackColor = Color.Red;
                 MessageBox.Show("Password field required.", "ERROR!!!");
                 txtNewPassword.Focus();
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text) || txtNewPassword.Text != txtConfirmPassword.Text)
             {
                 pTxtConfirmPassword.BackColor = Color.Red;
                 MessageBox.Show("Password fields are not the same.", "ERROR!!!");
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (string.IsNullOrWhiteSpace(txtTeacher_Principal_Name.Text))
             {
                 pTxtPrincipal_Teacher.BackColor = Color.Red;
                 MessageBox.Show("Name field required.", "ERROR!!!");
                 txtTeacher_Principal_Name.Focus();
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (string.IsNullOrWhiteSpace(txtSchoolName.Text))
             {
                 pTxtSchoolName.BackColor = Color.Red;
                 MessageBox.Show("School name field required.", "ERROR!!!");
                 txtSchoolName.Focus();
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (Profession_Institution.profession == "Teacher" && cbClassID.Text == string.Empty)
             {
                 plClassID.BackColor = Color.Red;
                 MessageBox.Show("Class ID is required.", "ERROR!!!");
                 cbClassID.Focus();
+                btnRegister.Text = "REGISTER";
+                btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
             }
             else if (Profession_Institution.profession == "Teacher")
             {
@@ -192,7 +207,10 @@ namespace eReportCard
                     ClassID = cbClassID.Text,
                     NameID = txtTeacher_Principal_Name.Text,
                     ProfessionID = Profession_Institution.profession,
-                    SchoolID = txtSchoolName.Text
+                    SchoolID = txtSchoolName.Text,
+
+                    //identification to know if reportcard data has been enter under teacher class
+                    rcData = "NO DATA"
                 };
 
                 // forloop to catch if username already exist.
@@ -219,14 +237,14 @@ namespace eReportCard
 
                 UserCounter uID = new UserCounter()
                 {
-                    UserID = txtNewUsername.Text
+                    UserID = txtNewUsername.Text,
                 };
 
                 //saving data of registered user to database
                 SetResponse response = await client.SetTaskAsync("USERS/" + txtNewUsername.Text, user);
                 Users result = response.ResultAs<Users>();
 
-                //saving the total count of the registered users                //
+                //saving the total count of the registered users
                 SetResponse response1 = await client.SetTaskAsync("UserCOUNTER/", obj);
                 Counter_Class result1 = response1.ResultAs<Counter_Class>();
 

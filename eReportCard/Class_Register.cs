@@ -35,6 +35,8 @@ namespace eReportCard
         {
             InitializeComponent();
 
+
+
             lblSchool_Name.Text = Login.schoolID;
 
             // getting school year
@@ -48,7 +50,7 @@ namespace eReportCard
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "2nd Term";
             }
-            else if (date == "5" || date == "6" || date == "7")
+            else if (date == "5" || date == "6" || date == "7" || date == "8")
             {
                 lblSchool_Year.Text = DateTime.Now.AddMonths(-12).Year + " - " + DateTime.Now.Year.ToString();
                 lblTerm.Text = "3rd Term";
@@ -59,10 +61,11 @@ namespace eReportCard
                 
         }
 
-        private async void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            //
             
+            btnAdd.Text = "Adding...";
+
             string fn = txtF_Name.Text; string ln = txtL_Name.Text; student_FullName = fn + " " + ln;
 
             if (!string.IsNullOrWhiteSpace(txtF_Name.Text))
@@ -84,38 +87,55 @@ namespace eReportCard
                         else
                         {
                             MessageBox.Show("Student gender was not chosen.", "Gender");
+                            btnAdd.Text = "Add Student";
                         }
                     }
                     else
                     {
                         MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
+                        btnAdd.Text = "Add Student";
                     }
                 }
                 else
                 {
                     MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
+                    btnAdd.Text = "Add Student";
                 }
             }
             else
             {
                 MessageBox.Show("Please ensure all fields are entered properly.", "E R R O R");
+                btnAdd.Text = "Add Student";
             }
         
     }
 
         private async void addChildToDatabaseAndDataGrideView()
         {
+            btnAdd.Text = "Adding...";
+
+            FirebaseResponse resp = await client.GetTaskAsync("RegisterCOUNTER/");
+            Counter_Class get = resp.ResultAs<Counter_Class>();
 
             var register = new Register_Data
             {
-                FName = txtF_Name.Text,
-                LName = txtL_Name.Text,
+                id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                FullName = student_FullName,
                 Age = cbAge.Text,
                 Gender = gender,
                 StudentID = lblStudent_ID.Text
             };
-            SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + student_FullName, register);
+
+            SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + "Students" + "/" + register.id, register);
             Register_Data result = response.ResultAs<Register_Data>();
+
+            var obj = new Counter_Class
+            {
+                cnt = register.id
+            };
+
+            SetResponse resp2 = await client.SetTaskAsync("RegisterCOUNTER/", obj);
+            Counter_Class results = resp2.ResultAs<Counter_Class>();
 
 
             var counter_class = new Counter_Class
@@ -125,6 +145,22 @@ namespace eReportCard
 
             SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName, counter_class);
             Counter_Class result1 = response.ResultAs<Counter_Class>();
+
+            var users = new Users
+            {
+                ClassID = Login.classID,
+                NameID = Login.nameID,
+                PassID = Login.pass,
+                ProfessionID = Login.professionID,
+                SchoolID = Login.schoolID,
+                UserID = Login.uID,
+                rcData = "DATA"
+            };
+
+            //resaving data of registered user with rcDATA to database
+            SetResponse response3 = await client.SetTaskAsync("USERS/" + Login.uID, users);
+            Users result3 = response3.ResultAs<Users>();
+
 
             //adding data from textboxes to datagridview
             int n = dgvClass_Register.Rows.Add();
@@ -148,9 +184,11 @@ namespace eReportCard
 
             txtF_Name.Text = "";
             txtL_Name.Text = "";
+            lblStudent_ID.Text = "------------";
             rbMale.Checked = false;
             rbFemale.Checked = false;
             cbAge.Text = "";
+            btnAdd.Text = "Add Student";
         }
 
         private void btnSave_Class_Register_Click(object sender, EventArgs e)
@@ -261,15 +299,16 @@ namespace eReportCard
                 {
                     if (MessageBox.Show("Please Enter Student I.D.", "MISSING!!!", MessageBoxButtons.OK) == DialogResult.OK)
                     {
-                        //txtF_Name.Focus();
+                        lblEdit_StudentID.Focus();
                         txtTransfered_StudentID.Visible = false;
                         lblEdit_StudentID.Text = "edit";
-                        lblStudent_ID.Text = "----";
+                        lblStudent_ID.Text = "------------";
                         lblStudent_ID.Visible = true;
                     }
                 }
                 else
                 {
+                    rbMale.Focus();
                     lblStudent_ID.Text = txtTransfered_StudentID.Text;
                     txtTransfered_StudentID.Visible = false;
                     lblEdit_StudentID.Text = "edit";
@@ -278,6 +317,7 @@ namespace eReportCard
             }
             else
             {
+                rbMale.Focus();
                 txtTransfered_StudentID.Visible = true;
                 txtTransfered_StudentID.Focus();
                 lblEdit_StudentID.Text = "done";
