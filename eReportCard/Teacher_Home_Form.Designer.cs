@@ -59,7 +59,7 @@ namespace eReportCard
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(179, 635);
+            this.panelMenu.Size = new System.Drawing.Size(179, 596);
             this.panelMenu.TabIndex = 0;
             // 
             // panelLogo
@@ -125,7 +125,7 @@ namespace eReportCard
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(179, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1053, 41);
+            this.panelTitleBar.Size = new System.Drawing.Size(1022, 41);
             this.panelTitleBar.TabIndex = 1;
             // 
             // options
@@ -147,7 +147,7 @@ namespace eReportCard
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(991, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(960, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(31, 41);
             this.btnMinimize.TabIndex = 2;
@@ -163,7 +163,7 @@ namespace eReportCard
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1022, 0);
+            this.btnClose.Location = new System.Drawing.Point(991, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 41);
             this.btnClose.TabIndex = 0;
@@ -177,7 +177,7 @@ namespace eReportCard
             this.lblTeacher_Name.AutoSize = true;
             this.lblTeacher_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeacher_Name.ForeColor = System.Drawing.Color.White;
-            this.lblTeacher_Name.Location = new System.Drawing.Point(454, 7);
+            this.lblTeacher_Name.Location = new System.Drawing.Point(439, 7);
             this.lblTeacher_Name.Name = "lblTeacher_Name";
             this.lblTeacher_Name.Size = new System.Drawing.Size(150, 24);
             this.lblTeacher_Name.TabIndex = 0;
@@ -199,7 +199,7 @@ namespace eReportCard
             this.pMain_Display.Controls.Add(this.label3);
             this.pMain_Display.Location = new System.Drawing.Point(179, 41);
             this.pMain_Display.Name = "pMain_Display";
-            this.pMain_Display.Size = new System.Drawing.Size(1053, 594);
+            this.pMain_Display.Size = new System.Drawing.Size(1022, 552);
             this.pMain_Display.TabIndex = 2;
             // 
             // label3
@@ -208,11 +208,11 @@ namespace eReportCard
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Pristina", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.LightGray;
             this.label3.Location = new System.Drawing.Point(410, 263);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 63);
+            this.label3.Size = new System.Drawing.Size(301, 55);
             this.label3.TabIndex = 1;
             this.label3.Text = "eReportCard";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,7 +221,7 @@ namespace eReportCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 635);
+            this.ClientSize = new System.Drawing.Size(1201, 596);
             this.Controls.Add(this.pMain_Display);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);

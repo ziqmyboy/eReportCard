@@ -68,6 +68,7 @@ namespace eReportCard
             this.dgvClass_Register.Name = "dgvClass_Register";
             this.dgvClass_Register.ReadOnly = true;
             this.dgvClass_Register.RowHeadersVisible = false;
+            this.dgvClass_Register.RowHeadersWidth = 82;
             this.dgvClass_Register.Size = new System.Drawing.Size(672, 400);
             this.dgvClass_Register.TabIndex = 0;
             // 
@@ -312,7 +313,7 @@ namespace eReportCard
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1050, 583);
+            this.ClientSize = new System.Drawing.Size(1008, 586);
             this.Controls.Add(this.lblTerm);
             this.Controls.Add(this.lblSchool_Year);
             this.Controls.Add(this.lblSchool_Name);

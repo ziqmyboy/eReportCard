@@ -72,7 +72,7 @@ namespace eReportCard
             // 
             this.rbPrimarySchool.AutoSize = true;
             this.rbPrimarySchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbPrimarySchool.Location = new System.Drawing.Point(206, 184);
+            this.rbPrimarySchool.Location = new System.Drawing.Point(44, 187);
             this.rbPrimarySchool.Name = "rbPrimarySchool";
             this.rbPrimarySchool.Size = new System.Drawing.Size(108, 19);
             this.rbPrimarySchool.TabIndex = 0;
@@ -186,7 +186,7 @@ namespace eReportCard
             // 
             this.rbPreSchool.AutoSize = true;
             this.rbPreSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbPreSchool.Location = new System.Drawing.Point(44, 184);
+            this.rbPreSchool.Location = new System.Drawing.Point(206, 187);
             this.rbPreSchool.Name = "rbPreSchool";
             this.rbPreSchool.Size = new System.Drawing.Size(85, 19);
             this.rbPreSchool.TabIndex = 18;

@@ -56,7 +56,6 @@ namespace eReportCard
             // 
             // btnGrade_2
             // 
-            this.btnGrade_2.Enabled = false;
             this.btnGrade_2.FlatAppearance.BorderSize = 0;
             this.btnGrade_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrade_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,7 +134,7 @@ namespace eReportCard
             this.btnGrade_6.Name = "btnGrade_6";
             this.btnGrade_6.Size = new System.Drawing.Size(176, 41);
             this.btnGrade_6.TabIndex = 0;
-            this.btnGrade_6.Text = "K1";
+            this.btnGrade_6.Text = "Grade 6";
             this.btnGrade_6.UseVisualStyleBackColor = true;
             this.btnGrade_6.Click += new System.EventHandler(this.btnGrade_6_Click);
             // 
@@ -277,11 +276,11 @@ namespace eReportCard
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Pristina", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
             this.label2.Location = new System.Drawing.Point(442, 220);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 63);
+            this.label2.Size = new System.Drawing.Size(301, 55);
             this.label2.TabIndex = 0;
             this.label2.Text = "eReportCard";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

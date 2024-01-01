@@ -134,7 +134,7 @@ namespace eReportCard
                 {
                     txtUsername.Text = "";
                     txtPassword.Text = "";
-                    MessageBox.Show("Invalid User!\nYour username or password is incorrect.", "E R R O R");
+                    MessageBox.Show("Your username or password is incorrect.", "Invalid User!");
                     txtUsername.Focus();
                     btnLogin.Text = "LOG IN";
                     btnLogin.ForeColor = Color.FromArgb(0, 117, 214);

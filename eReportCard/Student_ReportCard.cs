@@ -53,6 +53,8 @@ namespace eReportCard
                 txtExam_Mark.Text = "0";
                 label16.Enabled = false;
                 txtExam_Mark.Enabled = false;
+                lblExam_Grade.Text = "";
+                
             }
             else if(date == "5" || date == "6" || date == "7" || date == "8")
             {
@@ -114,7 +116,7 @@ namespace eReportCard
         private async void btnInsert_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtCourse_Name.Text) || string.IsNullOrWhiteSpace(txtTerm_Mark.Text) || string.IsNullOrWhiteSpace(txtExam_Mark.Text) || string.IsNullOrWhiteSpace(txtComments.Text))
+            if (string.IsNullOrWhiteSpace(txtCourse_Name.Text) || string.IsNullOrWhiteSpace(txtTerm_Mark.Text) || string.IsNullOrWhiteSpace(txtExam_Mark.Text) || string.IsNullOrWhiteSpace(txtComments.Text) || cbStudent_Name.Text == "Select Student")
             {
                 MessageBox.Show("Please ensure all fields are entered properly!", "E R R O R");
             }
@@ -241,10 +243,21 @@ namespace eReportCard
                 };
 
                 //clearing out the txtboxes
-                txtCourse_Name.Text = "";
-                txtTerm_Mark.Text = "";
-                txtExam_Mark.Text = "";
-                txtComments.Text = "";
+                if (date == "1" || date == "2" || date == "3" || date == "4")
+                {
+                    txtCourse_Name.Text = "";
+                    txtTerm_Mark.Text = "";
+                    txtExam_Mark.Text = "0";
+                    txtComments.Text = "";
+                }
+                else
+                {
+                    txtCourse_Name.Text = "";
+                    txtTerm_Mark.Text = "";
+                    txtExam_Mark.Text = "";
+                    txtComments.Text = "";
+                }
+                
 
                 SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + course_data.id, course_data);
                 Course_Data result = response.ResultAs<Course_Data>();
@@ -444,7 +457,7 @@ namespace eReportCard
                 Course_Data_cont result = response.ResultAs<Course_Data_cont>();
 
                 //clearing out the txtboxes
-
+                txtCourse_Name.Text = "";
                 lblStudent_ID.Text = "-----------";
                 lblSchool_Name.Focus();
                 cbStudent_Name.Text = "Select Student";
