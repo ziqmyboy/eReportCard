@@ -31,7 +31,7 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTerm = new System.Windows.Forms.Label();
             this.lblExam_Grade = new System.Windows.Forms.Label();
@@ -106,9 +106,10 @@ namespace eReportCard
             // 
             label22.AutoSize = true;
             label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label22.Location = new System.Drawing.Point(288, 829);
+            label22.Location = new System.Drawing.Point(576, 1594);
+            label22.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(181, 17);
+            label22.Size = new System.Drawing.Size(327, 31);
             label22.TabIndex = 0;
             label22.Text = "P:  Needs  Improvement";
             label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,9 +118,10 @@ namespace eReportCard
             // 
             label23.AutoSize = true;
             label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label23.Location = new System.Drawing.Point(621, 829);
+            label23.Location = new System.Drawing.Point(1242, 1594);
+            label23.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(212, 17);
+            label23.Size = new System.Drawing.Size(378, 31);
             label23.TabIndex = 0;
             label23.Text = "F:  Needs  Urgent  Attention";
             label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,18 +185,20 @@ namespace eReportCard
             this.panel1.Controls.Add(this.lblSchool_Year);
             this.panel1.Controls.Add(this.lblSchool_Name);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-10, -3);
+            this.panel1.Location = new System.Drawing.Point(-20, -6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1016, 1591);
+            this.panel1.Size = new System.Drawing.Size(2032, 3060);
             this.panel1.TabIndex = 0;
             // 
             // lblTerm
             // 
             this.lblTerm.AutoSize = true;
             this.lblTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerm.Location = new System.Drawing.Point(27, 84);
+            this.lblTerm.Location = new System.Drawing.Point(54, 162);
+            this.lblTerm.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTerm.Name = "lblTerm";
-            this.lblTerm.Size = new System.Drawing.Size(63, 15);
+            this.lblTerm.Size = new System.Drawing.Size(116, 29);
             this.lblTerm.TabIndex = 21;
             this.lblTerm.Text = "1st Term";
             // 
@@ -203,9 +207,10 @@ namespace eReportCard
             this.lblExam_Grade.AutoSize = true;
             this.lblExam_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExam_Grade.ForeColor = System.Drawing.Color.Blue;
-            this.lblExam_Grade.Location = new System.Drawing.Point(562, 268);
+            this.lblExam_Grade.Location = new System.Drawing.Point(1124, 515);
+            this.lblExam_Grade.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblExam_Grade.Name = "lblExam_Grade";
-            this.lblExam_Grade.Size = new System.Drawing.Size(41, 17);
+            this.lblExam_Grade.Size = new System.Drawing.Size(79, 31);
             this.lblExam_Grade.TabIndex = 20;
             this.lblExam_Grade.Text = "% B+";
             this.lblExam_Grade.Visible = false;
@@ -215,9 +220,10 @@ namespace eReportCard
             this.lblTerm_Grade.AutoSize = true;
             this.lblTerm_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTerm_Grade.ForeColor = System.Drawing.Color.Blue;
-            this.lblTerm_Grade.Location = new System.Drawing.Point(469, 268);
+            this.lblTerm_Grade.Location = new System.Drawing.Point(938, 515);
+            this.lblTerm_Grade.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTerm_Grade.Name = "lblTerm_Grade";
-            this.lblTerm_Grade.Size = new System.Drawing.Size(41, 17);
+            this.lblTerm_Grade.Size = new System.Drawing.Size(79, 31);
             this.lblTerm_Grade.TabIndex = 20;
             this.lblTerm_Grade.Text = "% A+";
             this.lblTerm_Grade.Visible = false;
@@ -232,9 +238,10 @@ namespace eReportCard
             this.btnSave_ReportCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave_ReportCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_ReportCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.btnSave_ReportCard.Location = new System.Drawing.Point(843, 1533);
+            this.btnSave_ReportCard.Location = new System.Drawing.Point(1686, 2948);
+            this.btnSave_ReportCard.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSave_ReportCard.Name = "btnSave_ReportCard";
-            this.btnSave_ReportCard.Size = new System.Drawing.Size(170, 37);
+            this.btnSave_ReportCard.Size = new System.Drawing.Size(340, 71);
             this.btnSave_ReportCard.TabIndex = 19;
             this.btnSave_ReportCard.Text = "Save Report Card";
             this.btnSave_ReportCard.UseVisualStyleBackColor = false;
@@ -243,9 +250,11 @@ namespace eReportCard
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtGeneral_Comments);
-            this.groupBox1.Location = new System.Drawing.Point(48, 1253);
+            this.groupBox1.Location = new System.Drawing.Point(96, 2410);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(928, 113);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(1856, 217);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Comments";
@@ -253,10 +262,11 @@ namespace eReportCard
             // txtGeneral_Comments
             // 
             this.txtGeneral_Comments.ForeColor = System.Drawing.Color.Blue;
-            this.txtGeneral_Comments.Location = new System.Drawing.Point(90, 25);
+            this.txtGeneral_Comments.Location = new System.Drawing.Point(180, 48);
+            this.txtGeneral_Comments.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtGeneral_Comments.Multiline = true;
             this.txtGeneral_Comments.Name = "txtGeneral_Comments";
-            this.txtGeneral_Comments.Size = new System.Drawing.Size(773, 74);
+            this.txtGeneral_Comments.Size = new System.Drawing.Size(1542, 139);
             this.txtGeneral_Comments.TabIndex = 17;
             // 
             // cbRegularity
@@ -277,9 +287,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbRegularity.Location = new System.Drawing.Point(274, 891);
+            this.cbRegularity.Location = new System.Drawing.Point(548, 1713);
+            this.cbRegularity.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbRegularity.Name = "cbRegularity";
-            this.cbRegularity.Size = new System.Drawing.Size(37, 21);
+            this.cbRegularity.Size = new System.Drawing.Size(70, 33);
             this.cbRegularity.TabIndex = 8;
             // 
             // cbCo_operation
@@ -300,9 +311,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbCo_operation.Location = new System.Drawing.Point(273, 1154);
+            this.cbCo_operation.Location = new System.Drawing.Point(546, 2219);
+            this.cbCo_operation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbCo_operation.Name = "cbCo_operation";
-            this.cbCo_operation.Size = new System.Drawing.Size(39, 21);
+            this.cbCo_operation.Size = new System.Drawing.Size(74, 33);
             this.cbCo_operation.TabIndex = 16;
             // 
             // cbSportsmanship
@@ -323,9 +335,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbSportsmanship.Location = new System.Drawing.Point(273, 1119);
+            this.cbSportsmanship.Location = new System.Drawing.Point(546, 2152);
+            this.cbSportsmanship.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbSportsmanship.Name = "cbSportsmanship";
-            this.cbSportsmanship.Size = new System.Drawing.Size(39, 21);
+            this.cbSportsmanship.Size = new System.Drawing.Size(74, 33);
             this.cbSportsmanship.TabIndex = 15;
             // 
             // cbReliability
@@ -346,9 +359,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbReliability.Location = new System.Drawing.Point(273, 1084);
+            this.cbReliability.Location = new System.Drawing.Point(546, 2085);
+            this.cbReliability.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbReliability.Name = "cbReliability";
-            this.cbReliability.Size = new System.Drawing.Size(39, 21);
+            this.cbReliability.Size = new System.Drawing.Size(74, 33);
             this.cbReliability.TabIndex = 14;
             // 
             // cbConduct
@@ -369,9 +383,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbConduct.Location = new System.Drawing.Point(273, 1052);
+            this.cbConduct.Location = new System.Drawing.Point(546, 2023);
+            this.cbConduct.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbConduct.Name = "cbConduct";
-            this.cbConduct.Size = new System.Drawing.Size(39, 21);
+            this.cbConduct.Size = new System.Drawing.Size(74, 33);
             this.cbConduct.TabIndex = 13;
             // 
             // cbSocial_Relationship
@@ -392,9 +407,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbSocial_Relationship.Location = new System.Drawing.Point(273, 1019);
+            this.cbSocial_Relationship.Location = new System.Drawing.Point(546, 1960);
+            this.cbSocial_Relationship.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbSocial_Relationship.Name = "cbSocial_Relationship";
-            this.cbSocial_Relationship.Size = new System.Drawing.Size(39, 21);
+            this.cbSocial_Relationship.Size = new System.Drawing.Size(74, 33);
             this.cbSocial_Relationship.TabIndex = 12;
             // 
             // cbPersonal_Appearance
@@ -415,9 +431,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbPersonal_Appearance.Location = new System.Drawing.Point(273, 987);
+            this.cbPersonal_Appearance.Location = new System.Drawing.Point(546, 1898);
+            this.cbPersonal_Appearance.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbPersonal_Appearance.Name = "cbPersonal_Appearance";
-            this.cbPersonal_Appearance.Size = new System.Drawing.Size(39, 21);
+            this.cbPersonal_Appearance.Size = new System.Drawing.Size(74, 33);
             this.cbPersonal_Appearance.TabIndex = 11;
             // 
             // cbIndustry
@@ -438,9 +455,10 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbIndustry.Location = new System.Drawing.Point(273, 953);
+            this.cbIndustry.Location = new System.Drawing.Point(546, 1833);
+            this.cbIndustry.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbIndustry.Name = "cbIndustry";
-            this.cbIndustry.Size = new System.Drawing.Size(39, 21);
+            this.cbIndustry.Size = new System.Drawing.Size(74, 33);
             this.cbIndustry.TabIndex = 10;
             // 
             // cbPunctuality
@@ -461,17 +479,19 @@ namespace eReportCard
             "C",
             "P",
             "F"});
-            this.cbPunctuality.Location = new System.Drawing.Point(273, 922);
+            this.cbPunctuality.Location = new System.Drawing.Point(546, 1773);
+            this.cbPunctuality.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbPunctuality.Name = "cbPunctuality";
-            this.cbPunctuality.Size = new System.Drawing.Size(39, 21);
+            this.cbPunctuality.Size = new System.Drawing.Size(74, 33);
             this.cbPunctuality.TabIndex = 9;
             // 
             // btnInsert
             // 
             this.btnInsert.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnInsert.Location = new System.Drawing.Point(898, 261);
+            this.btnInsert.Location = new System.Drawing.Point(1796, 502);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(90, 29);
+            this.btnInsert.Size = new System.Drawing.Size(180, 56);
             this.btnInsert.TabIndex = 6;
             this.btnInsert.Text = "INSERT";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -494,17 +514,20 @@ namespace eReportCard
             this.Column4,
             this.Column6,
             this.Column5});
-            this.dgvReport_Card.Location = new System.Drawing.Point(27, 318);
+            this.dgvReport_Card.Location = new System.Drawing.Point(54, 612);
+            this.dgvReport_Card.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvReport_Card.Name = "dgvReport_Card";
             this.dgvReport_Card.ReadOnly = true;
             this.dgvReport_Card.RowHeadersVisible = false;
-            this.dgvReport_Card.Size = new System.Drawing.Size(967, 350);
+            this.dgvReport_Card.RowHeadersWidth = 82;
+            this.dgvReport_Card.Size = new System.Drawing.Size(1934, 673);
             this.dgvReport_Card.TabIndex = 7;
             // 
             // Column1
             // 
             this.Column1.FillWeight = 449.2386F;
             this.Column1.HeaderText = "Course";
+            this.Column1.MinimumWidth = 10;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -514,6 +537,7 @@ namespace eReportCard
             // 
             this.Column2.FillWeight = 12.69035F;
             this.Column2.HeaderText = "Teacher";
+            this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -523,6 +547,7 @@ namespace eReportCard
             // 
             this.Column3.FillWeight = 12.69035F;
             this.Column3.HeaderText = "Term";
+            this.Column3.MinimumWidth = 10;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -531,6 +556,7 @@ namespace eReportCard
             // Column7
             // 
             this.Column7.HeaderText = "";
+            this.Column7.MinimumWidth = 10;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -538,10 +564,11 @@ namespace eReportCard
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column4.FillWeight = 12.69035F;
             this.Column4.HeaderText = "Final Exam";
+            this.Column4.MinimumWidth = 10;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -550,6 +577,7 @@ namespace eReportCard
             // Column6
             // 
             this.Column6.HeaderText = "";
+            this.Column6.MinimumWidth = 10;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -560,6 +588,7 @@ namespace eReportCard
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.FillWeight = 12.69035F;
             this.Column5.HeaderText = "Comments";
+            this.Column5.MinimumWidth = 10;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -567,18 +596,20 @@ namespace eReportCard
             // txtComments
             // 
             this.txtComments.ForeColor = System.Drawing.Color.Blue;
-            this.txtComments.Location = new System.Drawing.Point(624, 266);
+            this.txtComments.Location = new System.Drawing.Point(1248, 512);
+            this.txtComments.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(239, 20);
+            this.txtComments.Size = new System.Drawing.Size(474, 31);
             this.txtComments.TabIndex = 5;
             // 
             // txtExam_Mark
             // 
             this.txtExam_Mark.ForeColor = System.Drawing.Color.Blue;
-            this.txtExam_Mark.Location = new System.Drawing.Point(526, 267);
+            this.txtExam_Mark.Location = new System.Drawing.Point(1052, 513);
+            this.txtExam_Mark.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtExam_Mark.MaxLength = 3;
             this.txtExam_Mark.Name = "txtExam_Mark";
-            this.txtExam_Mark.Size = new System.Drawing.Size(36, 20);
+            this.txtExam_Mark.Size = new System.Drawing.Size(68, 31);
             this.txtExam_Mark.TabIndex = 4;
             this.txtExam_Mark.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtExam_Mark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExam_Mark_KeyPress);
@@ -587,10 +618,11 @@ namespace eReportCard
             // txtTerm_Mark
             // 
             this.txtTerm_Mark.ForeColor = System.Drawing.Color.Blue;
-            this.txtTerm_Mark.Location = new System.Drawing.Point(430, 267);
+            this.txtTerm_Mark.Location = new System.Drawing.Point(860, 513);
+            this.txtTerm_Mark.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtTerm_Mark.MaxLength = 3;
             this.txtTerm_Mark.Name = "txtTerm_Mark";
-            this.txtTerm_Mark.Size = new System.Drawing.Size(39, 20);
+            this.txtTerm_Mark.Size = new System.Drawing.Size(74, 31);
             this.txtTerm_Mark.TabIndex = 3;
             this.txtTerm_Mark.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTerm_Mark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTerm_Mark_KeyPress);
@@ -599,26 +631,29 @@ namespace eReportCard
             // txtCourse_Name
             // 
             this.txtCourse_Name.ForeColor = System.Drawing.Color.Blue;
-            this.txtCourse_Name.Location = new System.Drawing.Point(38, 266);
+            this.txtCourse_Name.Location = new System.Drawing.Point(76, 512);
+            this.txtCourse_Name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCourse_Name.Name = "txtCourse_Name";
-            this.txtCourse_Name.Size = new System.Drawing.Size(209, 20);
+            this.txtCourse_Name.Size = new System.Drawing.Size(414, 31);
             this.txtCourse_Name.TabIndex = 2;
             // 
             // lblClassID
             // 
             this.lblClassID.AutoSize = true;
-            this.lblClassID.Location = new System.Drawing.Point(116, 202);
+            this.lblClassID.Location = new System.Drawing.Point(232, 388);
+            this.lblClassID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblClassID.Name = "lblClassID";
-            this.lblClassID.Size = new System.Drawing.Size(45, 13);
+            this.lblClassID.Size = new System.Drawing.Size(89, 25);
             this.lblClassID.TabIndex = 2;
             this.lblClassID.Text = "Grade 4";
             // 
             // lblStudent_ID
             // 
             this.lblStudent_ID.AutoSize = true;
-            this.lblStudent_ID.Location = new System.Drawing.Point(116, 175);
+            this.lblStudent_ID.Location = new System.Drawing.Point(232, 337);
+            this.lblStudent_ID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStudent_ID.Name = "lblStudent_ID";
-            this.lblStudent_ID.Size = new System.Drawing.Size(40, 13);
+            this.lblStudent_ID.Size = new System.Drawing.Size(89, 25);
             this.lblStudent_ID.TabIndex = 2;
             this.lblStudent_ID.Text = "-----------";
             this.lblStudent_ID.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -628,10 +663,11 @@ namespace eReportCard
             this.cbStudent_Name.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbStudent_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbStudent_Name.FormattingEnabled = true;
-            this.cbStudent_Name.Location = new System.Drawing.Point(119, 142);
+            this.cbStudent_Name.Location = new System.Drawing.Point(238, 273);
+            this.cbStudent_Name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbStudent_Name.MaxDropDownItems = 50;
             this.cbStudent_Name.Name = "cbStudent_Name";
-            this.cbStudent_Name.Size = new System.Drawing.Size(147, 21);
+            this.cbStudent_Name.Size = new System.Drawing.Size(290, 33);
             this.cbStudent_Name.TabIndex = 1;
             this.cbStudent_Name.Text = "Select Student";
             this.cbStudent_Name.SelectedIndexChanged += new System.EventHandler(this.cbStudent_Name_SelectedIndexChanged);
@@ -641,9 +677,10 @@ namespace eReportCard
             // 
             this.lblTeacher_Name.AutoSize = true;
             this.lblTeacher_Name.ForeColor = System.Drawing.Color.Blue;
-            this.lblTeacher_Name.Location = new System.Drawing.Point(302, 270);
+            this.lblTeacher_Name.Location = new System.Drawing.Point(604, 519);
+            this.lblTeacher_Name.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTeacher_Name.Name = "lblTeacher_Name";
-            this.lblTeacher_Name.Size = new System.Drawing.Size(66, 13);
+            this.lblTeacher_Name.Size = new System.Drawing.Size(134, 25);
             this.lblTeacher_Name.TabIndex = 0;
             this.lblTeacher_Name.Text = "Miss Nichols";
             // 
@@ -652,9 +689,10 @@ namespace eReportCard
             this.lblExam_Avg.AutoSize = true;
             this.lblExam_Avg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblExam_Avg.ForeColor = System.Drawing.Color.Blue;
-            this.lblExam_Avg.Location = new System.Drawing.Point(585, 695);
+            this.lblExam_Avg.Location = new System.Drawing.Point(1170, 1337);
+            this.lblExam_Avg.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblExam_Avg.Name = "lblExam_Avg";
-            this.lblExam_Avg.Size = new System.Drawing.Size(58, 18);
+            this.lblExam_Avg.Size = new System.Drawing.Size(115, 36);
             this.lblExam_Avg.TabIndex = 0;
             this.lblExam_Avg.Text = "----------";
             this.lblExam_Avg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -664,9 +702,10 @@ namespace eReportCard
             this.lblTerm_Avg.AutoSize = true;
             this.lblTerm_Avg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblTerm_Avg.ForeColor = System.Drawing.Color.Blue;
-            this.lblTerm_Avg.Location = new System.Drawing.Point(498, 695);
+            this.lblTerm_Avg.Location = new System.Drawing.Point(996, 1337);
+            this.lblTerm_Avg.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTerm_Avg.Name = "lblTerm_Avg";
-            this.lblTerm_Avg.Size = new System.Drawing.Size(58, 18);
+            this.lblTerm_Avg.Size = new System.Drawing.Size(115, 36);
             this.lblTerm_Avg.TabIndex = 0;
             this.lblTerm_Avg.Text = "----------";
             this.lblTerm_Avg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -675,9 +714,10 @@ namespace eReportCard
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(387, 747);
+            this.label18.Location = new System.Drawing.Point(774, 1437);
+            this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(235, 20);
+            this.label18.Size = new System.Drawing.Size(448, 37);
             this.label18.TabIndex = 0;
             this.label18.Text = "CHARACTER REPORT KEY";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -686,9 +726,10 @@ namespace eReportCard
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(659, 789);
+            this.label21.Location = new System.Drawing.Point(1318, 1517);
+            this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(119, 17);
+            this.label21.Size = new System.Drawing.Size(216, 31);
             this.label21.TabIndex = 0;
             this.label21.Text = "C:  Satisfactory";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -697,9 +738,10 @@ namespace eReportCard
             // 
             this.lblTeacher_Signature_Date.AutoSize = true;
             this.lblTeacher_Signature_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTeacher_Signature_Date.Location = new System.Drawing.Point(763, 1459);
+            this.lblTeacher_Signature_Date.Location = new System.Drawing.Point(1526, 2806);
+            this.lblTeacher_Signature_Date.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTeacher_Signature_Date.Name = "lblTeacher_Signature_Date";
-            this.lblTeacher_Signature_Date.Size = new System.Drawing.Size(110, 17);
+            this.lblTeacher_Signature_Date.Size = new System.Drawing.Size(192, 31);
             this.lblTeacher_Signature_Date.TabIndex = 0;
             this.lblTeacher_Signature_Date.Text = "28 / 05 / 2020";
             this.lblTeacher_Signature_Date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -707,11 +749,12 @@ namespace eReportCard
             // lblTeacher_Signature
             // 
             this.lblTeacher_Signature.AutoSize = true;
-            this.lblTeacher_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeacher_Signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeacher_Signature.ForeColor = System.Drawing.Color.Blue;
-            this.lblTeacher_Signature.Location = new System.Drawing.Point(418, 1457);
+            this.lblTeacher_Signature.Location = new System.Drawing.Point(836, 2802);
+            this.lblTeacher_Signature.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTeacher_Signature.Name = "lblTeacher_Signature";
-            this.lblTeacher_Signature.Size = new System.Drawing.Size(63, 17);
+            this.lblTeacher_Signature.Size = new System.Drawing.Size(102, 30);
             this.lblTeacher_Signature.TabIndex = 0;
             this.lblTeacher_Signature.Text = "zmProd";
             this.lblTeacher_Signature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -720,9 +763,10 @@ namespace eReportCard
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(180, 1455);
+            this.label33.Location = new System.Drawing.Point(360, 2798);
+            this.label33.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(155, 17);
+            this.label33.Size = new System.Drawing.Size(275, 31);
             this.label33.TabIndex = 0;
             this.label33.Text = "Teacher\'s Signature";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -731,9 +775,10 @@ namespace eReportCard
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label32.Location = new System.Drawing.Point(76, 1160);
+            this.label32.Location = new System.Drawing.Point(152, 2231);
+            this.label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(102, 17);
+            this.label32.Size = new System.Drawing.Size(183, 31);
             this.label32.TabIndex = 0;
             this.label32.Text = "Co-operation";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -742,9 +787,10 @@ namespace eReportCard
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(76, 1124);
+            this.label31.Location = new System.Drawing.Point(152, 2162);
+            this.label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(115, 17);
+            this.label31.Size = new System.Drawing.Size(208, 31);
             this.label31.TabIndex = 0;
             this.label31.Text = "Sportsmanship";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -753,9 +799,10 @@ namespace eReportCard
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label30.Location = new System.Drawing.Point(76, 1090);
+            this.label30.Location = new System.Drawing.Point(152, 2096);
+            this.label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 17);
+            this.label30.Size = new System.Drawing.Size(142, 31);
             this.label30.TabIndex = 0;
             this.label30.Text = "Reliability";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -764,9 +811,10 @@ namespace eReportCard
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(76, 1055);
+            this.label29.Location = new System.Drawing.Point(152, 2029);
+            this.label29.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(67, 17);
+            this.label29.Size = new System.Drawing.Size(123, 31);
             this.label29.TabIndex = 0;
             this.label29.Text = "Conduct";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -775,9 +823,10 @@ namespace eReportCard
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label28.Location = new System.Drawing.Point(76, 1022);
+            this.label28.Location = new System.Drawing.Point(152, 1965);
+            this.label28.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(147, 17);
+            this.label28.Size = new System.Drawing.Size(264, 31);
             this.label28.TabIndex = 0;
             this.label28.Text = "Social Relationship";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -786,9 +835,10 @@ namespace eReportCard
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label27.Location = new System.Drawing.Point(76, 990);
+            this.label27.Location = new System.Drawing.Point(152, 1904);
+            this.label27.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(164, 17);
+            this.label27.Size = new System.Drawing.Size(293, 31);
             this.label27.TabIndex = 0;
             this.label27.Text = "Personal Appearance";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -797,9 +847,10 @@ namespace eReportCard
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(76, 956);
+            this.label26.Location = new System.Drawing.Point(152, 1838);
+            this.label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(66, 17);
+            this.label26.Size = new System.Drawing.Size(120, 31);
             this.label26.TabIndex = 0;
             this.label26.Text = "Industry";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,9 +859,10 @@ namespace eReportCard
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(76, 925);
+            this.label25.Location = new System.Drawing.Point(152, 1779);
+            this.label25.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(88, 17);
+            this.label25.Size = new System.Drawing.Size(159, 31);
             this.label25.TabIndex = 0;
             this.label25.Text = "Punctuality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -819,9 +871,10 @@ namespace eReportCard
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label24.Location = new System.Drawing.Point(76, 894);
+            this.label24.Location = new System.Drawing.Point(152, 1719);
+            this.label24.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(82, 17);
+            this.label24.Size = new System.Drawing.Size(147, 31);
             this.label24.TabIndex = 0;
             this.label24.Text = "Regularity";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -830,9 +883,10 @@ namespace eReportCard
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(469, 789);
+            this.label20.Location = new System.Drawing.Point(938, 1517);
+            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 17);
+            this.label20.Size = new System.Drawing.Size(128, 31);
             this.label20.TabIndex = 0;
             this.label20.Text = "B:  Good";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -841,9 +895,10 @@ namespace eReportCard
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(205, 787);
+            this.label19.Location = new System.Drawing.Point(410, 1513);
+            this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(98, 17);
+            this.label19.Size = new System.Drawing.Size(177, 31);
             this.label19.TabIndex = 0;
             this.label19.Text = "A:  Excellent";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -852,9 +907,10 @@ namespace eReportCard
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(370, 693);
+            this.label5.Location = new System.Drawing.Point(740, 1333);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.Size = new System.Drawing.Size(135, 37);
             this.label5.TabIndex = 0;
             this.label5.Text = "Average";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -863,9 +919,10 @@ namespace eReportCard
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(703, 240);
+            this.label17.Location = new System.Drawing.Point(1406, 462);
+            this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 15);
+            this.label17.Size = new System.Drawing.Size(137, 29);
             this.label17.TabIndex = 0;
             this.label17.Text = "Comments";
             // 
@@ -873,9 +930,10 @@ namespace eReportCard
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(523, 234);
+            this.label16.Location = new System.Drawing.Point(1046, 450);
+            this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 30);
+            this.label16.Size = new System.Drawing.Size(77, 58);
             this.label16.TabIndex = 0;
             this.label16.Text = "Final\r\nExam";
             // 
@@ -883,9 +941,10 @@ namespace eReportCard
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(429, 233);
+            this.label15.Location = new System.Drawing.Point(858, 448);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 30);
+            this.label15.Size = new System.Drawing.Size(75, 58);
             this.label15.TabIndex = 0;
             this.label15.Text = "Term\r\nMark";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -894,9 +953,10 @@ namespace eReportCard
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(302, 241);
+            this.label14.Location = new System.Drawing.Point(604, 463);
+            this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 15);
+            this.label14.Size = new System.Drawing.Size(110, 29);
             this.label14.TabIndex = 0;
             this.label14.Text = "Teacher";
             // 
@@ -904,27 +964,30 @@ namespace eReportCard
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(109, 241);
+            this.label13.Location = new System.Drawing.Point(218, 463);
+            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 15);
+            this.label13.Size = new System.Drawing.Size(97, 29);
             this.label13.TabIndex = 0;
             this.label13.Text = "Course";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 202);
+            this.label3.Location = new System.Drawing.Point(70, 388);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(72, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Class:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 175);
+            this.label2.Location = new System.Drawing.Point(68, 337);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Student ID:";
             // 
@@ -932,9 +995,10 @@ namespace eReportCard
             // 
             this.lblGradeRC.AutoSize = true;
             this.lblGradeRC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGradeRC.Location = new System.Drawing.Point(497, 81);
+            this.lblGradeRC.Location = new System.Drawing.Point(994, 156);
+            this.lblGradeRC.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblGradeRC.Name = "lblGradeRC";
-            this.lblGradeRC.Size = new System.Drawing.Size(107, 40);
+            this.lblGradeRC.Size = new System.Drawing.Size(202, 74);
             this.lblGradeRC.TabIndex = 0;
             this.lblGradeRC.Text = "Student\r\nReport Card";
             this.lblGradeRC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -943,9 +1007,10 @@ namespace eReportCard
             // 
             this.lblSchool_Year.AutoSize = true;
             this.lblSchool_Year.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblSchool_Year.Location = new System.Drawing.Point(124, 44);
+            this.lblSchool_Year.Location = new System.Drawing.Point(248, 85);
+            this.lblSchool_Year.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblSchool_Year.Name = "lblSchool_Year";
-            this.lblSchool_Year.Size = new System.Drawing.Size(84, 15);
+            this.lblSchool_Year.Size = new System.Drawing.Size(148, 29);
             this.lblSchool_Year.TabIndex = 0;
             this.lblSchool_Year.Text = "2021 - 2022";
             // 
@@ -953,30 +1018,33 @@ namespace eReportCard
             // 
             this.lblSchool_Name.AutoSize = true;
             this.lblSchool_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSchool_Name.Location = new System.Drawing.Point(24, 27);
+            this.lblSchool_Name.Location = new System.Drawing.Point(48, 52);
+            this.lblSchool_Name.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblSchool_Name.Name = "lblSchool_Name";
-            this.lblSchool_Name.Size = new System.Drawing.Size(184, 17);
+            this.lblSchool_Name.Size = new System.Drawing.Size(332, 31);
             this.lblSchool_Name.TabIndex = 0;
             this.lblSchool_Name.Text = "Atkinson Primary School";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 145);
+            this.label1.Location = new System.Drawing.Point(70, 279);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Name:";
             // 
             // Student_ReportCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1050, 583);
+            this.ClientSize = new System.Drawing.Size(2100, 1830);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Student_ReportCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student_ReportCard";

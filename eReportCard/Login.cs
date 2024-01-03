@@ -99,7 +99,6 @@ namespace eReportCard
                 //querry the firebase
                 FirebaseResponse response = await client.GetTaskAsync("USERS/" + txtUsername.Text);
                 Users users = response.ResultAs<Users>();
-
                 uID = users.UserID;
                 pass = users.PassID;
                 professionID = users.ProfessionID;
@@ -107,6 +106,7 @@ namespace eReportCard
                 classID = users.ClassID;
                 schoolID = users.SchoolID;
                 rcDATA = users.rcData;
+                
 
                 if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
                 {

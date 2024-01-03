@@ -75,13 +75,14 @@ namespace eReportCard
 
             if (get.rcData == "NO DATA")
             {
-                MessageBox.Show("Students must be Registered before using this tab","NO DATA");
+                MessageBox.Show("Students must be Registered before using this tab\n" +
+                    "to Register a child, click on the 'Class Register' tab.","NO DATA");
                 return;
             }
 
             //getting list of registered students from db
             int i = 0;
-            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
 
@@ -402,7 +403,7 @@ namespace eReportCard
             if (string.IsNullOrWhiteSpace(cbRegularity.Text) || string.IsNullOrWhiteSpace(cbPunctuality.Text) || string.IsNullOrWhiteSpace(cbIndustry.Text) || string.IsNullOrWhiteSpace(cbPersonal_Appearance.Text) || string.IsNullOrWhiteSpace(cbSocial_Relationship.Text)
                 || string.IsNullOrWhiteSpace(cbConduct.Text)|| string.IsNullOrWhiteSpace(cbReliability.Text) || string.IsNullOrWhiteSpace(cbSportsmanship.Text) || string.IsNullOrWhiteSpace(cbCo_operation.Text) || string.IsNullOrWhiteSpace(txtGeneral_Comments.Text))
             {
-                MessageBox.Show("Please ensure all fields are entered properly!", "M I S S I N G!");
+                MessageBox.Show("Please ensure all fields are entered properly!", "M I S S I N G   F I E L D S!");
 
                 btnSave_ReportCard.Text = "Save Report Card";
             }
@@ -439,11 +440,27 @@ namespace eReportCard
 
                 };
 
-                //clearing out the txtboxes
-
-
                 SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
                 Course_Data_cont result = response.ResultAs<Course_Data_cont>();
+
+                //clearing out the txtboxes
+
+                lblStudent_ID.Text = "-----------";
+                lblSchool_Name.Focus();
+                cbStudent_Name.Text = "Select Student";
+                cbCo_operation.Text = "";
+                cbConduct.Text = "";
+                lblExam_Avg.Text = "----------";
+                txtGeneral_Comments.Text = "";
+                cbIndustry.Text = "";
+                cbPersonal_Appearance.Text = "";
+                cbPunctuality.Text = "";
+                cbRegularity.Text = "";
+                cbReliability.Text = "";
+                cbSocial_Relationship.Text = "";
+                cbSportsmanship.Text = "";
+                lblTerm_Avg.Text = "----------";
+                dgvReport_Card.Rows.Clear();
 
                 btnSave_ReportCard.Text = "Save Report Card";
             }
@@ -453,7 +470,7 @@ namespace eReportCard
         {
             int i = 0;
             string name = cbStudent_Name.Text;
-            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
 
@@ -474,11 +491,7 @@ namespace eReportCard
                     if (cbStudent_Name.Text == dbStudentName.FullName)
                     {
                         lblStudent_ID.Text = dbStudentName.StudentID;
-                        //return;
                     }
-
-
-
                 }
                 catch
                 {

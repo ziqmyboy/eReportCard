@@ -15,6 +15,8 @@ namespace eReportCard
 {
     public partial class Class_Register : Form
     {
+        DataTable dt = new DataTable();
+
         //connection to database
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -58,7 +60,71 @@ namespace eReportCard
 
             lblClassID.Text = Login.classID + "\nClass Register";
             txtF_Name.Focus();
-                
+
+        }
+
+        private async void Class_Register_Load(object sender, EventArgs e)
+        {
+            client = new FireSharp.FirebaseClient(config);
+
+            //adding columns to datagridview on startup.
+            dt.Columns.Add("Student Name");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("Age");
+
+            dgvClass_Register.DataSource = dt;
+
+            dt.Rows.Clear();
+
+            FirebaseResponse resp = await client.GetTaskAsync("USERS/" + Login.uID);
+            Users get = resp.ResultAs<Users>();
+
+            if (get.rcData == "NO DATA")
+            {
+                var rCnt = new Counter_Class
+                {
+                    cnt = "0"
+                };
+
+                SetResponse re = await client.SetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", rCnt);
+                Counter_Class r = re.ResultAs<Counter_Class>();
+                return;
+            }
+            
+
+
+            //getting list of registered students from db
+            int i = 0;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
+
+            while (true)
+            {
+
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data name = res.ResultAs<Register_Data>();
+
+                    DataRow row = dt.NewRow();
+                    row["Student Name"] = name.FullName;
+                    row["Gender"] = name.Gender;
+                    row["Age"] = name.Age;
+
+                    dt.Rows.Add(row);
+
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -114,8 +180,8 @@ namespace eReportCard
         {
             btnAdd.Text = "Adding...";
 
-            FirebaseResponse resp = await client.GetTaskAsync("RegisterCOUNTER/");
-            Counter_Class get = resp.ResultAs<Counter_Class>();
+            FirebaseResponse resp1 = await client.GetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
+            Counter_Class get = resp1.ResultAs<Counter_Class>();
 
             var register = new Register_Data
             {
@@ -134,7 +200,7 @@ namespace eReportCard
                 cnt = register.id
             };
 
-            SetResponse resp2 = await client.SetTaskAsync("RegisterCOUNTER/", obj);
+            SetResponse resp2 = await client.SetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", obj);
             Counter_Class results = resp2.ResultAs<Counter_Class>();
 
 
@@ -162,25 +228,39 @@ namespace eReportCard
             Users result3 = response3.ResultAs<Users>();
 
 
-            //adding data from textboxes to datagridview
-            int n = dgvClass_Register.Rows.Add();
-            dgvClass_Register.Rows[n].Cells[0].Value = student_FullName;
-            if (rbMale.Checked)
-            {
-                dgvClass_Register.Rows[n].Cells[1].Value = "Male";
-                gender = "Male";
-            }
-            else if (rbFemale.Checked)
-            {
-                dgvClass_Register.Rows[n].Cells[1].Value = "Female";
-                gender = "Female";
-            }
-            else
-            {
-                MessageBox.Show("Student gender was not chosen.", "Gender");
-            }
+            //getting list of registered students from db
+            int i = 0;
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
+            Counter_Class result2 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result2.cnt);
+            dt.Rows.Clear();
 
-            dgvClass_Register.Rows[n].Cells[2].Value = cbAge.Text;
+            while (true)
+            {
+
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+
+                try
+                {
+                    FirebaseResponse res = client.Get(@"REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/" + i);
+                    Register_Data name = res.ResultAs<Register_Data>();
+
+                    DataRow row = dt.NewRow();
+                    row["Student Name"] = name.FullName;
+                    row["Gender"] = name.Gender;
+                    row["Age"] = name.Age;
+
+                    dt.Rows.Add(row);
+
+                }
+                catch
+                {
+                }
+            }
 
             txtF_Name.Text = "";
             txtL_Name.Text = "";
@@ -189,47 +269,9 @@ namespace eReportCard
             rbFemale.Checked = false;
             cbAge.Text = "";
             btnAdd.Text = "Add Student";
-        }
-
-        private void btnSave_Class_Register_Click(object sender, EventArgs e)
-        {
-            //saving the class register to local database xml file
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            dt.TableName = "ClassRegister";
-            dt.Columns.Add("StudentName");
-            dt.Columns.Add("Gender");
-            dt.Columns.Add("Age");
-            ds.Tables.Add(dt);
-            foreach (DataGridViewRow r in dgvClass_Register.Rows)
-            {
-                DataRow row = ds.Tables["ClassRegister"].NewRow();
-                row["StudentName"] = r.Cells[0].Value;
-                row["Gender"] = r.Cells[1].Value;
-                row["Age"] = r.Cells[2].Value;
-                ds.Tables["ClassRegister"].Rows.Add(row);
-            }
-            ds.WriteXml(Environment.CurrentDirectory + "\\XMLFILE.xml");
 
         }
 
-        private void btnShow_Class_Register_Click(object sender, EventArgs e)
-        {
-
-            //populating dgvClass Register.
-
-            DataSet ds = new DataSet();
-            ds.ReadXml(Environment.CurrentDirectory + "\\XMLFILE.xml");
-            dgvClass_Register.Rows.Clear();
-            foreach (DataRow item in ds.Tables["ClassRegister"].Rows)
-            {
-                int n = dgvClass_Register.Rows.Add();
-                dgvClass_Register.Rows[n].Cells[0].Value = item[0];
-                dgvClass_Register.Rows[n].Cells[1].Value = item[1];
-                dgvClass_Register.Rows[n].Cells[2].Value = item[2];
-            }
-
-        }
 
         private void txtF_Name_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -270,26 +312,6 @@ namespace eReportCard
             }
         }
 
-
-        private void Class_Register_Load(object sender, EventArgs e)
-        {
-            client = new FireSharp.FirebaseClient(config);
-
-            /*
-            //populating dgvClass Register.
-
-            DataSet ds = new DataSet();
-            ds.ReadXml(Environment.CurrentDirectory + "\\XMLFILE.xml");
-            dgvClass_Register.Rows.Clear();
-            foreach (DataRow item in ds.Tables["ClassRegister"].Rows)
-            {
-                int n = dgvClass_Register.Rows.Add();
-                dgvClass_Register.Rows[n].Cells[0].Value = item[0];
-                dgvClass_Register.Rows[n].Cells[1].Value = item[1];
-                dgvClass_Register.Rows[n].Cells[2].Value = item[2];
-            }
-            */
-        }
 
         private void lblEdit_StudentID_Click(object sender, EventArgs e)
         {

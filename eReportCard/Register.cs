@@ -135,7 +135,7 @@ namespace eReportCard
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            btnRegister.Text = "Loading....";
+            btnRegister.Text = "Registering....";
             btnRegister.ForeColor = Color.LightSeaGreen;
 
             //error checking
@@ -225,6 +225,8 @@ namespace eReportCard
                     {
                         pTxtNewUser.BackColor = Color.Red;
                         MessageBox.Show("Username already Taken. Please enter a different name", "E X I S T S");
+                        btnRegister.Text = "REGISTER";
+                        btnRegister.ForeColor = Color.FromArgb(0, 117, 214);
                         return;
                     }
                 }

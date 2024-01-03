@@ -29,8 +29,8 @@ namespace eReportCard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label23;
-            System.Windows.Forms.Label label22;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label5;
             this.panel1 = new System.Windows.Forms.Panel();
             this.gb_PromoteStatus = new System.Windows.Forms.GroupBox();
             this.rb_Repeated = new System.Windows.Forms.RadioButton();
@@ -73,17 +73,17 @@ namespace eReportCard
             this.lblTerm_Avg = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.dgvPrincipal_Form = new System.Windows.Forms.DataGridView();
             this.lblClassID = new System.Windows.Forms.Label();
             this.lblStudent_ID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            label23 = new System.Windows.Forms.Label();
-            label22 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.gb_PromoteStatus.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,31 +91,14 @@ namespace eReportCard
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal_Form)).BeginInit();
             this.SuspendLayout();
             // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label23.Location = new System.Drawing.Point(527, 716);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(212, 17);
-            label23.TabIndex = 48;
-            label23.Text = "F:  Needs  Urgent  Attention";
-            label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label22.Location = new System.Drawing.Point(291, 736);
-            label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(181, 17);
-            label22.TabIndex = 45;
-            label22.Text = "P:  Needs  Improvement";
-            label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(label1);
+            this.panel1.Controls.Add(label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.gb_PromoteStatus);
             this.panel1.Controls.Add(this.cbStudent_Name);
             this.panel1.Controls.Add(this.lblTerm);
@@ -153,11 +136,6 @@ namespace eReportCard
             this.panel1.Controls.Add(this.lblTerm_Avg);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(label23);
-            this.panel1.Controls.Add(label22);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.dgvPrincipal_Form);
             this.panel1.Controls.Add(this.lblClassID);
             this.panel1.Controls.Add(this.lblStudent_ID);
@@ -630,39 +608,6 @@ namespace eReportCard
             this.label18.Text = "CHARACTER REPORT KEY";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(289, 705);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(119, 17);
-            this.label21.TabIndex = 46;
-            this.label21.Text = "C:  Satisfactory";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(114, 733);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 17);
-            this.label20.TabIndex = 50;
-            this.label20.Text = "B:  Good";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(115, 704);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(98, 17);
-            this.label19.TabIndex = 47;
-            this.label19.Text = "A:  Excellent";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dgvPrincipal_Form
             // 
             this.dgvPrincipal_Form.AllowUserToAddRows = false;
@@ -724,6 +669,61 @@ namespace eReportCard
             this.label4.TabIndex = 40;
             this.label4.Text = "Student Name:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            label1.Location = new System.Drawing.Point(612, 752);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(212, 17);
+            label1.TabIndex = 88;
+            label1.Text = "F:  Needs  Urgent  Attention";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            label5.Location = new System.Drawing.Point(279, 752);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(181, 17);
+            label5.TabIndex = 89;
+            label5.Text = "P:  Needs  Improvement";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(650, 712);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 17);
+            this.label6.TabIndex = 90;
+            this.label6.Text = "C:  Satisfactory";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(460, 712);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 17);
+            this.label8.TabIndex = 91;
+            this.label8.Text = "B:  Good";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(196, 710);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 17);
+            this.label9.TabIndex = 92;
+            this.label9.Text = "A:  Excellent";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Principal_Student_Report_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,9 +756,6 @@ namespace eReportCard
         private System.Windows.Forms.Label lblTerm_Avg;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblClassID;
         private System.Windows.Forms.Label lblStudent_ID;
         private System.Windows.Forms.Label label3;
@@ -802,5 +799,8 @@ namespace eReportCard
         private System.Windows.Forms.GroupBox gb_PromoteStatus;
         private System.Windows.Forms.RadioButton rb_Repeated;
         private System.Windows.Forms.RadioButton rb_Promoted;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

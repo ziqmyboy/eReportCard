@@ -74,11 +74,9 @@ namespace eReportCard
 
             //getting list of registered students from db
             int i = 0;
-            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/");
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
-
-            //cbStudent_Name.Items.Clear();
 
             while (true)
             {
@@ -104,11 +102,11 @@ namespace eReportCard
 
 
 
-        private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = 0;
             string name = cbStudent_Name.Text;
-            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/");
+            FirebaseResponse fresp = client.Get(@"RegisterCOUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/Students/");
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
 
@@ -128,10 +126,7 @@ namespace eReportCard
 
                     if (cbStudent_Name.Text == dbStudentName.FullName)
                     {
-                        lblStudent_ID.Text = dbStudentName.StudentID;
-                        
-
-                        
+                        lblStudent_ID.Text = dbStudentName.StudentID;                        
                     }
 
                 }
@@ -143,30 +138,26 @@ namespace eReportCard
             }
             export();
             
-
-            FirebaseResponse resp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
-            Course_Data_cont get2 = resp2.ResultAs<Course_Data_cont>();
-
-            lblTerm_Avg.Text = get2.termAverage;
-            lblExam_Avg.Text = get2.examAverage;
-            lblRegularity.Text = get2.regularity;
-            lblPunctuality.Text = get2.punctuality;
-            lblIndustry.Text = get2.industry;
-            lblPersonal_Appearance.Text = get2.personalAppearance;
-            lblSocial_Relationship.Text = get2.socialRelationship;
-            lblConduct.Text = get2.conduct;
-            lblReliability.Text = get2.reliability;
-            lblSportsmanship.Text = get2.sportsmanship;
-            lblCo_operation.Text = get2.co_operation;
-            lblTeacher_Comments.Text = get2.generalComments;
-            lblTeacher_Signature_Date.Text = get2.teacher_SignatureDate;
-            lblTerm.Text = get2.schoolTerm;
-            lblTeacher_Signature.Text = get2.teacher_Name;
         }
 
         private async void export()
         {
+            dt.Columns.Clear();
+            dt.Columns.Add("L o a d i n g   R e p o r t c a r d. . . . .");
+
+            int i = 0;
+            FirebaseResponse fresp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
+            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
+            int cnt = Convert.ToInt32(result1.cnt);
+
+            if (cnt == 0)
+            {
+                MessageBox.Show(cbStudent_Name.Text + "'s Report card is not yet available.\nContact their class teacher or try again later.","NO DATA!");
+                return;
+            }
+
             //adding columns to datagridview on startup.
+            dt.Columns.Clear();
             dt.Columns.Add("Course");
             dt.Columns.Add("Teacher");
             dt.Columns.Add("Term");
@@ -176,11 +167,6 @@ namespace eReportCard
             dgvPrincipal_Form.DataSource = dt;
 
             dt.Rows.Clear();
-
-            int i = 0;
-            FirebaseResponse fresp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
-            Counter_Class result1 = fresp.ResultAs<Counter_Class>();
-            int cnt = Convert.ToInt32(result1.cnt);
 
             while (true)
             {
@@ -210,6 +196,24 @@ namespace eReportCard
                 {
                 }
             }
+            FirebaseResponse resp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
+            Course_Data_cont get2 = resp2.ResultAs<Course_Data_cont>();
+
+            lblTerm_Avg.Text = get2.termAverage;
+            lblExam_Avg.Text = get2.examAverage;
+            lblRegularity.Text = get2.regularity;
+            lblPunctuality.Text = get2.punctuality;
+            lblIndustry.Text = get2.industry;
+            lblPersonal_Appearance.Text = get2.personalAppearance;
+            lblSocial_Relationship.Text = get2.socialRelationship;
+            lblConduct.Text = get2.conduct;
+            lblReliability.Text = get2.reliability;
+            lblSportsmanship.Text = get2.sportsmanship;
+            lblCo_operation.Text = get2.co_operation;
+            lblTeacher_Comments.Text = get2.generalComments;
+            lblTeacher_Signature_Date.Text = get2.teacher_SignatureDate;
+            lblTerm.Text = get2.schoolTerm;
+            lblTeacher_Signature.Text = get2.teacher_Name;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
