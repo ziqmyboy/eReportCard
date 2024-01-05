@@ -98,36 +98,37 @@ namespace eReportCard
             {
                 //querry the firebase
                 FirebaseResponse response = await client.GetTaskAsync("USERS/" + txtUsername.Text);
-                Users users = response.ResultAs<Users>();
-                uID = users.UserID;
-                pass = users.PassID;
-                professionID = users.ProfessionID;
-                nameID = users.NameID;
-                classID = users.ClassID;
-                schoolID = users.SchoolID;
-                rcDATA = users.rcData;
-                
+                if (response.Body.ToString() != "null") {
+                    Users users = response.ResultAs<Users>();
+                    uID = users.UserID;
+                    pass = users.PassID;
+                    professionID = users.ProfessionID;
+                    nameID = users.NameID;
+                    classID = users.ClassID;
+                    schoolID = users.SchoolID;
+                    rcDATA = users.rcData;
 
-                if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
-                {
-                    //opening the Teacher's Home page
-                    Teacher_Home_Form teacher_Home_Form = new Teacher_Home_Form();
-                    teacher_Home_Form.Show();
+                    if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Teacher")
+                    {
+                        //opening the Teacher's Home page
+                        Teacher_Home_Form teacher_Home_Form = new Teacher_Home_Form();
+                        teacher_Home_Form.Show();
 
 
-                    //closing login page
-                    this.Hide();
+                        //closing login page
+                        this.Hide();
 
-                }
-                else if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Principal")
-                {
+                    }
+                    else if (users.UserID == txtUsername.Text && users.PassID == Encrypt(txtPassword.Text) && professionID == "Principal")
+                    {
 
-                    //opening the Teacher's Home page
-                    Principal_Home_Form principal_Home_Form = new Principal_Home_Form();
-                    principal_Home_Form.Show();
+                        //opening the Teacher's Home page
+                        Principal_Home_Form principal_Home_Form = new Principal_Home_Form();
+                        principal_Home_Form.Show();
 
-                    //closing login page
-                    this.Hide();
+                        //closing login page
+                        this.Hide();
+                    }
                 }
                 else
                 {
