@@ -21,6 +21,7 @@ namespace eReportCard
             InitializeComponent();
             lblTeacher_Name.Text = Login.nameID;
             random = new Random();
+            ShowForm(new Class_Register());
         }
 
         //methods
