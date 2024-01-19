@@ -72,13 +72,13 @@ namespace eReportCard
         {
             client = new FireSharp.FirebaseClient(config);
 
-            FirebaseResponse resp = await client.GetTaskAsync("USERS/" + Login.uID);
+            FirebaseResponse resp = await client.GetAsync("USERS/" + Login.uID);
             Users get = resp.ResultAs<Users>();
 
             if (get.rcData == "NO DATA")
             {
-                MessageBox.Show("Students must be Registered before using this tab\n" +
-                    "to Register a child, click on the 'Class Register' tab.","NO DATA");
+                MessageBox.Show("Students must be Registered before using this tab.\n" +
+                    "To Register a child, click on the 'Class Register' tab.","NO DATA");
                 return;
             }
 
@@ -225,50 +225,95 @@ namespace eReportCard
                 }
 
 
-                FirebaseResponse resp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
+                FirebaseResponse resp = await client.GetAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
                 Counter_Class get = resp.ResultAs<Counter_Class>();
 
-                
+
                 //database draws the data in the form of an object class
                 //creating an object
 
-                var course_data = new Course_Data
-                {
-                    id = (Convert.ToInt32(get.cnt) + 1).ToString(),
-                    courseName = txtCourse_Name.Text,
-                    courseComments = txtComments.Text,
-                    courseTeacher = lblTeacher_Name.Text,
-                    courseExamGrade = txtExam_Mark.Text + lblExam_Grade.Text,
-                    courseTermGrade = txtTerm_Mark.Text + lblTerm_Grade.Text
-                };
-
-                //clearing out the txtboxes
                 if (date == "1" || date == "2" || date == "3" || date == "4")
                 {
-                    txtCourse_Name.Text = "";
-                    txtTerm_Mark.Text = "";
-                    txtExam_Mark.Text = "0";
-                    txtComments.Text = "";
+                    var course_data = new Course_Data
+                    {
+                        id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                        courseName = txtCourse_Name.Text,
+                        courseComments = txtComments.Text,
+                        courseTeacher = lblTeacher_Name.Text,
+                        courseExamGrade = "N/A",
+                        courseTermGrade = txtTerm_Mark.Text + lblTerm_Grade.Text
+                    };
+
+                    //clearing out the txtboxes
+                    if (date == "1" || date == "2" || date == "3" || date == "4")
+                    {
+                        txtCourse_Name.Text = "";
+                        txtTerm_Mark.Text = "";
+                        txtExam_Mark.Text = "0";
+                        txtComments.Text = "";
+                    }
+                    else
+                    {
+                        txtCourse_Name.Text = "";
+                        txtTerm_Mark.Text = "";
+                        txtExam_Mark.Text = "";
+                        txtComments.Text = "";
+                    }
+
+
+                    SetResponse response = await client.SetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + course_data.id, course_data);
+                    Course_Data result = response.ResultAs<Course_Data>();
+
+                    //incrementing the count variable
+                    var obj = new Counter_Class
+                    {
+                        cnt = course_data.id
+                    };
+                    SetResponse response1 = await client.SetAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text, obj);
+                    Counter_Class result1 = response1.ResultAs<Counter_Class>();
                 }
                 else
                 {
-                    txtCourse_Name.Text = "";
-                    txtTerm_Mark.Text = "";
-                    txtExam_Mark.Text = "";
-                    txtComments.Text = "";
+
+
+                    var course_data = new Course_Data
+                    {
+                        id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                        courseName = txtCourse_Name.Text,
+                        courseComments = txtComments.Text,
+                        courseTeacher = lblTeacher_Name.Text,
+                        courseExamGrade = txtExam_Mark.Text + lblExam_Grade.Text,
+                        courseTermGrade = txtTerm_Mark.Text + lblTerm_Grade.Text
+                    };
+
+                    //clearing out the txtboxes
+                    if (date == "1" || date == "2" || date == "3" || date == "4")
+                    {
+                        txtCourse_Name.Text = "";
+                        txtTerm_Mark.Text = "";
+                        txtExam_Mark.Text = "0";
+                        txtComments.Text = "";
+                    }
+                    else
+                    {
+                        txtCourse_Name.Text = "";
+                        txtTerm_Mark.Text = "";
+                        txtExam_Mark.Text = "";
+                        txtComments.Text = "";
+                    }
+
+
+                    SetResponse response = await client.SetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + course_data.id, course_data);
+                    Course_Data result = response.ResultAs<Course_Data>();
+
+                    //incrementing the count variable
+                    var obj = new Counter_Class
+                    {
+                        cnt = course_data.id
+                    };
+                    SetResponse response1 = await client.SetAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text, obj);
+                    Counter_Class result1 = response1.ResultAs<Counter_Class>();
                 }
-                
-
-                SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + course_data.id, course_data);
-                Course_Data result = response.ResultAs<Course_Data>();
-
-                //incrementing the count variable
-                var obj = new Counter_Class
-                {
-                    cnt = course_data.id
-                };
-                SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text, obj);
-                Counter_Class result1 = response1.ResultAs<Counter_Class>();
 
             }
         }
@@ -453,7 +498,7 @@ namespace eReportCard
 
                 };
 
-                SetResponse response = await client.SetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
+                SetResponse response = await client.SetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
                 Course_Data_cont result = response.ResultAs<Course_Data_cont>();
 
                 //clearing out the txtboxes

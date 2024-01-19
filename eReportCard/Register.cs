@@ -77,8 +77,8 @@ namespace eReportCard
             if (institutions == "Primary School")
             {
                 //adding names of intitutions based on level selected
-                txtSchoolName.Items.AddRange(new object[] { "Bioche Dublanc Primary School"/*add more schools here*/ });
-                txtSchoolName.AutoCompleteCustomSource.AddRange(new string[] { "Bioche Dublanc Primary School"/*add more schools here*/ });
+                txtSchoolName.Items.AddRange(new object[] { "Dublanc Bioche Primary School"/*add more schools here*/ });
+                txtSchoolName.AutoCompleteCustomSource.AddRange(new string[] { "Dublanc Bioche Primary School"/*add more schools here*/ });
 
                 //adding class level
                 cbClassID.Items.AddRange(new object[] { "Grade K", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6" });
@@ -181,7 +181,7 @@ namespace eReportCard
             {
 
                 //getting the count of current registered users
-                FirebaseResponse resp = await client.GetTaskAsync("UserCOUNTER");
+                FirebaseResponse resp = await client.GetAsync("UserCOUNTER");
                 Counter_Class get = resp.ResultAs<Counter_Class>();
 
                 //converting the count into an integer and placing it into the variable "Counter"
@@ -207,7 +207,7 @@ namespace eReportCard
                 // forloop to catch if username already exist.
                 for (int i = 1; i <= Counter; i++)
                 {
-                    FirebaseResponse resp1 = await client.GetTaskAsync("UserCounterList/" + i);
+                    FirebaseResponse resp1 = await client.GetAsync("UserCounterList/" + i);
                     Users UID = resp1.ResultAs<Users>();
 
                     string compUID = UID.UserID;
@@ -234,15 +234,15 @@ namespace eReportCard
                 };
 
                 //saving data of registered user to database
-                SetResponse response = await client.SetTaskAsync("USERS/" + txtNewUsername.Text, user);
+                SetResponse response = await client.SetAsync("USERS/" + txtNewUsername.Text, user);
                 Users result = response.ResultAs<Users>();
 
                 //saving the total count of the registered users
-                SetResponse response1 = await client.SetTaskAsync("UserCOUNTER/", obj);
+                SetResponse response1 = await client.SetAsync("UserCOUNTER/", obj);
                 Counter_Class result1 = response1.ResultAs<Counter_Class>();
 
                 //saving current user count along with their username ID
-                SetResponse response2 = await client.SetTaskAsync("UserCounterList/" + user.id, uID);
+                SetResponse response2 = await client.SetAsync("UserCounterList/" + user.id, uID);
                 Users result2 = response2.ResultAs<Users>();
 
              
@@ -264,7 +264,7 @@ namespace eReportCard
             else if (Profession_Institution.profession == "Principal")
             {
                 //getting the count of current registered users
-                FirebaseResponse resp = await client.GetTaskAsync("UserCOUNTER");
+                FirebaseResponse resp = await client.GetAsync("UserCOUNTER");
                 Counter_Class get = resp.ResultAs<Counter_Class>();
 
                 //converting the count into an integer and placing it into the variable "Counter"
@@ -286,7 +286,7 @@ namespace eReportCard
                 // forloop to catch if username already exist.
                 for (int i = 1; i <= Counter; i++)
                 {
-                    FirebaseResponse resp1 = await client.GetTaskAsync("UserCounterList/" + i);
+                    FirebaseResponse resp1 = await client.GetAsync("UserCounterList/" + i);
                     Users UID = resp1.ResultAs<Users>();
 
                     string compUID = UID.UserID;
@@ -311,15 +311,15 @@ namespace eReportCard
                 };
 
                 //saving data of registered user to database
-                SetResponse response = await client.SetTaskAsync("USERS/" + txtNewUsername.Text, user);
+                SetResponse response = await client.SetAsync("USERS/" + txtNewUsername.Text, user);
                 Users result = response.ResultAs<Users>();
 
                 //saving the total count of the registered users                //
-                SetResponse response1 = await client.SetTaskAsync("UserCOUNTER/", obj);
+                SetResponse response1 = await client.SetAsync("UserCOUNTER/", obj);
                 Counter_Class result1 = response1.ResultAs<Counter_Class>();
 
                 //saving current user count along with their username ID
-                SetResponse response2 = await client.SetTaskAsync("UserCounterList/" + user.id, uID);
+                SetResponse response2 = await client.SetAsync("UserCounterList/" + user.id, uID);
                 Users result2 = response2.ResultAs<Users>();
 
 

@@ -76,7 +76,7 @@ namespace eReportCard
 
             dt.Rows.Clear();
 
-            FirebaseResponse resp = await client.GetTaskAsync("USERS/" + Login.uID);
+            FirebaseResponse resp = await client.GetAsync("USERS/" + Login.uID);
             Users get = resp.ResultAs<Users>();
 
             if (get.rcData == "NO DATA")
@@ -86,7 +86,7 @@ namespace eReportCard
                     cnt = "0"
                 };
 
-                SetResponse re = await client.SetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", rCnt);
+                SetResponse re = await client.SetAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", rCnt);
                 Counter_Class r = re.ResultAs<Counter_Class>();
                 return;
             }
@@ -180,19 +180,19 @@ namespace eReportCard
         {
             btnAdd.Text = "Adding...";
 
-            FirebaseResponse resp1 = await client.GetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
+            FirebaseResponse resp1 = await client.GetAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/");
             Counter_Class get = resp1.ResultAs<Counter_Class>();
 
             var register = new Register_Data
             {
                 id = (Convert.ToInt32(get.cnt) + 1).ToString(),
-                FullName = student_FullName,
+                FullName = student_FullName.ToUpper(),
                 Age = cbAge.Text,
                 Gender = gender,
                 StudentID = lblStudent_ID.Text
             };
 
-            SetResponse response = await client.SetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + "Students" + "/" + register.id, register);
+            SetResponse response = await client.SetAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + "Students" + "/" + register.id, register);
             Register_Data result = response.ResultAs<Register_Data>();
 
             var obj = new Counter_Class
@@ -200,7 +200,7 @@ namespace eReportCard
                 cnt = register.id
             };
 
-            SetResponse resp2 = await client.SetTaskAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", obj);
+            SetResponse resp2 = await client.SetAsync("RegisterCOUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/Students/", obj);
             Counter_Class results = resp2.ResultAs<Counter_Class>();
 
 
@@ -209,7 +209,7 @@ namespace eReportCard
                 cnt = "0"
             };
 
-            SetResponse response1 = await client.SetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName, counter_class);
+            SetResponse response1 = await client.SetAsync("COUNTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + student_FullName.ToUpper(), counter_class);
             Counter_Class result1 = response.ResultAs<Counter_Class>();
 
             var users = new Users
@@ -224,7 +224,7 @@ namespace eReportCard
             };
 
             //resaving data of registered user with rcDATA to database
-            SetResponse response3 = await client.SetTaskAsync("USERS/" + Login.uID, users);
+            SetResponse response3 = await client.SetAsync("USERS/" + Login.uID, users);
             Users result3 = response3.ResultAs<Users>();
 
 
@@ -261,13 +261,13 @@ namespace eReportCard
                 {
                 }
             }
-
+            
             txtF_Name.Text = "";
             txtL_Name.Text = "";
             lblStudent_ID.Text = "------------";
             rbMale.Checked = false;
             rbFemale.Checked = false;
-            cbAge.Text = "";
+            cbAge.Text = " ";
             btnAdd.Text = "Add Student";
 
         }

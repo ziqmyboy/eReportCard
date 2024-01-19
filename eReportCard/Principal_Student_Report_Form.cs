@@ -146,7 +146,7 @@ namespace eReportCard
             dt.Columns.Add("L o a d i n g   R e p o r t c a r d. . . . .");
 
             int i = 0;
-            FirebaseResponse fresp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
+            FirebaseResponse fresp = await client.GetAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
 
@@ -179,7 +179,7 @@ namespace eReportCard
 
                 try
                 {
-                    FirebaseResponse fresp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" +i);
+                    FirebaseResponse fresp2 = await client.GetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" +i);
                     Course_Data result2 = fresp2.ResultAs<Course_Data>();
 
                     DataRow row = dt.NewRow();
@@ -196,7 +196,7 @@ namespace eReportCard
                 {
                 }
             }
-            FirebaseResponse resp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
+            FirebaseResponse resp2 = await client.GetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
             Course_Data_cont get2 = resp2.ResultAs<Course_Data_cont>();
 
             lblTerm_Avg.Text = get2.termAverage;
@@ -278,9 +278,9 @@ namespace eReportCard
 
             };
 
-            FirebaseResponse response = await client.UpdateTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
+            FirebaseResponse response = await client.UpdateAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text, course_data_cont);
             Course_Data_cont result = response.ResultAs<Course_Data_cont>();
-            MessageBox.Show("Inserted successfully");
+            MessageBox.Show(cbStudent_Name.Text +"'s report card\nInserted successfully");
 
             //clearing out student's info
 

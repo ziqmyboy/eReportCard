@@ -97,7 +97,7 @@ namespace eReportCard
             else
             {
                 //querry the firebase
-                FirebaseResponse response = await client.GetTaskAsync("USERS/" + txtUsername.Text);
+                FirebaseResponse response = await client.GetAsync("USERS/" + txtUsername.Text);
                 if (response.Body.ToString() != "null") {
                     Users users = response.ResultAs<Users>();
                     uID = users.UserID;

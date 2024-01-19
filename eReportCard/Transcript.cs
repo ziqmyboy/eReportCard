@@ -90,7 +90,7 @@ namespace eReportCard
 
         private async void cbStudent_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FirebaseResponse resp1 = await client.GetTaskAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
+            FirebaseResponse resp1 = await client.GetAsync("REGISTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + cbStudent_Name.Text);
             Register_Data get1 = resp1.ResultAs<Register_Data>();
 
             lblStudent_ID.Text = get1.StudentID;
@@ -100,7 +100,7 @@ namespace eReportCard
 
 
 
-            FirebaseResponse resp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
+            FirebaseResponse resp2 = await client.GetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/" + lblStudent_ID.Text);
             Course_Data_cont get2 = resp2.ResultAs<Course_Data_cont>();
 
             lblTerm_Avg.Text = get2.termAverage;
@@ -128,7 +128,7 @@ namespace eReportCard
             dt.Rows.Clear();
 
             int i = 0;
-            FirebaseResponse fresp = await client.GetTaskAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
+            FirebaseResponse fresp = await client.GetAsync("COUNTER/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text);
             Counter_Class result1 = fresp.ResultAs<Counter_Class>();
             int cnt = Convert.ToInt32(result1.cnt);
 
@@ -143,7 +143,7 @@ namespace eReportCard
 
                 try
                 {
-                    FirebaseResponse fresp2 = await client.GetTaskAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + i);
+                    FirebaseResponse fresp2 = await client.GetAsync("REPORTCARD/" + lblSchool_Name.Text + "/" + lblClassID.Text + "/" + lblSchool_Year.Text + "/" + lblTerm.Text + "/" + cbStudent_Name.Text + "/COURSES/" + i);
                     Course_Data result2 = fresp2.ResultAs<Course_Data>();
 
                     DataRow row = dt.NewRow();
