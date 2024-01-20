@@ -189,7 +189,7 @@ namespace eReportCard
                 FullName = student_FullName.ToUpper(),
                 Age = cbAge.Text,
                 Gender = gender,
-                StudentID = lblStudent_ID.Text
+                StudentID = lblStudent_ID.Text.ToUpper()
             };
 
             SetResponse response = await client.SetAsync("REGISTER/" + lblSchool_Name.Text + "/" + Login.classID + "/" + lblSchool_Year.Text + "/" + "Students" + "/" + register.id, register);

@@ -32,6 +32,9 @@ namespace eReportCard
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label5;
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.gb_PromoteStatus = new System.Windows.Forms.GroupBox();
             this.rb_Repeated = new System.Windows.Forms.RadioButton();
             this.rb_Promoted = new System.Windows.Forms.RadioButton();
@@ -79,9 +82,6 @@ namespace eReportCard
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -90,6 +90,28 @@ namespace eReportCard
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal_Form)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            label1.Location = new System.Drawing.Point(612, 752);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(212, 17);
+            label1.TabIndex = 88;
+            label1.Text = "F:  Needs  Urgent  Attention";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            label5.Location = new System.Drawing.Point(279, 752);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(181, 17);
+            label5.TabIndex = 89;
+            label5.Text = "P:  Needs  Improvement";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -146,6 +168,39 @@ namespace eReportCard
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1006, 1716);
             this.panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(650, 712);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 17);
+            this.label6.TabIndex = 90;
+            this.label6.Text = "C:  Satisfactory";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(460, 712);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 17);
+            this.label8.TabIndex = 91;
+            this.label8.Text = "B:  Good";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(196, 710);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 17);
+            this.label9.TabIndex = 92;
+            this.label9.Text = "A:  Excellent";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gb_PromoteStatus
             // 
@@ -275,6 +330,8 @@ namespace eReportCard
             // 
             // txtPrincipal_Comments
             // 
+            this.txtPrincipal_Comments.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrincipal_Comments.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.txtPrincipal_Comments.Location = new System.Drawing.Point(99, 21);
             this.txtPrincipal_Comments.Multiline = true;
             this.txtPrincipal_Comments.Name = "txtPrincipal_Comments";
@@ -306,10 +363,10 @@ namespace eReportCard
             // lblPrincipal_Signature
             // 
             this.lblPrincipal_Signature.AutoSize = true;
-            this.lblPrincipal_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic);
+            this.lblPrincipal_Signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
             this.lblPrincipal_Signature.Location = new System.Drawing.Point(434, 1511);
             this.lblPrincipal_Signature.Name = "lblPrincipal_Signature";
-            this.lblPrincipal_Signature.Size = new System.Drawing.Size(28, 17);
+            this.lblPrincipal_Signature.Size = new System.Drawing.Size(27, 16);
             this.lblPrincipal_Signature.TabIndex = 75;
             this.lblPrincipal_Signature.Text = "-----";
             this.lblPrincipal_Signature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,10 +374,10 @@ namespace eReportCard
             // lblTeacher_Signature
             // 
             this.lblTeacher_Signature.AutoSize = true;
-            this.lblTeacher_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic);
+            this.lblTeacher_Signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
             this.lblTeacher_Signature.Location = new System.Drawing.Point(433, 1471);
             this.lblTeacher_Signature.Name = "lblTeacher_Signature";
-            this.lblTeacher_Signature.Size = new System.Drawing.Size(32, 17);
+            this.lblTeacher_Signature.Size = new System.Drawing.Size(31, 16);
             this.lblTeacher_Signature.TabIndex = 76;
             this.lblTeacher_Signature.Text = "------";
             this.lblTeacher_Signature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -668,61 +725,6 @@ namespace eReportCard
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 40;
             this.label4.Text = "Student Name:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label1.Location = new System.Drawing.Point(612, 752);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(212, 17);
-            label1.TabIndex = 88;
-            label1.Text = "F:  Needs  Urgent  Attention";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            label5.Location = new System.Drawing.Point(279, 752);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(181, 17);
-            label5.TabIndex = 89;
-            label5.Text = "P:  Needs  Improvement";
-            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(650, 712);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 17);
-            this.label6.TabIndex = 90;
-            this.label6.Text = "C:  Satisfactory";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(460, 712);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 17);
-            this.label8.TabIndex = 91;
-            this.label8.Text = "B:  Good";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(196, 710);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 17);
-            this.label9.TabIndex = 92;
-            this.label9.Text = "A:  Excellent";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Principal_Student_Report_Form
             // 

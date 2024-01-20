@@ -181,8 +181,6 @@ namespace eReportCard
             this.cbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAge.FormattingEnabled = true;
             this.cbAge.Items.AddRange(new object[] {
-            "3 years",
-            "4 years",
             "5 years",
             "6 years",
             "7 years",
