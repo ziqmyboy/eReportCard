@@ -31,6 +31,7 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label22;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transcript));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -385,11 +386,11 @@ namespace eReportCard
             // lblPrincipal_Signature
             // 
             this.lblPrincipal_Signature.AutoSize = true;
-            this.lblPrincipal_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic);
+            this.lblPrincipal_Signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
             this.lblPrincipal_Signature.ForeColor = System.Drawing.Color.Blue;
             this.lblPrincipal_Signature.Location = new System.Drawing.Point(452, 1649);
             this.lblPrincipal_Signature.Name = "lblPrincipal_Signature";
-            this.lblPrincipal_Signature.Size = new System.Drawing.Size(63, 17);
+            this.lblPrincipal_Signature.Size = new System.Drawing.Size(53, 16);
             this.lblPrincipal_Signature.TabIndex = 41;
             this.lblPrincipal_Signature.Text = "zmProd";
             this.lblPrincipal_Signature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -397,11 +398,11 @@ namespace eReportCard
             // lblTeacher_Signature
             // 
             this.lblTeacher_Signature.AutoSize = true;
-            this.lblTeacher_Signature.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Italic);
+            this.lblTeacher_Signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
             this.lblTeacher_Signature.ForeColor = System.Drawing.Color.Blue;
             this.lblTeacher_Signature.Location = new System.Drawing.Point(451, 1609);
             this.lblTeacher_Signature.Name = "lblTeacher_Signature";
-            this.lblTeacher_Signature.Size = new System.Drawing.Size(63, 17);
+            this.lblTeacher_Signature.Size = new System.Drawing.Size(53, 16);
             this.lblTeacher_Signature.TabIndex = 42;
             this.lblTeacher_Signature.Text = "zmProd";
             this.lblTeacher_Signature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -773,6 +774,7 @@ namespace eReportCard
             this.ClientSize = new System.Drawing.Size(1067, 583);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Transcript";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transcript";

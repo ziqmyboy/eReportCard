@@ -31,7 +31,8 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student_ReportCard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTerm = new System.Windows.Forms.Label();
             this.lblExam_Grade = new System.Windows.Forms.Label();
@@ -543,8 +544,8 @@ namespace eReportCard
             // 
             // Column4
             // 
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column4.FillWeight = 12.69035F;
             this.Column4.HeaderText = "Final Exam";
             this.Column4.MinimumWidth = 10;
@@ -985,6 +986,7 @@ namespace eReportCard
             this.ClientSize = new System.Drawing.Size(1023, 544);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Student_ReportCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student_ReportCard";

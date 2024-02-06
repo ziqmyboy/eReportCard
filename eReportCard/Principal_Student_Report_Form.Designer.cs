@@ -31,6 +31,7 @@ namespace eReportCard
         {
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label5;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal_Student_Report_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -735,6 +736,7 @@ namespace eReportCard
             this.ClientSize = new System.Drawing.Size(1034, 544);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal_Student_Report_Form";
             this.Text = "Principal_Student_Report_Form";
             this.Load += new System.EventHandler(this.Principal_Student_Report_Form_Load);
