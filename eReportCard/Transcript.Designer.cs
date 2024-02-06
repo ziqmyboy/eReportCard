@@ -273,9 +273,9 @@ namespace eReportCard
             this.lblGradeRC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGradeRC.Location = new System.Drawing.Point(503, 62);
             this.lblGradeRC.Name = "lblGradeRC";
-            this.lblGradeRC.Size = new System.Drawing.Size(107, 40);
+            this.lblGradeRC.Size = new System.Drawing.Size(116, 40);
             this.lblGradeRC.TabIndex = 86;
-            this.lblGradeRC.Text = "Student\r\nReport Card";
+            this.lblGradeRC.Text = "Student\r\nReports Card";
             this.lblGradeRC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSchool_Year
