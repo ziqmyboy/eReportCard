@@ -109,9 +109,9 @@ namespace eReportCard
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.btnRegister.Location = new System.Drawing.Point(227, 371);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 15);
+            this.btnRegister.Size = new System.Drawing.Size(61, 15);
             this.btnRegister.TabIndex = 3;
-            this.btnRegister.Text = "Registerss";
+            this.btnRegister.Text = "Register";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
